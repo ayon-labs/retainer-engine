@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Sign More Cases mark">
+  <rect width="200" height="200" fill="#0B1B2B" rx="20" ry="20"></rect>
+  <text x="100" y="148" text-anchor="middle" font-family="&#39;Instrument Serif&#39;, &#39;Times New Roman&#39;, serif" font-style="italic" font-size="180" font-weight="400" fill="#FAF6EE" letter-spacing="-7">S</text>
+  <line x1="58" y1="170" x2="142" y2="170" stroke="#C9A24A" stroke-width="6" stroke-linecap="round"></line>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-label="Sign More Cases">
+  <defs>
+    
+  </defs>
+  <rect width="720" height="200" fill="#0B1B2B"></rect>
+  <text x="40" y="138" class="wm-word wm-cream">Sign</text>
+  <text x="220" y="138" class="wm-word wm-gold" font-style="italic">More</text>
+  <text x="430" y="138" class="wm-word wm-cream">Cases</text>
+</svg>

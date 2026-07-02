@@ -1,0 +1,1946 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Retainer Engine — Confirm Your Call</title>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="#0B1B2B"/>
+    <circle cx="200" cy="170" r="60" fill="none" stroke="#C9A24A" stroke-width="6"/>
+    <path d="M170 170 l22 22 l44 -44" stroke="#C9A24A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="200" y="290" text-anchor="middle" font-family="ui-monospace, monospace" font-size="22" fill="#FAF6EE" letter-spacing="3">CONFIRMED</text>
+    <text x="200" y="325" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#C9A24A">Retainer Engine</text>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: 'General Sans'; src: url('https://cdn.fontshare.com/wf/MFQT7HFGCR2L5ULQTW6YXYZXXHMPKLJ3/YWQ244D6TACUX5JBKATPOW5I5MGJ3G73/7YY3ZAAE3TRV2LANYOLXNHTPHLXVWTKH.woff2') format('woff2'); font-weight: 400; font-display: swap; font-style: normal; }
+@font-face { font-family: 'General Sans'; src: url('https://cdn.fontshare.com/wf/3RZHWSNONLLWJK3RLPEKUZOMM56GO4LJ/BPDRY7AHVI3MCDXXVXTQQ76H3UXA63S3/SB2OEB6IKZPRR6JT4GFJ2TFT6HBB6AZN.woff2') format('woff2'); font-weight: 500; font-display: swap; font-style: normal; }
+@font-face { font-family: 'General Sans'; src: url('https://cdn.fontshare.com/wf/K46YRH762FH3QJ25IQM3VAXAKCHEXXW4/ISLWQPUZHZF33LRIOTBMFOJL57GBGQ4B/3ZLMEXZEQPLTEPMHTQDAUXP5ZZXCZAEN.woff2') format('woff2'); font-weight: 600; font-display: swap; font-style: normal; }
+@font-face { font-family: 'General Sans'; src: url('https://cdn.fontshare.com/wf/KWXO5X3YW4X7OLUMPO4X24HQJGJU7E2Q/VOWUQZS3YLP66ZHPTXAFSH6YACY4WJHT/NIQ54PVBBIWVK3PFSOIOUJSXIJ5WTNDP.woff2') format('woff2'); font-weight: 700; font-display: swap; font-style: normal; }
+</style>
+<style>
+  :root {
+    /* Retainer Engine palette — navy + cream + gold */
+    --ink: #0B1B2B;          /* navy-900 — primary ink */
+    --ink-2: #11253A;        /* navy-800 — hover */
+    --ink-3: #1A3148;        /* navy-700 — borders on dark */
+    --ink-4: #2A4762;        /* navy-600 — muted on cream */
+    --ink-5: #3F5C7A;        /* navy-500 — lightest navy */
+    --paper-1: #FAF6EE;      /* cream-50 — primary surface */
+    --paper-2: #F2EBDA;      /* cream-100 — secondary surface */
+    --paper-3: #E5DAC0;      /* cream-200 — borders / wash */
+    --amber: #C9A24A;        /* gold-500 — money + brand italic */
+    --amber-2: #A6841C;      /* gold-600 — hover */
+    --amber-3: #D9B770;      /* gold-400 — light gold */
+    --amber-wash: rgba(201,162,74,0.18);
+    --slate-wash: rgba(63,92,122,0.16);
+    --alert-red: #7E2A2A;
+    --alert-red-wash: rgba(126,42,42,0.10);
+    --alert-red-border: rgba(126,42,42,0.32);
+    --line: rgba(11,27,43,0.12);
+    --muted: rgba(11,27,43,0.62);
+    --sage: #3F5448;
+    --claret: #7E2A2A;
+    --trustpilot: #00B67A;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--paper-1);
+    font-size: 16px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; }
+  .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; }
+
+  /* ---------- Alert bar ---------- */
+  .alert {
+    background: var(--ink);
+    color: var(--paper-1);
+    text-align: center;
+    padding: 20px 24px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-bottom: 2px solid var(--amber);
+  }
+  .alert .accent { color: var(--amber); font-weight: 600; }
+
+  /* ---------- Main ---------- */
+  .page {
+    position: relative;
+    background:
+      radial-gradient(72% 52% at 18% 12%, var(--amber-wash), transparent 70%),
+      radial-gradient(60% 48% at 92% 72%, var(--slate-wash), transparent 72%),
+      linear-gradient(180deg, var(--paper-1), var(--paper-2) 60%, var(--paper-3));
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 56px 32px 0;
+  }
+
+  /* ---------- Top brand row ---------- */
+  .brand-row {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 72px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 0 3px rgba(201,146,63,0.2); }
+
+  /* ---------- Eyebrow ---------- */
+  .eyebrow {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 28px;
+  }
+  .eyebrow::before {
+    content: "§";
+    font-family: 'Instrument Serif', serif; font-style: italic;
+    color: var(--amber); font-size: 15px; letter-spacing: 0;
+  }
+
+  /* ---------- Headline ---------- */
+  h1.head {
+    font-family: 'General Sans', 'Geist', -apple-system, sans-serif;
+    font-weight: 500;
+    font-size: clamp(30px, 3.6vw, 50px);
+    line-height: 1.06;
+    letter-spacing: -0.025em;
+    margin: 0 auto 28px;
+    text-wrap: balance;
+    max-width: 860px;
+    color: var(--ink);
+    text-align: center;
+  }
+  h1.head u { text-decoration: none; color: var(--amber); font-style: italic; font-family: 'General Sans', sans-serif; font-weight: 500; letter-spacing: -0.025em; }
+  h1.head em {
+    font-style: italic;
+    font-family: 'General Sans', sans-serif;
+    font-weight: 500;
+    color: var(--amber);
+    letter-spacing: -0.025em;
+    font-size: 1em;
+  }
+
+  .subhead {
+    font-size: 15px; line-height: 1.55;
+    color: var(--muted);
+    max-width: 640px;
+    margin: 0 auto 40px;
+    letter-spacing: -0.005em;
+    text-align: left;
+    background: rgba(255,255,255,0.55);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 22px;
+    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 8px 24px -12px rgba(23,51,45,0.12);
+  }
+  .subhead b { color: var(--ink); font-weight: 500; }
+  .subhead .mono-inline {
+    font-family: 'Geist Mono', monospace;
+    color: var(--ink);
+    font-size: 17px;
+    background: rgba(201,146,63,0.15);
+    padding: 1px 7px;
+    border-radius: 4px;
+  }
+
+  /* ---------- Founder card (stacked) ---------- */
+  .founder-sub {
+    border: 1.5px solid var(--ink);
+    border-radius: 28px;
+    padding: 32px;
+    background: rgba(250,245,234,0.4);
+    max-width: 560px;
+    margin: 0 auto 56px;
+    display: flex; flex-direction: column; gap: 24px;
+    text-align: left;
+  }
+  .founder-copy h3 {
+    font-family: 'General Sans', sans-serif;
+    font-weight: 500;
+    font-size: 22px; line-height: 1.28;
+    letter-spacing: -0.018em;
+    margin: 0; color: var(--ink);
+    max-width: 440px;
+  }
+  .founder-photo {
+    width: 100%; aspect-ratio: 4/5;
+    border-radius: 10px;
+    background-image: url('assets/founder-stage.jpg');
+    background-size: cover;
+    background-position: 55% 18%;
+    box-shadow: 0 6px 24px rgba(23,51,45,0.14);
+  }
+  .founder-copy p {
+    font-size: 18px; line-height: 1.5;
+    color: var(--ink); margin: 0;
+    letter-spacing: -0.008em;
+    max-width: 460px;
+  }
+  .founder-copy p b { color: var(--ink); font-weight: 600; }
+
+  /* eyebrow centered variant */
+  .eyebrow.center { justify-content: center; }
+
+  /* center hero block */
+  .hero-center { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .hero-center .eyebrow { justify-content: center; }
+
+  /* ---------- Trust row ---------- */
+  .trust {
+    display: flex; gap: 24px; align-items: center; justify-content: center; flex-wrap: nowrap;
+    margin: 0 auto;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .trust-item { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .trust-tp-only {
+    justify-content: center;
+    padding: 4px 0 0;
+    border-top: none;
+    border-bottom: none;
+    margin-top: 0;
+  }
+  .trust-tp-only .trust-item { gap: 10px; }
+  .trust-bottom {
+    border-top: none;
+    border-bottom: none;
+    margin-top: 8px;
+    margin-bottom: 36px;
+  }
+  /* overlapping face stack */
+  .faces { display: flex; align-items: center; }
+  .face {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--paper-2);
+    border: 2px solid var(--paper-1);
+    background-size: cover; background-position: center;
+    box-shadow: 0 2px 6px rgba(23,51,45,0.12);
+    margin-left: -10px;
+  }
+  .face:first-child { margin-left: 0; }
+  .face.f1 { background-image: url('assets/face-1.png'); }
+  .face.f2 { background-image: url('assets/face-2.png'); }
+  .face.f3 { background-image: url('assets/face-3.png'); }
+  .face.f4 { background-image: url('assets/face-4.png'); }
+  .face.f5 { background-image: url('assets/face-5.png'); }
+  .face.f6 { background-image: url('assets/face-6.png'); }
+  .face.f7 { background-image: url('assets/face-7.png'); }
+
+  .trust-num {
+    font-family: 'Instrument Serif', serif; font-weight: 400;
+    font-size: 44px; line-height: 1; letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .trust-label { font-size: 13px; line-height: 1.4; color: var(--muted); max-width: 180px; }
+  .trust-label b { color: var(--ink); font-weight: 500; display: block; font-size: 14px; }
+  .trust-divider { width: 1px; height: 44px; background: var(--line); }
+  .trustpilot-row { display: flex; align-items: center; gap: 10px; }
+  .tp-stars { display: flex; gap: 2px; }
+  .tp-star { width: 22px; height: 22px; background: var(--trustpilot); display: flex; align-items: center; justify-content: center; }
+  .tp-star svg { width: 14px; height: 14px; fill: #fff; }
+
+  .creds-row {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .creds-logo-img {
+    height: 20px; width: auto;
+    display: block;
+    opacity: 0.92;
+  }
+  .creds-logo-img.mit { height: 12px; }
+  .creds-logo-img.harvard { height: 22px; }
+  .creds-dot {
+    width: 3px; height: 3px; border-radius: 50%;
+    background: var(--line);
+  }
+
+  /* ---------- Bullets ---------- */
+  .bullets-head {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 24px; line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    font-style: normal;
+    margin: 12px auto 8px;
+    max-width: 720px;
+    text-align: center;
+  }
+  .bullets-head b { font-weight: 500; }
+  .bullets-sub {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 15px; line-height: 1.5;
+    color: var(--muted);
+    margin: 0 auto 24px;
+    max-width: 720px;
+    letter-spacing: -0.005em;
+    text-align: center;
+  }
+  .bullets {
+    list-style: none;
+    padding: 0; margin: 0 auto 32px;
+    max-width: 720px;
+  }
+  .bullet {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .bullet:last-child { border-bottom: 1px solid var(--line); }
+  .bullet .time {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px; letter-spacing: 0.08em;
+    color: var(--amber);
+    padding-top: 3px;
+  }
+  .bullet .text {
+    font-size: 15px; line-height: 1.5;
+    color: var(--ink);
+  }
+  .bullet .text b { font-weight: 500; }
+  .bullet .text em { font-style: italic; color: var(--amber); font-family: 'Instrument Serif', serif; font-size: 16px; }
+  .bullet .text .tag {
+    display: block;
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .bullets-close {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    max-width: 720px;
+    margin: 0 auto 12px;
+    font-size: 15px; line-height: 1.5;
+    color: var(--muted);
+    letter-spacing: -0.005em;
+    text-align: center;
+  }
+  .bullets-close b { color: var(--ink); font-weight: 500; }
+  .bullets-close .amber { color: var(--amber); font-weight: 500; }
+
+  .bullets-tag {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 15px; line-height: 1.5;
+    color: var(--muted);
+    max-width: 720px;
+    margin: 0 auto;
+    letter-spacing: -0.005em;
+    text-align: center;
+  }
+  .bullets-tag b { font-weight: 600; color: var(--ink); }
+  .trust-band.wrap { padding-bottom: 0; }
+  #trust-section .bullets-tag { margin-bottom: 28px; }
+
+  /* ---------- Testimonials carousel ---------- */
+  .testi-carousel {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 32px 64px;
+    position: relative;
+  }
+  .tc-head {
+    font-family: 'General Sans', sans-serif;
+    font-weight: 500;
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0 auto 40px;
+    max-width: 900px;
+    text-align: center;
+    text-wrap: balance;
+  }
+  .tc-head em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic; font-weight: 400;
+    color: var(--amber);
+    letter-spacing: -0.01em;
+  }
+  .tc-stage {
+    position: relative;
+    display: flex; align-items: stretch; gap: 16px;
+  }
+  .tc-track {
+    flex: 1;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 40px) / 3);
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 6px 2px 24px;
+  }
+  .tc-track::-webkit-scrollbar { display: none; }
+  .tc-card {
+    scroll-snap-align: start;
+    background: var(--paper-1);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px 26px 26px;
+    display: flex; flex-direction: column; gap: 14px;
+    box-shadow: 0 1px 0 rgba(23,51,45,0.04);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .tc-card:hover { border-color: rgba(23,51,45,0.28); transform: translateY(-2px); }
+  .tc-stars {
+    display: flex; gap: 3px;
+  }
+  .tc-stars svg { width: 18px; height: 18px; fill: var(--amber); }
+  .tc-quote {
+    font-family: 'General Sans', sans-serif;
+    font-size: 15px; line-height: 1.55;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    margin: 0;
+    flex: 1;
+  }
+  .tc-quote b { font-weight: 600; }
+  .tc-readmore {
+    font-family: 'General Sans', sans-serif;
+    font-size: 14px; font-weight: 500;
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    background: none; border: none; padding: 0;
+    text-align: left;
+    margin-top: 2px;
+  }
+  .tc-author {
+    display: flex; align-items: center; gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    margin-top: 4px;
+  }
+  .tc-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background-size: cover; background-position: center;
+    border: 1.5px solid var(--line);
+    flex-shrink: 0;
+  }
+  .tc-name {
+    font-family: 'General Sans', sans-serif;
+    font-weight: 600; font-size: 14px; line-height: 1.25;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .tc-role {
+    font-family: 'General Sans', sans-serif;
+    font-size: 12px; line-height: 1.35;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .tc-nav {
+    flex-shrink: 0;
+    align-self: center;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--ink);
+    background: var(--paper-1);
+    color: var(--ink);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s ease;
+  }
+  .tc-nav:hover { background: var(--ink); color: var(--paper-1); }
+  .tc-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+  .tc-dots {
+    display: flex; justify-content: center; gap: 8px;
+    margin-top: 24px;
+  }
+  .tc-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--line);
+    border: none; padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .tc-dot.active { background: var(--ink); width: 24px; border-radius: 4px; }
+  @media (max-width: 900px) {
+    .tc-track { grid-auto-columns: calc((100% - 20px) / 2); }
+    .tc-nav { width: 40px; height: 40px; }
+  }
+  @media (max-width: 640px) {
+    .tc-stage { gap: 0; }
+    .tc-nav { display: none; }
+    .tc-track {
+      grid-auto-columns: 100%;
+      gap: 16px;
+      padding: 4px 0 20px;
+      scroll-padding: 0;
+    }
+    .tc-card { padding: 22px 20px 20px; border-radius: 14px; }
+    .tc-quote { font-size: 14.5px; line-height: 1.55; }
+    .testi-carousel { padding: 40px 20px 40px; }
+    .tc-head { margin-bottom: 28px; }
+    .tc-dots { margin-top: 18px; }
+    .testi-carousel .trust-cta-row {
+      padding-top: 30px !important;
+      padding-bottom: 12px !important;
+    }
+    .success-section .trust-cta-row {
+      padding-top: 30px !important;
+      padding-bottom: 12px !important;
+    }
+    .success-section { padding-bottom: 44px !important; }
+  }
+
+  /* ---------- Client Success Stories ---------- */
+  .success-section {
+    padding: 72px 32px 96px;
+    background:
+      radial-gradient(80% 50% at 50% 0%, var(--amber-wash), transparent 70%),
+      var(--paper-2);
+    border-top: 1px solid var(--line);
+  }
+  .success-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .success-head {
+    font-family: 'General Sans', 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.08; letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 12px auto 14px;
+    max-width: 820px;
+    text-wrap: balance;
+  }
+  .success-sub {
+    font-family: 'General Sans', sans-serif;
+    font-size: 16px; line-height: 1.55;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto 40px;
+    letter-spacing: -0.005em;
+  }
+  .success-grid {
+    display: flex;
+    gap: 24px;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .success-col {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .success-card {
+    display: block;
+    width: 100%;
+    margin: 0;
+    background: #F6F8FC;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 12px 28px -20px rgba(23,51,45,0.22);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .success-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(23,51,45,0.22);
+    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 20px 40px -24px rgba(23,51,45,0.28);
+  }
+  .success-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #F6F8FC;
+  }
+  .success-card figcaption {
+    padding: 14px 16px 16px;
+    display: flex; flex-direction: column; gap: 6px;
+    border-top: 1px solid var(--line);
+  }
+  .success-tag {
+    display: inline-flex;
+    align-self: flex-start;
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    padding: 4px 8px;
+    border: 1px solid rgba(201,146,63,0.35);
+    border-radius: 4px;
+    background: rgba(201,146,63,0.08);
+  }
+  .success-cap {
+    font-family: 'General Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .success-foot {
+    font-family: 'General Sans', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin: 32px auto 0;
+    font-style: italic;
+    letter-spacing: -0.005em;
+  }
+  @media (max-width: 960px) {
+    .success-grid { gap: 16px; }
+    .success-col { gap: 16px; }
+    .success-section { padding: 64px 24px 72px; }
+  }
+  @media (max-width: 600px) {
+    .success-grid { flex-direction: column; gap: 16px; }
+    .success-section { padding: 56px 20px 64px; }
+  }
+
+  /* iMessage mock */
+  .imsg {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    padding: 14px 0 0;
+    display: flex; flex-direction: column;
+  }
+  .imsg-status {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 2px 22px 10px;
+    font-size: 15px; font-weight: 600;
+    color: #fff;
+  }
+  .imsg-time { letter-spacing: -0.01em; }
+  .imsg-ind { display: inline-flex; align-items: center; gap: 6px; color: #fff; }
+  .imsg-sig { display: inline-flex; align-items: flex-end; gap: 2px; }
+  .imsg-sig span { display: block; width: 3px; background: currentColor; border-radius: 0.5px; }
+  .imsg-sig span:nth-child(1) { height: 4px; }
+  .imsg-sig span:nth-child(2) { height: 6px; }
+  .imsg-sig span:nth-child(3) { height: 8px; }
+  .imsg-sig span:nth-child(4) { height: 10px; }
+  .imsg-wifi { width: 16px; height: 12px; }
+  .imsg-bat { width: 26px; height: 12px; }
+  .imsg-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 6px 14px 14px;
+    border-bottom: 0.5px solid rgba(255,255,255,0.12);
+    gap: 8px;
+  }
+  .imsg-back { width: 11px; height: 18px; }
+  .imsg-contact {
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+  }
+  .imsg-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #555;
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .imsg-name {
+    font-size: 11px;
+    color: #fff;
+    display: inline-flex; align-items: center; gap: 2px;
+  }
+  .imsg-name span { color: rgba(255,255,255,0.55); font-size: 10px; }
+  .imsg-facetime { width: 22px; height: 14px; }
+  .imsg-body {
+    background: #000;
+    padding: 14px 12px 18px;
+    display: flex; flex-direction: column; gap: 8px;
+    font-size: 14px;
+    line-height: 1.32;
+
+  }
+  .imsg-stamp {
+    text-align: center;
+    font-size: 10.5px;
+    color: rgba(235,235,245,0.6);
+    margin: 6px 0 2px;
+    font-weight: 500;
+  }
+  .imsg-bubble {
+    max-width: 80%;
+    padding: 8px 12px;
+    border-radius: 18px;
+    letter-spacing: -0.005em;
+    word-wrap: break-word;
+  }
+  .imsg-bubble b { font-weight: 600; }
+  .imsg-out {
+    align-self: flex-end;
+    background: #0a84ff;
+    color: #fff;
+    border-bottom-right-radius: 6px;
+  }
+  .imsg-in {
+    align-self: flex-start;
+    background: #26252a;
+    color: #fff;
+    border-bottom-left-radius: 6px;
+  }
+  .imsg-out-wrap {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 2px;
+  }
+  .imsg-read {
+    font-size: 10px;
+    color: rgba(235,235,245,0.55);
+    padding-right: 4px;
+  }
+  .imsg-highlight {
+    box-shadow: 0 0 0 2.5px #ff3b30;
+    margin: 2px 4px;
+  }
+
+    /* ---------- Trust section CTA row ---------- */
+  .trust-cta-row {
+    display: flex; align-items: center; justify-content: center; gap: 20px;
+    flex-wrap: wrap;
+    padding: 32px 0 24px;
+  }
+  .trust-cta-row .cta-note {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 18px 28px;
+    background: var(--ink);
+    color: var(--paper-1);
+    font-family: 'Geist', sans-serif;
+    font-size: 16px; font-weight: 500;
+    letter-spacing: -0.01em;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    text-decoration: none;
+  }
+  .cta.cta-lg {
+    padding: 22px 36px;
+    font-size: 17px;
+  }
+  .cta:hover { background: var(--ink-2); transform: translateY(-1px); }
+  .cta .arrow { transition: transform 0.18s; }
+  .cta:hover .arrow { transform: translateX(4px); }
+  .cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .cta-note {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ---------- Calendar placeholder (keep bottom half architecture) ---------- */
+  .calendar-band {
+    margin-top: 0;
+    padding: 28px 32px 8px;
+    border-top: 1px solid var(--line);
+    background:
+      radial-gradient(60% 50% at 50% 0%, var(--amber-wash), transparent 70%),
+      var(--paper-2);
+    text-align: center;
+  }
+  .calendar-band h2 {
+    font-family: 'General Sans', 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.08; letter-spacing: -0.02em;
+    margin: 0 auto 20px;
+    max-width: 820px;
+  }
+  .calendar-band h2 em { font-style: italic; color: var(--amber); font-weight: 500; }
+  .calendar-sub {
+    font-family: 'General Sans', sans-serif;
+    font-size: 17px; line-height: 1.6;
+    color: var(--muted);
+    max-width: 680px;
+    margin: 0 auto 8px;
+    letter-spacing: -0.005em;
+  }
+  .calendar-sub b { color: var(--ink); font-weight: 600; }
+  .calendar-promises {
+    display: flex; gap: 0;
+    max-width: 880px; margin: 28px auto 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+  }
+  .calendar-promise {
+    flex: 1;
+    padding: 20px 24px;
+    display: flex; flex-direction: column; gap: 8px;
+    border-right: 1px solid var(--line);
+  }
+  .calendar-promise:last-child { border-right: none; }
+  .calendar-promise-num {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--amber);
+  }
+  .calendar-promise-text {
+    font-family: 'General Sans', sans-serif;
+    font-size: 15px; line-height: 1.45;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .calendar-promise-text b { font-weight: 600; }
+  .calendar-fallback {
+    font-family: 'General Sans', sans-serif;
+    font-size: 15px; line-height: 1.6;
+    color: var(--muted);
+    max-width: 680px;
+    margin: 24px auto 0;
+    font-style: italic;
+    letter-spacing: -0.005em;
+  }
+  @media (max-width: 720px) {
+    .calendar-band { padding: 24px 20px 8px; margin-top: 0; }
+    .calendar-band h2 { font-size: 26px; line-height: 1.15; margin-bottom: 12px; }
+    .calendar-sub { font-size: 15px; margin-bottom: 4px; }
+    .calendar-promises { flex-direction: column; margin-top: 18px; }
+    .calendar-promise { border-right: none; border-bottom: 1px solid var(--line); padding: 12px 16px; gap: 4px; }
+    .calendar-promise:last-child { border-bottom: none; }
+    .calendar-promise-num { font-size: 10px; }
+    .calendar-promise-text { font-size: 14px; line-height: 1.4; }
+    .calendar-fallback { font-size: 13px; margin-top: 14px; line-height: 1.5; }
+    .calendar-slot { margin-top: 22px; }
+  }
+  .calendar-slot {
+    max-width: 880px; margin: 40px auto 0;
+    background: var(--paper-1);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .calendar-slot iframe { display: block; width: 100%; min-height: 720px; border: 0; }
+
+  /* ---------- Tweaks ---------- */
+  #tweaks {
+    position: fixed; right: 24px; bottom: 24px;
+    width: 280px;
+    background: var(--ink);
+    color: var(--paper-1);
+    border: 1px solid rgba(250,245,234,0.14);
+    border-radius: 16px;
+    padding: 18px;
+    font-family: 'Geist', sans-serif;
+    font-size: 13px;
+    box-shadow: 0 18px 48px rgba(0,0,0,0.32);
+    z-index: 99;
+    display: none;
+  }
+  #tweaks.on { display: block; }
+  #tweaks h4 { margin: 0 0 12px; font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); }
+  #tweaks label { display: block; margin-bottom: 12px; }
+  #tweaks .lbl { font-size: 11px; color: rgba(250,245,234,0.7); margin-bottom: 4px; font-family: 'Geist Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; }
+  #tweaks select, #tweaks input[type=range] {
+    width: 100%; background: rgba(250,245,234,0.05);
+    color: var(--paper-1); border: 1px solid rgba(250,245,234,0.14);
+    padding: 8px; border-radius: 8px; font-family: inherit; font-size: 13px;
+  }
+
+  @media (max-width: 900px) {
+    .trust { flex-wrap: wrap; }
+  }
+  @media (max-width: 720px) {
+    .wrap { padding: 32px 20px 64px; }
+    .brand-row { margin-bottom: 40px; }
+    .founder-sub { padding: 24px; border-radius: 24px; }
+    .trust { flex-direction: column; align-items: center; gap: 18px; }
+    .trust-item { justify-content: center; }
+    .trust-label { text-align: left; }
+    .trust-divider { display: none; }
+    .bullet { grid-template-columns: 56px 1fr; gap: 14px; }
+    .trust-cta-row { flex-direction: column; align-items: center; gap: 14px; }
+    .subhead { text-align: center; }
+    h1.head { margin-bottom: 12px; }
+    .trust-tp-only { padding: 0; margin-top: 0; }
+    #trust-section .trust-cta-row { padding-top: 44px !important; padding-bottom: 44px !important; gap: 14px; }
+    #trust-section .subhead { margin-top: 14px !important; }
+    .hero-wrap { padding-bottom: 0 !important; }
+  }
+
+  /* ---------- Site footer ---------- */
+  .site-foot {
+    background: var(--ink);
+    color: rgba(250, 245, 234, 0.82);
+    padding: 64px 32px 28px;
+    font-size: 13px;
+    line-height: 1.65;
+    position: relative;
+  }
+  .site-foot::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 120px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--amber), transparent);
+    opacity: 0.6;
+  }
+  .foot-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 28px;
+  }
+  .foot-logo {
+    width: 128px;
+    height: 128px;
+    border-radius: 18px;
+    overflow: hidden;
+    display: block;
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(250,245,234,0.06);
+  }
+  .foot-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .foot-tag {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-top: -4px;
+  }
+  .foot-copy {
+    color: rgba(250, 245, 234, 0.9);
+    font-size: 14px;
+  }
+  .foot-links {
+    display: flex; align-items: center; gap: 18px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .foot-links a {
+    color: var(--paper-1);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(250,245,234,0.25);
+    padding-bottom: 2px;
+    transition: color 160ms ease, border-color 160ms ease;
+  }
+  .foot-links a:hover {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+  }
+  .foot-links .sep {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: rgba(250,245,234,0.3);
+  }
+  .foot-rule {
+    width: 100%; max-width: 880px;
+    height: 1px;
+    background: rgba(250,245,234,0.12);
+    margin: 8px 0;
+  }
+  .foot-disclaimer {
+    max-width: 980px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: rgba(250, 245, 234, 0.55);
+  }
+  .foot-disclaimer + .foot-disclaimer { margin-top: 4px; }
+  .foot-disclaimer strong {
+    color: rgba(250, 245, 234, 0.78);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-family: 'Geist Mono', monospace;
+    display: block;
+    margin-bottom: 4px;
+  }
+  @media (max-width: 640px) {
+    .site-foot { padding: 56px 24px 32px; }
+    .foot-logo { width: 104px; height: 104px; }
+    .foot-copy { font-size: 13px; }
+    .foot-disclaimer { font-size: 11px; }
+
+    /* Hero mobile breathing room */
+    .hero-wrap .head { margin-bottom: 8px; }
+    .trust-tp-only { padding: 28px 0 0; margin-top: 8px; }
+    .trust-cta-row {
+      padding-top: 120px !important;
+      padding-bottom: 120px !important;
+    }
+    .trust-bottom {
+      margin-top: 0;
+      margin-bottom: 48px;
+      gap: 20px;
+      row-gap: 24px;
+    }
+  }
+
+  /* ============================================================
+     DEMO-BOOKED PAGE STYLES
+     ============================================================ */
+  .db-hero-wrap {
+    padding-top: 48px;
+    padding-bottom: 8px;
+    text-align: center;
+  }
+  .db-confirmed-eyebrow {
+    color: var(--amber);
+    font-weight: 500;
+  }
+  .db-confirmed-eyebrow svg { stroke: var(--amber); }
+  .db-wait-pill {
+    display: inline-block;
+    margin: 8px auto 28px;
+    padding: 18px 56px;
+    background: var(--amber);
+    color: #FFF8E8;
+    font-family: 'Geist Mono', monospace;
+    font-size: 16px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 999px;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.35) inset, 0 14px 28px -16px rgba(166,132,28,0.55);
+  }
+  @media (max-width: 640px) {
+    .db-wait-pill { font-size: 13px; padding: 14px 28px; letter-spacing: 0.14em; }
+  }
+  .db-head {
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .db-sub {
+    max-width: 560px;
+    margin: 24px auto 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+
+  /* Step scaffolding */
+  .db-step {
+    padding-top: 72px;
+    padding-bottom: 0;
+    max-width: 920px;
+    text-align: center;
+  }
+  .db-step-label {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 18px;
+  }
+  .db-step-num { font-weight: 600; }
+  .db-step-sep {
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--amber);
+    opacity: 0.6;
+  }
+  .db-step-name { color: var(--ink); letter-spacing: 0.14em; }
+  .db-step-head {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: clamp(26px, 3.2vw, 38px);
+    line-height: 1.14;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    margin: 0 auto 14px;
+    max-width: 720px;
+    text-wrap: balance;
+  }
+  .db-step-head em {
+    font-style: normal;
+    font-family: inherit;
+    font-weight: inherit;
+    color: var(--amber);
+  }
+  .db-step-head em.db-red {
+    color: var(--alert-red);
+  }
+  .db-step-sub {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--muted);
+    margin: 0 auto 32px;
+    max-width: 520px;
+  }
+
+  /* Video placeholder */
+  .db-video {
+    max-width: 820px;
+    margin: 8px auto 0;
+    aspect-ratio: 16 / 9;
+    background:
+      radial-gradient(120% 80% at 50% 0%, rgba(201,146,63,0.08), transparent 70%),
+      var(--ink);
+    border-radius: 18px;
+    border: 1px solid rgba(23,51,45,0.18);
+    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 24px 48px -28px rgba(23,51,45,0.38);
+    position: relative;
+    overflow: hidden;
+  }
+  .db-video-inner {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 16px;
+    color: var(--paper-1);
+  }
+  .db-video-play {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--amber);
+    color: var(--ink);
+    display: grid; place-items: center;
+    box-shadow: 0 8px 24px -6px rgba(201,146,63,0.55);
+  }
+  .db-video-play svg { margin-left: 3px; }
+  .db-video-note {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    margin-top: 4px;
+  }
+  .db-video-tag {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    padding: 4px 10px;
+    border: 1px solid rgba(201,146,63,0.35);
+    border-radius: 4px;
+    background: rgba(201,146,63,0.08);
+  }
+  .db-video-cap {
+    font-size: 12.5px;
+    color: rgba(250,245,234,0.62);
+    letter-spacing: -0.005em;
+  }
+
+  /* Important callout */
+  .db-callout {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 14px;
+    max-width: 680px;
+    margin: 0 auto 32px;
+    padding: 18px 22px;
+    text-align: left;
+    background: var(--alert-red-wash);
+    border: 1px solid var(--alert-red-border);
+    border-radius: 12px;
+  }
+  .db-callout-icon {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(180,67,43,0.14);
+    color: var(--alert-red);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .db-callout-head {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--alert-red);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .db-callout-text {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .db-callout-text b { font-weight: 600; }
+
+  /* Gmail-style mock */
+  .db-gmail-mock {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 24px 48px -28px rgba(23,51,45,0.28);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+  }
+  .db-gmail-mock-img { padding: 0; }
+  .db-gmail-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .db-gmail-chrome {
+    padding: 10px 16px 0;
+    border-bottom: 1px solid rgba(23,51,45,0.08);
+  }
+  .db-gmail-tabs {
+    display: flex; gap: 0;
+    font-family: 'Geist', sans-serif;
+    font-size: 12.5px;
+    color: rgba(23,51,45,0.55);
+  }
+  .db-gmail-tab {
+    padding: 10px 18px;
+    display: inline-flex; align-items: center; gap: 8px;
+    border-bottom: 2px solid transparent;
+    font-weight: 500;
+  }
+  .db-gmail-tab.active {
+    color: #1a73e8;
+    border-bottom-color: #1a73e8;
+  }
+  .db-gmail-tab svg { color: #1a73e8; }
+
+  .db-gmail-row {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    gap: 14px;
+    padding: 14px 20px 12px;
+    align-items: center;
+    border-bottom: 1px solid rgba(23,51,45,0.06);
+  }
+  .db-gmail-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper-1);
+    display: grid; place-items: center;
+    font-family: 'Instrument Serif', serif;
+    font-size: 20px;
+    font-style: italic;
+  }
+  .db-gmail-from { min-width: 0; }
+  .db-gmail-sender {
+    font-size: 14px; font-weight: 600;
+    color: rgba(23,51,45,0.92);
+    margin-bottom: 2px;
+  }
+  .db-gmail-snippet {
+    font-size: 13px;
+    color: rgba(23,51,45,0.58);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .db-gmail-subject {
+    color: rgba(23,51,45,0.92);
+    font-weight: 500;
+  }
+  .db-gmail-dot { margin: 0 6px; opacity: 0.5; }
+
+  .db-gmail-time {
+    font-size: 12px;
+    color: rgba(23,51,45,0.52);
+    white-space: nowrap;
+  }
+
+  .db-gmail-invite {
+    padding: 20px 22px 20px 22px;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 16px;
+    background: linear-gradient(to bottom, #fff, #FAFAFA);
+  }
+  .db-gmail-datebox {
+    width: 64px; height: 64px;
+    border: 1px solid rgba(23,51,45,0.14);
+    border-radius: 10px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+    background: #fff;
+  }
+  .db-gmail-month {
+    background: #E84B3A;
+    color: #fff;
+    text-align: center;
+    padding: 4px 0 3px;
+    font-family: 'Geist', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+  .db-gmail-day {
+    flex: 1;
+    display: grid; place-items: center;
+    font-family: 'Geist', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: rgba(23,51,45,0.92);
+  }
+  .db-gmail-details { min-width: 0; }
+  .db-gmail-etitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(23,51,45,0.94);
+    margin-bottom: 4px;
+  }
+  .db-gmail-emeta {
+    font-size: 13px;
+    color: rgba(23,51,45,0.66);
+  }
+  .db-gmail-emeta-sub { margin-bottom: 14px; }
+
+  .db-gmail-actions {
+    display: flex; align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .db-gmail-going-label {
+    font-size: 12px;
+    color: rgba(23,51,45,0.55);
+    margin-right: 4px;
+    font-weight: 500;
+  }
+  .db-gmail-btn {
+    border: 1px solid rgba(23,51,45,0.16);
+    background: #fff;
+    color: rgba(23,51,45,0.78);
+    border-radius: 8px;
+    padding: 7px 16px;
+    font-family: 'Geist', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .db-gmail-btn:hover {
+    border-color: rgba(23,51,45,0.32);
+    color: rgba(23,51,45,0.92);
+  }
+  .db-gmail-btn-yes {
+    border-color: rgba(201,146,63,0.9);
+    color: #fff;
+    background: var(--amber);
+    box-shadow: 0 0 0 0 rgba(201,146,63,0.55);
+    animation: dbPulse 1.8s ease-in-out infinite;
+  }
+  .db-gmail-btn-yes:hover {
+    border-color: var(--amber);
+    color: #fff;
+  }
+  @keyframes dbPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(201,146,63,0.55); }
+    50%      { box-shadow: 0 0 0 8px rgba(201,146,63,0); }
+  }
+
+  .db-gmail-arrow {
+    position: absolute;
+    right: -20px;
+    bottom: 46px;
+    pointer-events: none;
+    transform: scaleX(-1);
+  }
+  .db-gmail-arrow-label {
+    position: absolute;
+    right: 142px;
+    bottom: 94px;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--amber);
+    pointer-events: none;
+    transform: rotate(-6deg);
+  }
+
+  .db-gmail-caption {
+    padding: 10px 20px 14px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(23,51,45,0.42);
+    text-align: center;
+    border-top: 1px solid rgba(23,51,45,0.06);
+    background: #FAFAFA;
+  }
+
+  /* FAQ grid */
+  .db-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1180px;
+    margin: 8px auto 0;
+    text-align: left;
+  }
+  .db-faq-card {
+    margin: 0;
+    background: var(--paper-1);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 12px 28px -20px rgba(23,51,45,0.22);
+    cursor: pointer;
+  }
+  .db-faq-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(23,51,45,0.22);
+    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 20px 40px -24px rgba(23,51,45,0.28);
+  }
+  .db-faq-video {
+    aspect-ratio: 16 / 9;
+    background:
+      radial-gradient(120% 80% at 50% 30%, rgba(201,146,63,0.10), transparent 70%),
+      var(--ink);
+    position: relative;
+    display: grid; place-items: center;
+    overflow: hidden;
+  }
+  .db-faq-video wistia-player {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .db-video wistia-player {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .db-faq-play {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--amber);
+    color: var(--ink);
+    display: grid; place-items: center;
+    box-shadow: 0 8px 24px -6px rgba(201,146,63,0.55);
+  }
+  .db-faq-play svg { margin-left: 2px; }
+  .db-faq-index {
+    position: absolute;
+    top: 12px; left: 12px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--amber);
+    padding: 4px 8px;
+    border: 1px solid rgba(201,146,63,0.4);
+    border-radius: 4px;
+    background: rgba(23,51,45,0.5);
+    backdrop-filter: blur(4px);
+  }
+  .db-faq-cap {
+    padding: 16px 18px 18px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .db-faq-q {
+    font-family: 'Geist', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    text-wrap: pretty;
+  }
+  .db-faq-dur {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Trustpilot strip between step 3 and success */
+  .db-tp-strip {
+    padding-top: 64px;
+    padding-bottom: 80px;
+  }
+
+  /* Mobile */
+  @media (max-width: 720px) {
+    .db-hero-wrap { padding-top: 32px; }
+    .db-sub { font-size: 15px; margin-top: 20px; }
+    .db-step { padding-top: 52px; }
+    .db-step-label { font-size: 10px; letter-spacing: 0.14em; }
+    .db-step-sep { width: 18px; }
+    .db-step-sub { font-size: 14px; margin-bottom: 24px; }
+    .db-video { border-radius: 14px; }
+    .db-video-play { width: 58px; height: 58px; }
+    .db-video-play svg { width: 24px; height: 24px; }
+
+    .db-faq-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    /* Equalize vertical spacing around ADD TO CALENDAR on mobile */
+    .cta-addcal-row { padding-top: 48px !important; padding-bottom: 20px !important; }
+    #step-3 { padding-top: 20px; }
+
+    .db-gmail-chrome { padding: 8px 12px 0; }
+    .db-gmail-tab { padding: 8px 12px; font-size: 11.5px; }
+    .db-gmail-row { grid-template-columns: 36px 1fr; padding: 12px 14px; }
+    .db-gmail-time { display: none; }
+    .db-gmail-snippet {
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .db-gmail-invite { padding: 16px 14px; grid-template-columns: 52px 1fr; gap: 12px; }
+    .db-gmail-datebox { width: 52px; height: 52px; }
+    .db-gmail-day { font-size: 18px; }
+    .db-gmail-etitle { font-size: 14px; }
+    .db-gmail-actions { gap: 6px; }
+    .db-gmail-btn { padding: 6px 12px; font-size: 12.5px; }
+
+    .db-gmail-arrow { display: none; }
+    .db-gmail-arrow-label { display: none; }
+  }
+  /* Wistia preload swatch backgrounds */
+  wistia-player:not(:defined) {
+    background: center / contain no-repeat var(--swatch, none);
+    display: block;
+    filter: blur(5px);
+  }
+</style>
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/l5bxucx6yy.js" async type="module"></script>
+<script src="https://fast.wistia.com/embed/t45zllye8o.js" async type="module"></script>
+<script src="https://fast.wistia.com/embed/7fthxs5bbu.js" async type="module"></script>
+<script src="https://fast.wistia.com/embed/y0thl0l37f.js" async type="module"></script>
+<script src="https://fast.wistia.com/embed/8mvl9vr6od.js" async type="module"></script>
+<script src="https://fast.wistia.com/embed/55bff6fw9t.js" async type="module"></script>
+<script src="https://fast.wistia.com/embed/kiv1acobsg.js" async type="module"></script>
+</head>
+<body>
+
+<div class="alert">
+  <span class="accent">Action Required —</span>
+  Your call will be cancelled unless you <span class="accent">confirm</span>
+</div>
+
+<main class="page">
+
+  <!-- HERO -->
+  <div class="wrap db-hero-wrap">
+
+    <div class="db-wait-pill" role="status">
+      Disclaimer: Your Call Is Not Yet Confirmed&hellip;
+    </div>
+
+    <h1 class="head db-head" style="font-size: 34px;">
+      Please Watch The Short Video Below To <em>Confirm Your Call</em>
+    </h1>
+
+  </div>
+
+  <!-- STEP 1: Watch -->
+  <section class="wrap db-step" id="step-1" aria-label="Watch the short video to confirm your call" style="padding-top:16px;">
+
+    <!-- Main intro video -->
+    <div class="db-video">
+      <wistia-player media-id="l5bxucx6yy" aspect="1.7777777777777777"></wistia-player>
+    </div>
+  </section>
+
+  <!-- STEP 2: Confirm calendar -->
+  <section class="wrap db-step" id="step-2" aria-label="Step 2: Confirm your calendar invite">
+    <div class="db-step-label">
+      <span class="db-step-num">Step 02</span>
+      <span class="db-step-sep" aria-hidden="true"></span>
+      <span class="db-step-name">Add it to your calendar</span>
+    </div>
+    <h2 class="db-step-head">
+      Click <em>Yes</em> on the invite or it will be <em class="db-red">automatically cancelled</em>
+    </h2>
+
+    <!-- Important callout (soft amber) -->
+    <div class="db-callout">
+      <div class="db-callout-icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4m0 4h.01M4.93 19h14.14a2 2 0 001.73-3L13.73 4a2 2 0 00-3.46 0L3.2 16a2 2 0 001.73 3z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="db-callout-body">
+        <div class="db-callout-head">Important</div>
+        <div class="db-callout-text">
+          Check your inbox for <b>"Retainer Engine"</b> (or check spam for a <b>@getcybersphere.com</b> sender). Open the invite, click <b>"Add to Calendar"</b> and then <b>"Yes"</b> for the invitation.
+        </div>
+      </div>
+    </div>
+
+    <!-- Gmail-style mock -->
+    <figure class="db-gmail-mock db-gmail-mock-img" aria-label="Example Gmail invite showing the two mandatory buttons to press">
+      <img src="assets/calendar-invite.jpg" alt="Example Gmail invite with Add to calendar and Yes buttons highlighted" class="db-gmail-img" />
+      <figcaption class="db-gmail-caption">Example Gmail invite · actual wording may vary</figcaption>
+    </figure>
+
+    <!-- Primary CTA: add to calendar -->
+    <div class="trust-cta-row cta-addcal-row" style="padding-top:36px;padding-bottom:4px;flex-direction:column;gap:14px;">
+      <a href="https://msgsndr.com/google/calendar/add-event/" target="_blank" rel="noopener" class="cta cta-lg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="margin-right:2px;">
+          <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        ADD TO CALENDAR
+      </a>
+    </div>
+  </section>
+
+  <!-- STEP 3: FAQ videos -->
+  <section class="wrap db-step" id="step-3" aria-label="Step 3: Watch bite-sized videos">
+    <div class="db-step-label">
+      <span class="db-step-num">Step 03</span>
+      <span class="db-step-sep" aria-hidden="true"></span>
+      <span class="db-step-name">Get your questions answered</span>
+    </div>
+    <h2 class="db-step-head">
+      The <em>key questions</em> every firm asks before we start
+    </h2>
+    <p class="db-step-sub">Each one is under 3 minutes. Watch whichever matters most to you.</p>
+
+    <div class="db-faq-grid">
+      <figure class="db-faq-card">
+        <div class="db-faq-video">
+          <wistia-player media-id="t45zllye8o" aspect="1.7777777777777777"></wistia-player>
+          <div class="db-faq-index">01</div>
+        </div>
+        <figcaption class="db-faq-cap">
+          <div class="db-faq-q">"What is your refund policy?"</div>
+          <div class="db-faq-dur">How our guarantee works</div>
+        </figcaption>
+      </figure>
+
+      <figure class="db-faq-card">
+        <div class="db-faq-video">
+          <wistia-player media-id="7fthxs5bbu" aspect="1.7777777777777777"></wistia-player>
+          <div class="db-faq-index">02</div>
+        </div>
+        <figcaption class="db-faq-cap">
+          <div class="db-faq-q">"How do you make sure the appointments are qualified?"</div>
+          <div class="db-faq-dur">Our qualification process</div>
+        </figcaption>
+      </figure>
+
+      <figure class="db-faq-card">
+        <div class="db-faq-video">
+          <wistia-player media-id="y0thl0l37f" aspect="1.7777777777777777"></wistia-player>
+          <div class="db-faq-index">03</div>
+        </div>
+        <figcaption class="db-faq-cap">
+          <div class="db-faq-q">"How do you stay compliant in your marketing?"</div>
+          <div class="db-faq-dur">Ad policy &amp; compliance</div>
+        </figcaption>
+      </figure>
+
+      <figure class="db-faq-card">
+        <div class="db-faq-video">
+          <wistia-player media-id="8mvl9vr6od" aspect="1.7777777777777777"></wistia-player>
+          <div class="db-faq-index">04</div>
+        </div>
+        <figcaption class="db-faq-cap">
+          <div class="db-faq-q">"How fast will I see results?"</div>
+          <div class="db-faq-dur">Realistic timelines</div>
+        </figcaption>
+      </figure>
+
+      <figure class="db-faq-card">
+        <div class="db-faq-video">
+          <wistia-player media-id="55bff6fw9t" aspect="1.7777777777777777"></wistia-player>
+          <div class="db-faq-index">05</div>
+        </div>
+        <figcaption class="db-faq-cap">
+          <div class="db-faq-q">"How do I know this is going to work?"</div>
+          <div class="db-faq-dur">Proof &amp; case studies</div>
+        </figcaption>
+      </figure>
+
+      <figure class="db-faq-card">
+        <div class="db-faq-video">
+          <wistia-player media-id="kiv1acobsg" aspect="1.7777777777777777"></wistia-player>
+          <div class="db-faq-index">06</div>
+        </div>
+        <figcaption class="db-faq-cap">
+          <div class="db-faq-q">"Marketing agency vs &ldquo;growth partner&rdquo;?"</div>
+          <div class="db-faq-dur">Why it matters for you</div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Trustpilot strip -->
+  <section class="wrap db-tp-strip" aria-label="Trustpilot">
+    <div class="trust trust-tp-only" style="justify-content:center;">
+      <div class="trust-item">
+        <div class="trustpilot-row">
+          <div style="font-size:13px;font-weight:500;">Excellent</div>
+          <div class="tp-stars">
+            <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          </div>
+        </div>
+        <div class="trust-label" style="margin-left:8px;"><b>100+ reviews</b>Verified on Trustpilot</div>
+      </div>
+
+      <div class="trust-divider"></div>
+
+      <div class="trust-item">
+        <div style="display:flex;align-items:center;" aria-hidden="true">
+          <span style="width:40px;height:40px;border-radius:50%;border:2px solid var(--paper-1);box-shadow:0 2px 6px rgba(23,51,45,0.14);background-image:url('assets/flag-us.png');background-size:cover;background-position:center;display:inline-block;"></span>
+          <span style="width:40px;height:40px;border-radius:50%;border:2px solid var(--paper-1);box-shadow:0 2px 6px rgba(23,51,45,0.14);background-image:url('assets/flag-mx.png');background-size:cover;background-position:center;display:inline-block;margin-left:-10px;"></span>
+        </div>
+        <div class="trust-label" style="margin-left:10px;white-space:nowrap;"><b>Multilingual Ads</b>English AND Spanish</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="success-section" id="success-stories" aria-label="Client success stories">
+    <div class="success-inner">
+      <div class="eyebrow" style="justify-content:center;">Proof from the inbox</div>
+      <h2 class="success-head">Client Success Stories</h2>
+      <p class="success-sub">Don't just take our word for it. Real conversations with and testimonials from the attorneys we work with.</p>
+
+      <div class="success-grid">
+        <div class="success-col">
+        <figure class="success-card">
+          <img src="assets/re-testimonial-1-17x-roas.png" alt="Email from Joseph S., Esq. (Slattery Trial Group): 17:1 ROAS, $420–$480k in attorney fees per month on policy-limit auto and labor law cases" loading="lazy">
+          <figcaption>
+            <span class="success-tag">17:1 ROAS</span>
+            <span class="success-cap">22-year trial firm &middot; $420–$480K/mo in attorney fees on policy-limit auto &amp; labor law</span>
+          </figcaption>
+        </figure>
+
+        <figure class="success-card">
+          <img src="assets/re-testimonial-3-imsg-2m.jpg" alt="iMessage screenshot from Kevin: new targeting is solid, just called a lead with a labor law 240 case, $2M policy limit, signing the retainer Thursday" loading="lazy">
+          <figcaption>
+            <span class="success-tag">$2M policy limit</span>
+            <span class="success-cap">Labor Law 240 case &middot; retainer signed the same week the new targeting went live</span>
+          </figcaption>
+        </figure>
+
+        <figure class="success-card">
+          <img src="assets/re-testimonial-5-125m.png" alt="Email from Cameron M., Esq. (McDaniel Trial Law) plus Sales Summary dashboard: $1,250,000 gross case pipeline, 25 retainers signed, $50,000 average case value from a single case evaluation event" loading="lazy">
+          <figcaption>
+            <span class="success-tag">$1.25M pipeline</span>
+            <span class="success-cap">Single case eval event &middot; 25 retainers signed &middot; $50K avg case value</span>
+          </figcaption>
+        </figure>
+        </div>
+
+        <div class="success-col">
+        <figure class="success-card">
+          <img src="assets/re-testimonial-6-scale.png" alt="Email from Robert G., Esq. (Garrison Trial Law): auto accident ad pulling 3x retainer flow with 148 retainers signed in 4 weeks; labor law ad pulling 72 retainers per month, 488 since April, 11–13 new case starts per week, booked out six weeks" loading="lazy">
+          <figcaption>
+            <span class="success-tag">3× retainer flow</span>
+            <span class="success-cap">148 retainers in 4 weeks &middot; 72/mo on labor law &middot; booked 6 weeks out</span>
+          </figcaption>
+        </figure>
+
+        <figure class="success-card">
+          <img src="assets/re-testimonial-4-imsg-35k.png" alt="WhatsApp screenshot from Anthony V., Esq.: signed our first med mal case from you guys yesterday, $35K retainer" loading="lazy">
+          <figcaption>
+            <span class="success-tag">$35K first med mal</span>
+            <span class="success-cap">First med mal retainer signed the day after we added it to intake routing</span>
+          </figcaption>
+        </figure>
+
+        <figure class="success-card">
+          <img src="assets/re-testimonial-2-record-month.png" alt="Email from Jordan W., Esq. (Weiss Personal Injury): record February — record month in the past 3 years, calendar stacked with med mal and labor law intakes through April" loading="lazy">
+          <figcaption>
+            <span class="success-tag">Record month</span>
+            <span class="success-cap">&ldquo;Record MONTH in the past 3 years&rdquo; &middot; med mal &amp; labor law calendar stacked through April</span>
+          </figcaption>
+        </figure>
+        </div>
+      </div>
+
+      <div class="trust-cta-row" style="padding-top:40px;padding-bottom:8px;flex-direction:column;gap:14px;">
+        <a href="#step-1" class="cta cta-lg">
+          GO BACK TO THE VIDEO
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-foot">
+  <div class="foot-wrap">
+    <a class="foot-logo" href="#top" aria-label="Retainer Engine home">
+      <img src="assets/re-logo.png?v=1" alt="Retainer Engine">
+    </a>
+
+    <div class="foot-tag">AI Case Acquisition · For personal injury firms</div>
+
+    <nav class="foot-links" aria-label="Legal">
+      <a href="https://retainer-engine.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+      <span class="sep" aria-hidden="true"></span>
+      <a href="https://retainer-engine.com/tos" target="_blank" rel="noopener">Terms of Service</a>
+    </nav>
+
+    <div class="foot-rule"></div>
+
+    <p class="foot-disclaimer">
+      <strong>Disclaimer</strong>
+      This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc.
+    </p>
+
+  </div>
+</footer>
+
+<!-- Tweaks -->
+<div id="tweaks">
+  <h4>Tweaks</h4>
+  <label>
+    <div class="lbl">Portrait style</div>
+    <select id="tw-portrait">
+      <option value="avatar">Small avatar (default)</option>
+      <option value="side">Side portrait</option>
+      <option value="hidden">Hidden</option>
+    </select>
+  </label>
+  <label>
+    <div class="lbl">Accent hue</div>
+    <select id="tw-accent">
+      <option value="#C9923F">Amber (default)</option>
+      <option value="#8BA3BC">Slate</option>
+      <option value="#7BA18A">Sage</option>
+    </select>
+  </label>
+  <label>
+    <div class="lbl">Background warmth</div>
+    <input id="tw-warmth" type="range" min="0" max="100" value="60">
+  </label>
+</div>
+
+<script>
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "portraitStyle": "avatar",
+    "accentHue": "#C9923F",
+    "warmth": 60
+  }/*EDITMODE-END*/;
+
+  const applyTweaks = (t) => {
+    document.documentElement.style.setProperty('--amber', t.accentHue);
+    const band = document.querySelector('.founder-sub');
+    const photo = document.querySelector('.founder-photo');
+    if (band && photo) {
+      if (t.portraitStyle === 'hidden') {
+        band.style.display = 'none';
+      } else if (t.portraitStyle === 'side') {
+        band.style.display = 'grid';
+        photo.style.width = '160px'; photo.style.height = '200px'; photo.style.borderRadius = '14px';
+      } else {
+        band.style.display = 'grid';
+        photo.style.width = '128px'; photo.style.height = '156px'; photo.style.borderRadius = '14px';
+      }
+    }
+    const w = t.warmth / 100;
+    const page = document.querySelector('.page');
+    page.style.setProperty('--amber-wash', `rgba(201,146,63,${0.05 + w*0.2})`);
+  };
+  applyTweaks(TWEAK_DEFAULTS);
+
+  // Testimonials carousel
+  (function(){
+    const track = document.getElementById('tcTrack');
+    const prev = document.querySelector('.tc-prev');
+    const next = document.querySelector('.tc-next');
+    const dotsWrap = document.getElementById('tcDots');
+    if (!track || !prev || !next || !dotsWrap) return;
+    const cards = [...track.querySelectorAll('.tc-card')];
+    cards.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.className = 'tc-dot' + (i === 0 ? ' active' : '');
+      b.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+      b.addEventListener('click', () => scrollTo(i));
+      dotsWrap.appendChild(b);
+    });
+    function scrollTo(i) {
+      const card = cards[i]; if (!card) return;
+      track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+    }
+    function activeIndex(){
+      const left = track.scrollLeft;
+      let best = 0, bestDist = Infinity;
+      cards.forEach((c, i) => {
+        const d = Math.abs((c.offsetLeft - track.offsetLeft) - left);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      return best;
+    }
+    prev.addEventListener('click', () => scrollTo(Math.max(0, activeIndex() - 1)));
+    next.addEventListener('click', () => scrollTo(Math.min(cards.length - 1, activeIndex() + 1)));
+    track.addEventListener('scroll', () => {
+      const i = activeIndex();
+      dotsWrap.querySelectorAll('.tc-dot').forEach((d, di) => d.classList.toggle('active', di === i));
+    });
+  })();
+
+  window.addEventListener('message', (e) => {
+    if (!e.data) return;
+    if (e.data.type === '__activate_edit_mode') document.getElementById('tweaks').classList.add('on');
+    if (e.data.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('on');
+  });
+  window.parent.postMessage({type:'__edit_mode_available'}, '*');
+
+  /* Wire the ADD TO CALENDAR button to the GHL appointment passed via ?apptId= */
+  (function wireAddToCalendar(){
+    const params = new URLSearchParams(window.location.search);
+    const apptId = params.get('apptId') || params.get('appointmentId');
+    const btns = document.querySelectorAll('a.cta[href*="msgsndr.com/google/calendar/add-event"]');
+    if (apptId) {
+      btns.forEach(b => {
+        b.href = 'https://msgsndr.com/google/calendar/add-event/' + encodeURIComponent(apptId);
+      });
+    }
+  })();
+
+  const cur = {...TWEAK_DEFAULTS};
+  document.getElementById('tw-portrait').addEventListener('change', e => { cur.portraitStyle = e.target.value; applyTweaks(cur); window.parent.postMessage({type:'__edit_mode_set_keys', edits:{portraitStyle:cur.portraitStyle}}, '*'); });
+  document.getElementById('tw-accent').addEventListener('change', e => { cur.accentHue = e.target.value; applyTweaks(cur); window.parent.postMessage({type:'__edit_mode_set_keys', edits:{accentHue:cur.accentHue}}, '*'); });
+  document.getElementById('tw-warmth').addEventListener('input', e => { cur.warmth = +e.target.value; applyTweaks(cur); window.parent.postMessage({type:'__edit_mode_set_keys', edits:{warmth:cur.warmth}}, '*'); });
+</script>
+</body>
+</html>
