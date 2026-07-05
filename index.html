@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Retainer Engine — AI Case Acquisition for Personal Injury Firms</title>
-<meta name="description" content="Retainer Engine builds personal injury firms a proprietary, bilingual (English & Spanish) AI lead generation engine under your own brand — and signs cases with a 24/7 intake team. Guaranteed 24+ cases in 90 days, or we work for free." />
+<title>Retainer Engine — Pay Only for Signed MVA Retainers</title>
+<meta name="description" content="Retainer Engine builds personal injury firms a proprietary, bilingual (English & Spanish) AI case acquisition engine under your own brand — exclusive MVA claimants signed by a 24/7 intake team. 30 signed retainers in 90 days, or we don't get paid." />
 <link rel="canonical" href="https://retainer-engine.com/" />
 <link rel="icon" type="image/png" href="/assets/favicon.png" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -13,15 +13,15 @@
 <!-- Open Graph / social preview -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Retainer Engine" />
-<meta property="og:title" content="Retainer Engine — AI Case Acquisition for Personal Injury Firms" />
-<meta property="og:description" content="A proprietary, bilingual AI lead engine under your brand, plus a 24/7 intake team. Guaranteed 24+ signed cases in 90 days, or we work for free." />
+<meta property="og:title" content="Retainer Engine — Pay Only for Signed MVA Retainers" />
+<meta property="og:description" content="A proprietary, bilingual AI engine under your brand and a 24/7 intake team that signs. 30 signed MVA retainers in 90 days — or we don't get paid." />
 <meta property="og:url" content="https://retainer-engine.com/" />
 <meta property="og:image" content="https://retainer-engine.com/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Retainer Engine — AI Case Acquisition for Personal Injury Firms" />
-<meta name="twitter:description" content="A proprietary, bilingual AI lead engine under your brand, plus a 24/7 intake team. Guaranteed 24+ signed cases in 90 days, or we work for free." />
+<meta name="twitter:title" content="Retainer Engine — Pay Only for Signed MVA Retainers" />
+<meta name="twitter:description" content="A proprietary, bilingual AI engine under your brand and a 24/7 intake team that signs. 30 signed MVA retainers in 90 days — or we don't get paid." />
 <meta name="twitter:image" content="https://retainer-engine.com/assets/og-image.png" />
 
 <!-- Structured data: Organization + WebSite -->
@@ -38,7 +38,7 @@
         "@type": "ImageObject",
         "url": "https://retainer-engine.com/assets/re-logo.png"
       },
-      "description": "Retainer Engine builds personal injury firms a proprietary, bilingual AI lead generation engine under their own brand and signs cases with a 24/7 intake team.",
+      "description": "Retainer Engine builds $2M+ personal injury firms a proprietary, bilingual AI case acquisition engine under their own brand and signs exclusive MVA retainers with a 24/7 intake team — 30 signed retainers in 90 days, or we don't get paid.",
       "sameAs": ["https://www.instagram.com/retainer.engine"]
     },
     {
@@ -169,7 +169,7 @@
     text-align: center;
   }
   h1.head u { text-decoration: none; color: var(--amber); font-style: italic; font-family: 'General Sans', sans-serif; font-weight: 500; letter-spacing: -0.025em; }
-  .hero-sub { display: block; }
+  .hero-sub { display: block; font-size: clamp(18px, 2.1vw, 25px); line-height: 1.4; }
   .head .hero-sub u { text-decoration: none; color: var(--amber-2); font-style: italic; font-weight: 600; letter-spacing: -0.045em; }
   .brand-plate {
     position: relative;
@@ -297,6 +297,7 @@
   .trust-bottom {
     border-top: none;
     border-bottom: none;
+    flex-wrap: nowrap;
     margin-top: 8px;
     margin-bottom: 36px;
   }
@@ -589,7 +590,7 @@
 
   /* ---------- Client Success Stories ---------- */
   .success-section {
-    padding: 72px 32px 96px;
+    padding: 40px 32px 96px;
     background:
       radial-gradient(80% 50% at 50% 0%, var(--amber-wash), transparent 70%),
       var(--paper-2);
@@ -695,11 +696,11 @@
   @media (max-width: 960px) {
     .success-grid { gap: 16px; }
     .success-col { gap: 16px; }
-    .success-section { padding: 64px 24px 72px; }
+    .success-section { padding: 36px 24px 72px; }
   }
   @media (max-width: 600px) {
     .success-grid { flex-direction: column; gap: 16px; }
-    .success-section { padding: 56px 20px 64px; }
+    .success-section { padding: 32px 20px 64px; }
   }
 
   /* iMessage mock */
@@ -845,11 +846,10 @@
   /* ---------- Calendar placeholder (keep bottom half architecture) ---------- */
   .calendar-band {
     margin-top: 0;
-    padding: 28px 32px 8px;
-    border-top: 1px solid var(--line);
+    padding: 48px 32px 56px;
     background:
       radial-gradient(60% 50% at 50% 0%, var(--amber-wash), transparent 70%),
-      var(--paper-2);
+      linear-gradient(180deg, rgba(242,235,218,0) 0%, #F2EBDA 18%, #F2EBDA 82%, rgba(242,235,218,0) 100%);
     text-align: center;
   }
   .calendar-band h2 {
@@ -913,7 +913,7 @@
     letter-spacing: -0.005em;
   }
   @media (max-width: 720px) {
-    .calendar-band { padding: 24px 20px 8px; margin-top: 0; }
+    .calendar-band { padding: 20px 14px 32px; margin-top: 0; }
     .calendar-band h2 { font-size: 26px; line-height: 1.15; margin-bottom: 12px; }
     .calendar-sub { font-size: 15px; margin-bottom: 4px; }
     .calendar-promises { flex-direction: column; margin-top: 18px; }
@@ -925,9 +925,8 @@
     .calendar-slot { margin-top: 22px; }
   }
   .calendar-slot {
-    max-width: 880px; margin: 40px auto 0;
+    max-width: 880px; margin: 36px auto 0;
     background: var(--paper-1);
-    border: 1px solid var(--line);
     border-radius: 16px;
     overflow: hidden;
   }
@@ -969,6 +968,15 @@
     .trust-item { justify-content: center; }
     .trust-label { text-align: left; }
     .trust-divider { display: none; }
+    /* keep the 130+ firms / Built-by strip horizontal on mobile */
+    .trust-bottom { flex-direction: row; flex-wrap: nowrap; gap: 8px; }
+    .trust-bottom .trust-item { gap: 4px; flex-shrink: 1; min-width: 0; }
+    .trust-bottom .face { width: 24px; height: 24px; margin-left: -8px; border-width: 1.5px; }
+    .trust-bottom .face:first-child { margin-left: 0; }
+    .trust-bottom .trust-label { font-size: 10px; line-height: 1.35; max-width: none; margin-left: 4px !important; }
+    .trust-bottom .trust-label b { font-size: 11px; }
+    .trust-bottom .creds-row { gap: 5px; }
+    .trust-bottom .creds-logo-img { height: 16px; }
     .bullet { grid-template-columns: 56px 1fr; gap: 14px; }
     .trust-cta-row { flex-direction: column; align-items: center; gap: 14px; }
     .subhead { text-align: center; }
@@ -1081,7 +1089,7 @@
     /* Hero mobile breathing room */
     .hero-wrap .head { margin-bottom: 8px; }
     .hero-wrap { padding-left: 12px !important; padding-right: 12px !important; }
-    .hero-sub { font-size: 25px; letter-spacing: -0.03em; line-height: 1.08; }
+    .hero-sub { font-size: 15px; letter-spacing: -0.01em; line-height: 1.5; }
     .trust-tp-only { padding: 28px 0 0; margin-top: 8px; }
     .trust-cta-row {
       padding-top: 120px !important;
@@ -1089,10 +1097,126 @@
     }
     .trust-bottom {
       margin-top: 0;
-      margin-bottom: 48px;
+      margin-bottom: 22px;
       gap: 20px;
       row-gap: 24px;
     }
+  }
+</style>
+<style>
+  /* ---------- v2: offer rework additions ---------- */
+  .hero-hook {
+    display: block;
+    font-size: clamp(27px, 3.4vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+  }
+  h1.head > span[aria-hidden="true"] { margin: 16px auto !important; }
+  .cta.cta-sm { padding: 13px 26px; font-size: 14px; }
+  #founderCta { padding: 22px 0 !important; }
+  .trust.trust-bottom { margin-bottom: 0; padding-bottom: 0; }
+  .callout { margin-top: 0 !important; }
+  .testi-carousel { padding-top: 20px !important; }
+  .trust-bottom .trust-label b { font-weight: 600; color: var(--ink); }
+  .callout {
+    max-width: 680px;
+    margin: 4px auto 36px;
+    background: rgba(255,255,255,0.55);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 26px;
+    text-align: left;
+    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 8px 24px -12px rgba(23,51,45,0.12);
+  }
+  .callout-label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--amber-2); font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .callout p {
+    font-family: 'General Sans', 'Geist', sans-serif;
+    font-size: 15px; line-height: 1.58;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout b { font-weight: 600; }
+  .agency-fails {
+    max-width: 620px;
+    margin: 26px auto 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .fail-chip {
+    display: flex; align-items: center; gap: 12px;
+    padding: 13px 18px;
+    background: #FAEFE8;
+    border: 1px solid rgba(140,21,21,0.16);
+    border-radius: 12px;
+    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 8px 18px -12px rgba(140,21,21,0.28);
+    font-family: 'General Sans', 'Geist', sans-serif;
+    font-size: 15.5px; line-height: 1.45;
+    color: var(--ink); text-align: left; letter-spacing: -0.005em;
+  }
+  .fail-chip b { font-weight: 600; }
+  .fail-x {
+    width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #8C1515; color: #FAF6EE;
+    font-size: 10.5px; font-weight: 700; line-height: 1;
+  }
+  .fail-chip.win {
+    background: #ECF1EA;
+    border-color: rgba(23,51,45,0.18);
+    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 8px 18px -12px rgba(23,51,45,0.35);
+  }
+  .fail-chip.win .fail-x { background: var(--sage); }
+  .ascend-band {
+    background: var(--sage);
+    color: var(--paper-1);
+    text-align: center;
+    padding: 72px 32px;
+  }
+  .ascend-band .line {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(26px, 3.2vw, 40px);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .ascend-band .line em { color: var(--amber-3); }
+  .ascend-band .tail {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(250,246,238,0.72);
+    margin: 20px auto 0;
+  }
+  @media (max-width: 640px) {
+    .hero-hook { font-size: 21px; }
+    h1.head > span[aria-hidden="true"] { margin: 12px auto !important; }
+    .brand-plate { font-size: 12px; padding: 7px 16px; }
+    .callout { padding: 14px 16px; margin-bottom: 24px; }
+    .callout-label { font-size: 9.5px; margin-bottom: 8px; }
+    .callout p { font-size: 13px; line-height: 1.55; margin-bottom: 10px; }
+    .calendar-band h2 { font-size: 20px; letter-spacing: -0.03em; }
+    .mbr { display: block; }
+    .bullets-head { font-size: 20px; line-height: 1.3; }
+    .bullets-close { font-size: 13.5px; line-height: 1.55; }
+    #trust-section { padding-top: 4px !important; }
+    section.partners { margin-bottom: 0; }
+    .fail-chip { font-size: 13px; padding: 11px 13px; gap: 9px; border-radius: 10px; }
+    .fail-x { width: 17px; height: 17px; font-size: 9px; }
+    .agency-fails { gap: 8px; margin-top: 18px; }
+    .calendar-sub { font-size: 13.5px; }
+    .calendar-slot { margin-top: 18px; }
+    .ascend-band { padding: 56px 24px; }
+    .hero-wrap .trust-cta-row { padding-top: 16px !important; padding-bottom: 16px !important; }
+    #problem .trust-cta-row { padding-top: 28px !important; padding-bottom: 16px !important; }
   }
 </style>
 </head>
@@ -1109,28 +1233,78 @@
 </template>
 
 <div class="alert">
-  <span class="accent">Limited spots —</span>
-  Personal injury firm owners adding <span class="accent">$2M+</span> in annual fees
+  <span class="accent">ONLY</span> for experienced PI firms clearing <span class="accent">$2M/year</span>
 </div>
 
 <main class="page">
-  <div class="wrap hero-wrap">
+  <div class="wrap hero-wrap" data-screen-label="Hero">
 
 
 
-    <div class="eyebrow" style="justify-content:center;">For personal injury firms</div>
-
-    <div style="text-align:center;"><div class="brand-plate">The Sign More Cases System</div></div>
+    <div style="text-align:center;"><div class="brand-plate">The Retainer Pixel&trade;</div></div>
 
     <h1 class="head" style="font-size: 32px;">
-      Personal Injury's First <span class="stanford-mark">Stanford-Built</span> AI Case Acquisition System
+      <span class="hero-hook">Personal Injury&rsquo;s First <span class="stanford-mark">Stanford-Built</span> AI Acquisition Pixel &mdash; Pay Only for <u>Signed MVA Retainers</u></span>
       <span aria-hidden="true" style="display:block;width:96px;height:1px;margin:22px auto;background:var(--amber);opacity:0.85;"></span>
-      <span class="hero-sub">We Predictably Generate Exclusive MVA Leads Under Your Brand, Sign Them With a 24/7 Intake Team, and <u>Guarantee 30+ Cases in 90 Days</u> or We Work For Free</span>
+      <span class="hero-sub">Our AI Trained on Signed Cases (Not Clicks) Predictably Sources Exclusive, Clear-Liability MVA Claimants Under Your Brand. Our 24/7 Bilingual Intake Team Signs Them and <u>Guarantees 30 Cases in 90 Days or We Don&rsquo;t Get Paid</u></span>
     </h1>
+
+    <!-- Trust row (businesses + credentials) -->
+    <div class="trust trust-bottom">
+      <div class="trust-item">
+        <div class="faces" aria-label="Founders and operators we've worked with">
+          <div class="face f1"></div>
+          <div class="face f2"></div>
+          <div class="face f3"></div>
+          <div class="face f4"></div>
+          <div class="face f5"></div>
+          <div class="face f6"></div>
+          <div class="face f7"></div>
+        </div>
+        <div class="trust-label" style="margin-left:10px;white-space:nowrap;">Trusted by<b>130+ PI Firms</b></div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div class="creds-row" aria-label="Built by a Stanford AI team">
+          <img class="creds-logo-img stanford" src="assets/logo-stanford.png?v=27" alt="Stanford">
+        </div>
+        <div class="trust-label" style="margin-left:10px;white-space:nowrap;">Built by<b>Stanford AI</b></div>
+      </div>
+    </div>
+
+    <div class="trust-cta-row" id="founderCta" style="flex-direction:column;gap:10px;">
+      <a href="#calendar" class="cta cta-sm">TALK TO OUR FOUNDER</a>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Read this if your firm does $2M+ a year</div>
+      <p>You&rsquo;ve figured out how to win cases. So why is revenue up one month and gone the next? And why does every ad agency get paid either way?</p>
+      <p>Because they optimize for form fills, not cases. A bunch of leads, zero retainers. <b>The algorithm had the wrong job.</b></p>
+      <p>The Retainer Pixel&trade; is trained on signed retainers: <b>each case you sign fires the data back</b> to our custom ad pixel and teaches it what a viable claimant looks like. Next, our <b>bilingual human team calls in 90 sec</b>. The AI pixel keeps finding viable claimants. Humans make first contact.</p>
+      <p>An agency can quit on you. <b>Your trained AI pixel keeps learning and feeding you viable cases no matter what.</b></p>
+    </div>
+
+
+  </div>
+
+  <!-- Booking calendar -->
+  <section class="calendar-band" id="calendar" data-screen-label="Booking">
+    <h2>If You&rsquo;re Serious About Volume, <span class="mbr"></span>Let&rsquo;s Get You <em>Predictable Retainers.</em></h2>
+    <p class="calendar-sub" style="max-width:720px;margin:14px auto 0;text-align:center;">Book a call with our legal growth expert: <b>where signed retainers leak</b>, a <b>data-driven forecast</b> of what you should sign every month, and a <b>plan</b> for how fast you can hit it.</p>
+<div class="calendar-slot">
+  <iframe 
+    id="KkvE1y4GIsXSjROLZGBW_1782983225681" 
+    src="https://api.leadconnectorhq.com/widget/booking/phvZsJwCIB8IQ234ox4p" 
+    style="width: 100%; border: none; overflow: hidden;" 
+    scrolling="no">
+  </iframe>
+  <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+</div>
+  </section>
 
     <!-- Our Partners carousel -->
     <style>
-      .partners { width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); margin-top: 30px; margin-bottom: 24px; padding: 64px 40px 60px; text-align: center; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #ffffff 16%, #ffffff 84%, rgba(255,255,255,0) 100%); }
+      .partners { width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); margin-top: 0; margin-bottom: 24px; padding: 56px 40px 52px; text-align: center; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #ffffff 16%, #ffffff 84%, rgba(255,255,255,0) 100%); }
       .partners-head { font-family: 'General Sans', 'Geist', sans-serif; font-weight: 500; font-size: clamp(24px, 2.8vw, 34px); letter-spacing: -0.022em; color: var(--ink); margin: 0 0 6px; }
       .partners-sub { font-family: 'General Sans', sans-serif; font-size: 15px; color: var(--muted); margin: 0 0 26px; letter-spacing: -0.005em; }
       .partners-marquee { position: relative; overflow: hidden; }
@@ -1171,141 +1345,56 @@
       </div>
     </section>
 
-    <!-- Trustpilot-only hero strip -->
-    <div class="trust trust-tp-only">
-      <div class="trust-item">
-        <div class="trustpilot-row">
-          <div style="font-size:13px;font-weight:500;">Excellent</div>
-          <div class="tp-stars">
-            <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-          </div>
-        </div>
-        <div class="trust-label" style="margin-left:8px;"><b>100+ reviews</b>Verified on Trustpilot</div>
-      </div>
-
-      <div class="trust-divider"></div>
-
-      <div class="trust-item">
-        <div style="display:flex;align-items:center;" aria-hidden="true">
-          <span style="width:40px;height:40px;border-radius:50%;border:2px solid var(--paper-1);box-shadow:0 2px 6px rgba(23,51,45,0.14);background-image:url('assets/flag-us.png');background-size:cover;background-position:center;display:inline-block;"></span>
-          <span style="width:40px;height:40px;border-radius:50%;border:2px solid var(--paper-1);box-shadow:0 2px 6px rgba(23,51,45,0.14);background-image:url('assets/flag-mx.png');background-size:cover;background-position:center;display:inline-block;margin-left:-10px;"></span>
-        </div>
-        <div class="trust-label" style="margin-left:10px;white-space:nowrap;"><b>Multilingual Ads</b>English AND Spanish</div>
-      </div>
-    </div>
-
-  </div>
-
   <!-- Trust section (movable) -->
-  <section class="wrap trust-band" id="trust-section" style="padding-top:0;">
-    <div class="trust-cta-row" style="padding:40px 0px;flex-direction:column;gap:14px;">
-      <a href="#calendar" class="cta cta-lg">
-        TALK TO AN EXPERT
-      </a>
-    </div>
+  <section class="wrap trust-band" id="trust-section" style="padding-top:64px;padding-bottom:8px;" data-screen-label="Mechanism">
+    <p class="bullets-head">Why Every Agency You&rsquo;ve Hired Got Paid While You Signed Nothing</p>
+    <p class="bullets-sub">Every agency you&rsquo;ve tried:</p>
 
-    <!-- Trust row (businesses + credentials) -->
-    <div class="trust trust-bottom">
-      <div class="trust-item">
-        <div class="faces" aria-label="Founders and operators we've worked with">
-          <div class="face f1"></div>
-          <div class="face f2"></div>
-          <div class="face f3"></div>
-          <div class="face f4"></div>
-          <div class="face f5"></div>
-          <div class="face f6"></div>
-          <div class="face f7"></div>
-        </div>
-        <div class="trust-label" style="margin-left:10px;"><b>130+ PI Firms</b>Successfully served</div>
-      </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <div class="creds-row" aria-label="Built by Stanford, Harvard, and MIT alumni">
-          <img class="creds-logo-img stanford" src="assets/logo-stanford.png?v=27" alt="Stanford">
-          <span class="creds-dot"></span>
-          <img class="creds-logo-img harvard" src="assets/logo-harvard.png?v=27" alt="Harvard">
-          <span class="creds-dot"></span>
-          <img class="creds-logo-img mit" src="assets/logo-mit.png?v=27" alt="MIT">
-        </div>
-        <div class="trust-label" style="margin-left:10px;white-space:nowrap;"><b>Built by</b>Stanford | Harvard | MIT</div>
-      </div>
+    <div class="agency-fails">
+      <div class="fail-chip"><span class="fail-x">✕</span>Gets paid on ad spend and lead volume, never outcomes</div>
+      <div class="fail-chip"><span class="fail-x">✕</span>Ships recycled, resold leads your staff re-vets from scratch</div>
+      <div class="fail-chip"><span class="fail-x">✕</span>Moves so slow the claimant signs across town first</div>
+      <div class="fail-chip win"><span class="fail-x">✓</span><b>We&rsquo;re different: paid only when you sign</b></div>
     </div>
-
-    <p class="bullets-head">What Retainer Engine AI Does Differently To Get You Cases</p>
-    <p class="bullets-sub">Agencies sell leads. <b>Our Bilingual Stanford Growth Team (English AND Spanish) cuts through saturated markets to bring you signed retainers predictably</b> each month — guaranteed.</p>
 
     <ul class="bullets">
       <li class="bullet">
         <div class="time">0:00</div>
         <div class="text">
           <span class="tag">01 &middot; Attract</span>
-          We leverage <b>seasoned personal-injury expertise</b> to craft custom-built Meta ads engineered to make you stand out in saturated markets. Ideal claimants see you. Bargain hunters don't.</div>
+          Custom Meta ads built by <b>seasoned PI media buyers</b> run under <b>your brand</b>, never a shared list resold to four other firms. Clear-liability MVA claimants see you. Soft-tissue bargain hunters get filtered out before they cost your team a minute.</div>
       </li>
       <li class="bullet">
         <div class="time">0:05</div>
         <div class="text">
           <span class="tag">02 &middot; Qualify</span>
-          Our <b>bilingual (English AND Spanish) US-based agent</b> calls every lead within 90 seconds of them expressing interest via your ad and verifies their case is <b>viable</b>.
+          Our <b>bilingual (English AND Spanish) US-based intake</b> calls every claimant within 90 seconds and screens against <b>your case criteria</b>: clear fault, collectible coverage, real damages, inside statute. Nothing reaches your desk that you&rsquo;d have to re-vet.
         </div>
       </li>
       <li class="bullet">
         <div class="time">0:47</div>
         <div class="text">
           <span class="tag">03 &middot; Book &amp; Sign</span>
-          We <b>book the consult into your calendar</b> (or live transfer directly) before the claimant can call the firm across town.
+          We <b>book the consult into your calendar</b> (or live-transfer directly) and chase the retainer to signature before the claimant ever hears back from the high-volume mill across town.
+        </div>
+      </li>
+      <li class="bullet">
+        <div class="time">&infin;</div>
+        <div class="text">
+          <span class="tag">04 &middot; Compound</span>
+          Every signed retainer gets fed back into your <b>Retainer Pixel&trade;</b>, so next month&rsquo;s claimants look even more like your best cases.
         </div>
       </li>
     </ul>
 
     <p class="bullets-close">
-      Leads go cold in <b>5 minutes</b>. Stop losing <span class="amber">$50,000+</span> each week to firms with half your Google reviews just because they contact injury leads faster than you.
+      Leads go cold in <b>5 minutes</b>. Firms with <b>half your Google reviews</b> sign <span class="amber">$50,000+</span> a week in cases that should be yours, just because their phone gets answered first.
     </p>
 
-    <p class="bullets-tag">
-      Our Stanford, Harvard, and MIT team delivers you pre-sold claimants who are already nurtured and ready to sign. <b>Agencies are too slow by design. We finally fix that.</b>
-    </p>
   </section>
 
-  <!-- keep calendar section architecturally, with placeholder -->
-  <section class="calendar-band" id="calendar">
-    <div class="eyebrow" style="justify-content:center;">Book your consultation</div>
-    <h2>Let&rsquo;s Get You <em>More Signed Clients.</em></h2>
-    <p class="calendar-sub" style="max-width:720px;margin:14px auto 0;text-align:center;">Book a free call with a legal growth expert. We'll analyze your intake operations, review your competitors, and show you exactly <b>where signed retainers are leaking</b>.</p>
-    <div class="calendar-promises">
-      <div class="calendar-promise">
-        <div class="calendar-promise-num">01 &middot; Current Performance</div>
-        <div class="calendar-promise-text">An AI-powered audit of your <b>intake-to-signed conversion</b>, benchmarked against top-tier PI firms in your market.</div>
-      </div>
-      <div class="calendar-promise">
-        <div class="calendar-promise-num">02 &middot; Growth Opportunities</div>
-        <div class="calendar-promise-text"><b>&ldquo;Low hanging fruit&rdquo; bottlenecks</b> you can plug in the next 7 days for immediate signed-case recovery.</div>
-      </div>
-      <div class="calendar-promise">
-        <div class="calendar-promise-num">03 &middot; Areas for Improvement</div>
-        <div class="calendar-promise-text">A realistic scope of <b>how long it takes to hit your signed-retainer target</b> with a full AI-native intake operation.</div>
-      </div>
-      <div class="calendar-promise">
-        <div class="calendar-promise-num">04 &middot; Total Addressable Market</div>
-        <div class="calendar-promise-text">A data-driven forecast of the <b>signed retainers you should be pulling every month</b> with AI-powered speed-to-lead.</div>
-      </div>
-    </div>
-    <p class="calendar-fallback" style="font-size: 15px">You'll leave the call with a clear picture of <b>what your firm can hit in 90 days</b>, whether we end up working together or not.</p>
-<div class="calendar-slot">
-  <iframe 
-    id="KkvE1y4GIsXSjROLZGBW_1782983225681" 
-    src="https://api.leadconnectorhq.com/widget/booking/phvZsJwCIB8IQ234ox4p" 
-    style="width: 100%; border: none; overflow: hidden;" 
-    scrolling="no">
-  </iframe>
-  <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
-</div>
-  </section>
-  <!-- Testimonials carousel (below calendar) -->
-  <section class="testi-carousel" id="testimonials" aria-label="Client testimonials">
+  <!-- Testimonials carousel -->
+  <section class="testi-carousel" id="testimonials" aria-label="Client testimonials" data-screen-label="Testimonials">
     <h2 class="tc-head">Don't Take It From Us, <em>Take it From Our Clients</em></h2>
 
     <div class="tc-stage">
@@ -1386,10 +1475,36 @@
     </div>
   </section>
 
+  <!-- The real problem -->
+  <section class="calendar-band" id="problem" data-screen-label="Predictability Problem">
+    <h2>You Don&rsquo;t Have a Revenue Problem.<br>You Have a <em>Predictability</em> Problem.</h2>
+    <p class="calendar-sub" style="max-width:720px;margin:14px auto 0;text-align:center;">A dry month doesn&rsquo;t just mean less income. It means intake staff, paralegals, and case managers on payroll <b>with nothing coming in</b>.</p>
+    <div class="calendar-promises">
+      <div class="calendar-promise">
+        <div class="calendar-promise-num">01 &middot; The Swing</div>
+        <div class="calendar-promise-text"><b>Up one month, gone the next.</b> Marketing-driven volume you can&rsquo;t forecast turns hiring and growth into a gamble.</div>
+      </div>
+      <div class="calendar-promise">
+        <div class="calendar-promise-num">02 &middot; The Referral Ceiling</div>
+        <div class="calendar-promise-text">Referrals send great cases but can&rsquo;t scale, and <b>the best ones never get sent</b>. 50/50 splits and steak dinners keep someone else&rsquo;s pipeline alive, not yours.</div>
+      </div>
+      <div class="calendar-promise">
+        <div class="calendar-promise-num">03 &middot; Forecastable Flow</div>
+        <div class="calendar-promise-text">A set flow of <b>exclusive, signed MVA retainers landing on schedule</b>, steady enough to plan payroll, hiring, and growth around.</div>
+      </div>
+      <div class="calendar-promise">
+        <div class="calendar-promise-num">04 &middot; You Own the Engine</div>
+        <div class="calendar-promise-text">Ads, data, and claimants run under <b>your brand</b>. You keep <b>100% of your fee</b>: no splits, no shared leads, no relationship tax.</div>
+      </div>
+    </div>
+    <div class="trust-cta-row" style="padding:36px 0 20px;flex-direction:column;gap:14px;">
+      <a href="#calendar" class="cta cta-lg">TALK TO AN EXPERT</a>
+    </div>
+  </section>
+
   <!-- Client Success Stories -->
-  <section class="success-section" id="success-stories" aria-label="Client success stories">
+  <section class="success-section" id="success-stories" aria-label="Client success stories" data-screen-label="Success Stories">
     <div class="success-inner">
-      <div class="eyebrow" style="justify-content:center;">Proof from the inbox</div>
       <h2 class="success-head">Client Success Stories</h2>
       <p class="success-sub">Don't just take our word for it. Real conversations with and testimonials from the attorneys we work with.</p>
 
@@ -1456,6 +1571,12 @@
     </div>
   </section>
 
+  <!-- Ascension close -->
+  <section class="ascend-band" data-screen-label="Ascension Close">
+    <p class="line">Signed retainers landing on schedule. Clear liability, real coverage, no junk.<br><em>A pipeline you can finally plan around.</em></p>
+    <p class="tail">That&rsquo;s what the next million is actually for</p>
+  </section>
+
 </main>
 
 <!-- Footer -->
@@ -1465,7 +1586,7 @@
       <img src="assets/re-logo.png?v=1" alt="Retainer Engine">
     </a>
 
-    <div class="foot-tag">AI Case Acquisition · For personal injury firms</div>
+    <div class="foot-tag">AI Case Acquisition · Signed MVA Retainers for PI Firms</div>
 
     <nav class="foot-links" aria-label="Legal">
       <a href="https://retainer-engine.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
