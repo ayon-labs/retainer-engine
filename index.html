@@ -190,16 +190,18 @@
   .head .hero-sub u { text-decoration: none; color: var(--amber-2); font-style: italic; font-weight: 600; letter-spacing: -0.045em; }
   .brand-plate {
     position: relative;
-    display: inline-flex; align-items: center; justify-content: center;
+    display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
     font-family: 'General Sans', 'Geist', sans-serif;
     font-weight: 600; font-size: 20px; letter-spacing: -0.01em;
     color: var(--ink);
-    padding: 18px 44px; margin: 16px auto 22px;
+    padding: 18px 40px 20px; margin: 16px auto 6px;
     border: 2.5px solid var(--amber);
     border-radius: 3px;
     background: transparent;
     box-shadow: 0 3px 14px rgba(169,119,47,0.16);
   }
+  .plate-name { font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber-2, var(--amber)); }
+  .brand-plate .hero-hook { font-size: clamp(19px, 2vw, 24px); line-height: 1.3; letter-spacing: -0.02em; max-width: 620px; }
   /* inner beveled line — double-frame molding */
   .brand-plate::before {
     content: "";
@@ -333,7 +335,7 @@
   .face.f2 { background-image: url('assets/face-2.png?v=27'); }
   .face.f3 { background-image: url('assets/face-3.png?v=27'); }
   .face.f4 { background-image: url('assets/face-4.png?v=27'); }
-  .face.f5 { background-image: url('assets/face-5.png?v=27'); }
+  .face.f5 { background-image: url('assets/face-7.png?v=28'); }
   .face.f6 { background-image: url('assets/face-6.png?v=27'); }
   .face.f7 { background-image: url('assets/face-7.png?v=27'); }
 
@@ -986,14 +988,14 @@
     .trust-label { text-align: left; }
     .trust-divider { display: none; }
     /* keep the 130+ firms / Built-by strip horizontal on mobile */
-    .trust-bottom { flex-direction: row; flex-wrap: nowrap; gap: 8px; }
-    .trust-bottom .trust-item { gap: 4px; flex-shrink: 1; min-width: 0; }
-    .trust-bottom .face { width: 24px; height: 24px; margin-left: -8px; border-width: 1.5px; }
+    .trust-bottom { flex-direction: row; flex-wrap: nowrap; gap: 20px; justify-content: center; }
+    .trust-bottom .trust-item { gap: 4px; justify-content: center; }
+    .trust-bottom .face { width: 30px; height: 30px; margin-left: -9px; border-width: 1.5px; }
     .trust-bottom .face:first-child { margin-left: 0; }
-    .trust-bottom .trust-label { font-size: 10px; line-height: 1.35; max-width: none; margin-left: 4px !important; }
-    .trust-bottom .trust-label b { font-size: 11px; }
-    .trust-bottom .creds-row { gap: 5px; }
-    .trust-bottom .creds-logo-img { height: 16px; }
+    .trust-bottom .trust-label { font-size: 12px; line-height: 1.4; max-width: none; margin-left: 5px !important; }
+    .trust-bottom .trust-label b { font-size: 13.5px; }
+    .trust-bottom .creds-row { gap: 6px; }
+    .trust-bottom .creds-logo-img { height: 21px; }
     .bullet { grid-template-columns: 56px 1fr; gap: 14px; }
     .trust-cta-row { flex-direction: column; align-items: center; gap: 14px; }
     .subhead { text-align: center; }
@@ -1106,7 +1108,7 @@
     /* Hero mobile breathing room */
     .hero-wrap .head { margin-bottom: 8px; }
     .hero-wrap { padding-left: 12px !important; padding-right: 12px !important; }
-    .hero-sub { font-size: 15px; letter-spacing: -0.01em; line-height: 1.5; }
+    .hero-sub { font-size: 21px; letter-spacing: -0.02em; line-height: 1.35; }
     .trust-tp-only { padding: 28px 0 0; margin-top: 8px; }
     .trust-cta-row {
       padding-top: 120px !important;
@@ -1136,6 +1138,38 @@
   .callout { margin-top: 0 !important; }
   .testi-carousel { padding-top: 20px !important; }
   .trust-bottom .trust-label b { font-weight: 600; color: var(--ink); }
+  /* ---------- FAQ ---------- */
+  .faq-section { padding: 76px 32px 92px; background: var(--paper-1); }
+  .faq-inner { max-width: 760px; margin: 0 auto; }
+  .faq-head {
+    font-family: 'General Sans', 'Geist', sans-serif;
+    font-size: clamp(26px, 3vw, 36px); font-weight: 600; letter-spacing: -0.03em;
+    color: var(--ink); text-align: center; margin: 0 0 36px;
+  }
+  .faq-item {
+    border: 1px solid var(--line); border-radius: 12px;
+    background: var(--paper-1); margin-bottom: 12px; overflow: hidden;
+    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 8px 24px -18px rgba(23,51,45,0.12);
+  }
+  .faq-question {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    width: 100%; padding: 18px 20px;
+    background: none; border: none; cursor: pointer; text-align: left;
+    font-family: 'General Sans', 'Geist', sans-serif; font-weight: 600;
+    font-size: 17px; letter-spacing: -0.01em; color: var(--ink);
+  }
+  .faq-chev { display: inline-flex; color: var(--amber-2); flex-shrink: 0; transition: transform 0.25s ease; }
+  .faq-item.active .faq-chev { transform: rotate(180deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .faq-item.active .faq-answer { max-height: 340px; }
+  .faq-answer-inner { padding: 0 20px 18px; font-size: 15.5px; line-height: 1.65; color: var(--ink); opacity: 0.78; }
+  @media (max-width: 640px) {
+    .faq-section { padding: 48px 20px 64px; }
+    .faq-head { margin-bottom: 24px; }
+    .faq-question { font-size: 15px; padding: 15px 16px; gap: 12px; }
+    .faq-answer-inner { font-size: 13.5px; line-height: 1.6; padding: 0 16px 15px; }
+    .faq-item.active .faq-answer { max-height: 420px; }
+  }
   .callout {
     max-width: 680px;
     margin: 4px auto 36px;
@@ -1214,13 +1248,15 @@
     margin: 20px auto 0;
   }
   @media (max-width: 640px) {
-    .hero-hook { font-size: 21px; }
+    .hero-hook { font-size: 17.5px; letter-spacing: 0; }
     h1.head > span[aria-hidden="true"] { margin: 12px auto !important; }
-    .brand-plate { font-size: 12px; padding: 7px 16px; }
+    .brand-plate { padding: 12px 18px 14px; gap: 5px; margin-bottom: 2px; }
+    .plate-name { font-size: 11.5px; }
     .callout { padding: 14px 16px; margin-bottom: 24px; }
     .callout-label { font-size: 9.5px; margin-bottom: 8px; }
     .callout p { font-size: 13px; line-height: 1.55; margin-bottom: 10px; }
-    .calendar-band h2 { font-size: 20px; letter-spacing: -0.03em; }
+    .calendar-band h2 { font-size: 19px; letter-spacing: -0.03em; line-height: 1.35; text-wrap: balance; }
+    .calendar-band h2 .mbr { display: none; }
     .mbr { display: block; }
     .bullets-head { font-size: 20px; line-height: 1.3; }
     .bullets-close { font-size: 13.5px; line-height: 1.55; }
@@ -1258,10 +1294,8 @@
 
 
 
-    <div style="text-align:center;"><div class="brand-plate">The Retainer Pixel&trade;</div></div>
-
     <h1 class="head" style="font-size: 32px;">
-      <span class="hero-hook">Personal Injury&rsquo;s First <span class="stanford-mark">Stanford-Built</span> AI Acquisition Pixel &mdash; Pay Only for <u>Signed MVA Retainers</u></span>
+      <span class="brand-plate"><span class="plate-name">The Retainer Pixel&trade;</span><span class="hero-hook">Personal Injury&rsquo;s First <span class="stanford-mark">Stanford-Built</span> AI Acquisition Pixel &mdash; Pay Only for <u>Signed MVA Retainers</u></span></span>
       <span aria-hidden="true" style="display:block;width:96px;height:1px;margin:22px auto;background:var(--amber);opacity:0.85;"></span>
       <span class="hero-sub">Our AI Trained on Signed Cases (Not Clicks) Predictably Sources Exclusive, Clear-Liability MVA Claimants Under Your Brand. Our 24/7 Bilingual Intake Team Signs Them and <u>Guarantees 30 Cases in 90 Days or We Don&rsquo;t Get Paid</u></span>
     </h1>
@@ -1275,8 +1309,6 @@
           <div class="face f3"></div>
           <div class="face f4"></div>
           <div class="face f5"></div>
-          <div class="face f6"></div>
-          <div class="face f7"></div>
         </div>
         <div class="trust-label" style="margin-left:10px;white-space:nowrap;">Trusted by<b>130+ PI Firms</b></div>
       </div>
@@ -1290,11 +1322,11 @@
     </div>
 
     <div class="trust-cta-row" id="founderCta" style="flex-direction:column;gap:10px;">
-      <a href="#calendar" class="cta cta-sm">TALK TO OUR FOUNDER</a>
+      <a href="#calendar" class="cta cta-sm">TALK TO OUR LEGAL GROWTH EXPERT</a>
     </div>
 
     <div class="callout">
-      <div class="callout-label">Read this if your firm does $2M+ a year</div>
+      <div class="callout-label" style="text-align:center;">Read this to learn exactly how this works</div>
       <p>You&rsquo;ve figured out how to win cases. So why is revenue up one month and gone the next? And why does every ad agency get paid either way?</p>
       <p>Because they optimize for form fills, not cases. A bunch of leads, zero retainers. <b>The algorithm had the wrong job.</b></p>
       <p>The Retainer Pixel&trade; is trained on signed retainers: <b>each case you sign fires the data back</b> to our custom ad pixel and teaches it what a viable claimant looks like. Next, our <b>bilingual human team calls in 90 sec</b>. The AI pixel keeps finding viable claimants. Humans make first contact.</p>
@@ -1306,8 +1338,7 @@
 
   <!-- Booking calendar -->
   <section class="calendar-band" id="calendar" data-screen-label="Booking">
-    <h2>If You&rsquo;re Serious About Volume, <span class="mbr"></span>Let&rsquo;s Get You <em>Predictable Retainers.</em></h2>
-    <p class="calendar-sub" style="max-width:720px;margin:14px auto 0;text-align:center;">Book a call with our legal growth expert: <b>where signed retainers leak</b>, a <b>data-driven forecast</b> of what you should sign every month, and a <b>plan</b> for how fast you can hit it.</p>
+    <h2>Book a Free Consultation Call With Our Legal Growth Expert <span class="mbr"></span>So We Can Identify Your <em>Lead Flow Bottlenecks</em></h2>
 <div class="calendar-slot">
   <iframe 
     id="KkvE1y4GIsXSjROLZGBW_1782983225681" 
@@ -1588,10 +1619,82 @@
     </div>
   </section>
 
-  <!-- Ascension close -->
-  <section class="ascend-band" data-screen-label="Ascension Close">
-    <p class="line">Signed retainers landing on schedule. Clear liability, real coverage, no junk.<br><em>A pipeline you can finally plan around.</em></p>
-    <p class="tail">That&rsquo;s what the next million is actually for</p>
+  <!-- FAQ -->
+  <section class="faq-section" id="faq" data-screen-label="FAQ">
+    <div class="faq-inner">
+      <h2 class="faq-head">Frequently Asked Questions</h2>
+
+      <div class="faq-item active">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>Do you only work with personal injury firms?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. We exclusively serve personal injury firms, with a focus on motor vehicle accident cases. Every campaign, intake script, and benchmark is built for PI, not recycled from other verticals.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>What does the free consultation include?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We'll review your <b>current marketing performance</b>, pull your <b>competitors' top campaigns</b>, identify <b>gaps in your strategy</b>, and give you a <b>custom growth projection</b> &mdash; including expected lead volume, cost per case, and timeline to results. <b>No strings attached.</b></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>How much does it cost?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Two models: pay per signed case, or a monthly retainer backed by our signed-retainer guarantee. Exact pricing depends on your market and case capacity. We'll give you exact numbers on the call, no ballpark guesses.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>Are we locked into a long-term contract?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No. We work in 90-day sprints with a defined target: 30 signed retainers in 90 days or we don't get paid. If we don't deliver, you can walk away. We earn your business every month.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>How long until we see signed cases?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Your campaigns go live within the first week, and the first signed retainers typically land within the first few weeks. The Retainer Pixel gets sharper every month as your signed-case data feeds back in. We'll give you an exact timeline for your market on the call.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>Where do the cases come from?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Cold Meta ads run under your firm's own brand. Every claimant is exclusive to you: no shared leads, no aggregators, no recycled lists. Our 24/7 bilingual team calls, screens, and signs them under your name.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>How is Retainer Engine different from other agencies?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We only work with PI firms, we get paid on signed cases (not your ad spend), and everything runs under your brand. No long contracts, no jargon. You see exactly where every dollar goes.</div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
 </main>
