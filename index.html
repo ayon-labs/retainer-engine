@@ -79,22 +79,23 @@
 </style>
 <style>
   :root {
-    /* New Retainer Engine palette — navy + cream + gold */
-    --ink: #0B1B2B;          /* navy-900 — primary ink */
-    --ink-2: #11253A;        /* navy-800 — hover */
-    --ink-3: #1A3148;        /* navy-700 — borders on dark */
-    --ink-4: #2A4762;        /* navy-600 — muted on cream */
-    --ink-5: #3F5C7A;        /* navy-500 — lightest navy */
-    --paper-1: #FAF6EE;      /* cream-50 — primary surface */
-    --paper-2: #F2EBDA;      /* cream-100 — secondary surface */
-    --paper-3: #E5DAC0;      /* cream-200 — borders / wash */
-    --amber: #C9A24A;        /* gold-500 — money + brand italic */
-    --amber-2: #A6841C;      /* gold-600 — hover */
-    --amber-3: #D9B770;      /* gold-400 — light gold */
-    --amber-wash: rgba(201,162,74,0.18);
-    --slate-wash: rgba(63,92,122,0.16);
-    --line: rgba(11,27,43,0.12);
-    --muted: rgba(11,27,43,0.62);
+    /* Inverted palette — navy primary surface, cream text, gold secondary */
+    --ink: #FAF6EE;          /* cream-50 — primary text on navy */
+    --ink-2: #F2EBDA;        /* cream-100 */
+    --ink-3: #E5DAC0;        /* cream-200 */
+    --ink-4: #D2C29E;        /* cream-300 */
+    --ink-5: #9FB0C2;
+    --navy-ink: #0B1B2B;     /* navy-900 — text on light pills / light bands */
+    --paper-1: #0B1B2B;      /* navy-900 — primary surface */
+    --paper-2: #11253A;      /* navy-800 — secondary surface */
+    --paper-3: #1A3148;      /* navy-700 — lightest band */
+    --amber: #C9A24A;        /* gold-500 — secondary accent */
+    --amber-2: #D9B770;      /* gold-400 — text gold on navy */
+    --amber-3: #E8CF96;      /* gold-300 */
+    --amber-wash: rgba(201,162,74,0.12);
+    --slate-wash: rgba(63,92,122,0.24);
+    --line: rgba(250,246,238,0.16);
+    --muted: rgba(250,246,238,0.66);
     --sage: #3F5448;         /* sage-700 — dark band, never red */
     --claret: #7E2A2A;       /* claret-600 — urgency, no-states */
     --trustpilot: #00B67A;
@@ -201,7 +202,7 @@
     box-shadow: 0 3px 14px rgba(169,119,47,0.16);
   }
   .plate-name { font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber-2, var(--amber)); }
-  .brand-plate .hero-hook { font-size: clamp(19px, 2vw, 24px); line-height: 1.3; letter-spacing: -0.02em; max-width: 620px; }
+  .brand-plate .hero-hook { font-size: clamp(20px, 2.4vw, 30px); line-height: 1.15; letter-spacing: -0.025em; max-width: none; white-space: nowrap; }
   /* inner beveled line — double-frame molding */
   .brand-plate::before {
     content: "";
@@ -369,7 +370,7 @@
 
   /* ---------- Bullets ---------- */
   .bullets-head {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'General Sans', 'Geist', sans-serif;
     font-weight: 500;
     font-size: 24px; line-height: 1.2;
     letter-spacing: -0.02em;
@@ -381,7 +382,7 @@
   }
   .bullets-head b { font-weight: 500; }
   .bullets-sub {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'General Sans', 'Geist', sans-serif;
     font-weight: 400;
     font-size: 15px; line-height: 1.5;
     color: var(--muted);
@@ -425,7 +426,7 @@
   }
 
   .bullets-close {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'General Sans', 'Geist', sans-serif;
     font-weight: 400;
     max-width: 720px;
     margin: 0 auto 12px;
@@ -438,7 +439,7 @@
   .bullets-close .amber { color: var(--amber); font-weight: 500; }
 
   .bullets-tag {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'General Sans', 'Geist', sans-serif;
     font-weight: 400;
     font-size: 15px; line-height: 1.5;
     color: var(--muted);
@@ -612,8 +613,7 @@
     padding: 40px 32px 96px;
     background:
       radial-gradient(80% 50% at 50% 0%, var(--amber-wash), transparent 70%),
-      var(--paper-2);
-    border-top: 1px solid var(--line);
+      linear-gradient(180deg, var(--paper-2) 0%, var(--paper-2) 72%, rgba(17,37,58,0) 100%);
   }
   .success-inner {
     max-width: 1180px;
@@ -1003,7 +1003,7 @@
     .trust-tp-only { padding: 0; margin-top: 0; }
     #trust-section .trust-cta-row { padding-top: 44px !important; padding-bottom: 44px !important; gap: 14px; }
     #trust-section .subhead { margin-top: 14px !important; }
-    .hero-wrap { padding-bottom: 0 !important; }
+    .hero-wrap { padding-top: 68px !important; padding-bottom: 0 !important; }
   }
 
   /* ---------- Site footer ---------- */
@@ -1106,7 +1106,7 @@
     .foot-disclaimer { font-size: 11px; }
 
     /* Hero mobile breathing room */
-    .hero-wrap .head { margin-bottom: 22px; }
+    .hero-wrap .head { margin-bottom: 10px; }
     .hero-wrap { padding-left: 12px !important; padding-right: 12px !important; }
     .hero-sub { font-size: 21px; letter-spacing: -0.02em; line-height: 1.35; }
     .trust-tp-only { padding: 28px 0 0; margin-top: 8px; }
@@ -1124,6 +1124,66 @@
 </style>
 <style>
   /* ---------- v2: offer rework additions ---------- */
+  /* Fold: CTA anchored at ~80% of viewport height (20% buffer below) */
+  .hero-fold {
+    display: flex; flex-direction: column;
+    min-height: calc(100svh - 56px);
+    padding-bottom: 20svh;
+  }
+  .hero-fold .trust.trust-bottom { margin-top: 40px; }
+  #founderCta { margin-top: auto; }
+  /* ICP pill above the guarantee */
+  .hero-pill {
+    display: block; width: fit-content;
+    margin: 0 auto 56px;
+    background: #C7D2DD;
+    color: var(--ink);
+    font-family: 'General Sans', 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.005em;
+    padding: 8px 18px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  h1.head { font-size: clamp(22px, 2.9vw, 38px); line-height: 1.22; margin-bottom: 26px; }
+  h1.head b { font-weight: 700; display: block; margin: 42px 0 0; font-size: 1.45em; line-height: 1.12; }
+  h1.head b .gy { color: var(--amber-2); }
+  h1.head b .np { color: #F04E45; }
+  h1.head .head-sub { font-size: 0.96em; opacity: 0.95; }
+  .hero-under {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(21px, 2.3vw, 28px);
+    color: var(--amber-2);
+    text-align: center;
+    margin: 0 auto 42px;
+    letter-spacing: 0;
+    position: relative;
+    width: fit-content;
+    padding: 12px 32px 14px;
+    border: 1.5px solid var(--amber);
+    border-radius: 3px;
+  }
+  .hero-under::before {
+    content: "";
+    position: absolute; inset: 4px;
+    border: 1px solid rgba(201,162,74,0.4);
+    border-radius: 1px;
+    pointer-events: none;
+  }
+  .hero-under-name {
+    display: block;
+    font-family: 'General Sans', 'Geist', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0;
+  }
   .hero-hook {
     display: block;
     font-size: clamp(27px, 3.4vw, 42px);
@@ -1132,6 +1192,7 @@
     font-weight: 600;
   }
   h1.head > span[aria-hidden="true"] { margin: 16px auto !important; }
+  .hero-sub b { font-weight: 700; }
   .cta.cta-sm { padding: 13px 26px; font-size: 14px; }
   #founderCta { padding: 22px 0 !important; }
   .trust.trust-bottom { margin-bottom: 0; padding-bottom: 0; }
@@ -1194,6 +1255,10 @@
     margin: 0 0 14px;
   }
   .callout p:last-child { margin-bottom: 0; }
+  .callout .amber { color: var(--amber-2); font-weight: 500; }
+  .callout-item { padding: 4px 0 8px; border-top: 0; }
+  .callout-item p { margin: 10px 0 0; }
+  .callout-item .calendar-promise-num { font-size: 11.5px; }
   .callout b { font-weight: 600; }
   .agency-fails {
     max-width: 620px;
@@ -1248,13 +1313,19 @@
     margin: 20px auto 0;
   }
   @media (max-width: 640px) {
-    .hero-hook { font-size: 17.5px; letter-spacing: 0; }
+    .hero-pill { font-size: min(3.2vw, 13px); padding: 7px 13px; margin-bottom: 44px; }
+    .hero-fold { min-height: calc(100svh - 68px); padding-bottom: 28px; }
+    .hero-fold .trust.trust-bottom { margin-top: 18px; }
+    .callout { margin-top: 24px !important; }
+    .hero-under { font-size: 19px; padding: 12px 22px 13px; margin-bottom: 38px; }
+    .hero-under-name { font-size: 12px; margin-bottom: 0; }
+    .brand-plate .hero-hook { font-size: min(4.9vw, 26px); letter-spacing: -0.02em; }
     h1.head > span[aria-hidden="true"] { margin: 22px auto !important; }
     .brand-plate { padding: 12px 18px 14px; gap: 5px; margin-bottom: 14px; }
     .plate-name { font-size: 11.5px; }
     .callout { padding: 14px 16px; margin-bottom: 24px; }
     .callout-label { font-size: 9.5px; margin-bottom: 8px; }
-    .callout p { font-size: 13px; line-height: 1.55; margin-bottom: 10px; }
+    .callout p { font-size: 14px; line-height: 1.6; margin-bottom: 10px; }
     .calendar-band h2 { font-size: 19px; letter-spacing: -0.03em; line-height: 1.35; text-wrap: balance; }
     .calendar-band h2 .mbr { display: none; }
     .mbr { display: block; }
@@ -1268,9 +1339,38 @@
     .calendar-sub { font-size: 13.5px; }
     .calendar-slot { margin-top: 18px; }
     .ascend-band { padding: 56px 24px; }
-    .hero-wrap .trust-cta-row { padding-top: 16px !important; padding-bottom: 16px !important; }
+    .hero-wrap .trust-cta-row { padding-top: 36px !important; padding-bottom: 30px !important; }
     #problem .trust-cta-row { padding-top: 28px !important; padding-bottom: 16px !important; }
   }
+</style>
+<style>
+  /* ---------- v3: navy-primary inversion fixes ---------- */
+  a { color: var(--amber-2); }
+  a:hover { color: var(--amber-3); }
+  .hero-pill { color: var(--navy-ink); }
+  .cta { background: var(--amber); color: var(--navy-ink); }
+  .cta:hover { background: var(--amber-2); color: var(--navy-ink); }
+  .cta.cta-xl { padding: 21px 44px; font-size: 18px; font-weight: 600; box-shadow: 0 10px 34px rgba(201,162,74,0.32); }
+  .cta.cta-xl:hover { box-shadow: 0 14px 44px rgba(201,162,74,0.48); }
+  @media (max-width: 640px) {
+    .cta.cta-xl { width: 100%; max-width: 460px; justify-content: center; padding: 19px 20px; font-size: 16px; }
+  }
+  .callout { background: rgba(255,255,255,0.05); box-shadow: none; }
+  .fail-chip { background: rgba(126,42,42,0.22); border-color: rgba(233,150,150,0.25); box-shadow: none; color: var(--ink); }
+  .fail-chip .fail-x { background: #A63232; }
+  .fail-chip.win { background: rgba(63,84,72,0.5); border-color: rgba(170,200,180,0.3); box-shadow: none; }
+  .success-card { background: rgba(250,246,238,0.05); }
+  .success-card:hover, .tc-card:hover { border-color: rgba(250,246,238,0.32); }
+  .calendar-band {
+    background:
+      radial-gradient(60% 50% at 50% 0%, var(--amber-wash), transparent 70%),
+      linear-gradient(180deg, rgba(19,41,63,0) 0%, var(--paper-2) 18%, var(--paper-2) 82%, rgba(19,41,63,0) 100%);
+  }
+  .site-foot { background: #081422; }
+  .foot-links a { color: #FAF6EE; }
+  #tweaks { border-color: rgba(11,27,43,0.15); }
+  #tweaks .lbl { color: rgba(11,27,43,0.62); }
+  #tweaks select, #tweaks input[type=range] { color: #0B1B2B; background: rgba(11,27,43,0.05); border-color: rgba(11,27,43,0.22); }
 </style>
 </head>
 <body>
@@ -1285,20 +1385,16 @@
   </svg>
 </template>
 
-<div class="alert">
-  <span class="accent">ONLY</span> for experienced PI firms clearing <span class="accent">$2M/year</span>
-</div>
-
 <main class="page">
   <div class="wrap hero-wrap" data-screen-label="Hero">
 
+    <div class="hero-fold">
 
+    <div class="hero-pill">*Only For Experienced PI Firms Clearing $2M/Year*</div>
 
-    <h1 class="head" style="font-size: 32px;">
-      <span class="brand-plate"><span class="plate-name">The Retainer Pixel&trade;</span><span class="hero-hook">Personal Injury&rsquo;s First <span class="stanford-mark">Stanford-Built</span> AI Acquisition Pixel &mdash; Pay Only for <u>Signed MVA Retainers</u></span></span>
-      <span aria-hidden="true" style="display:block;width:96px;height:1px;margin:22px auto;background:var(--amber);opacity:0.85;"></span>
-      <span class="hero-sub">Our AI Trained on Signed Cases (Not Clicks) Predictably Sources Exclusive, Clear-Liability MVA Claimants Under Your Brand. Our 24/7 Bilingual Intake Team Signs Them and <u>Guarantees 30 Cases in 90 Days or We Don&rsquo;t Get Paid</u></span>
-    </h1>
+    <p class="hero-under"><span class="hero-under-name">The Retainer Pixel&trade;</span></p>
+
+    <h1 class="head"><span class="head-sub">Our AI Smart Targeting Sources Exclusive, Clear-Liability MVA Claimants Under Your Brand, and We Sign Them With a 24/7 Bilingual Intake Team.</span> <b>We Guarantee <span class="gy">30+ Cases in 90 Days</span> <span class="np">Or You Don&rsquo;t Pay</span></b></h1>
 
     <!-- Trust row (businesses + credentials) -->
     <div class="trust trust-bottom">
@@ -1322,23 +1418,26 @@
     </div>
 
     <div class="trust-cta-row" id="founderCta" style="flex-direction:column;gap:10px;">
-      <a href="#calendar" class="cta cta-sm">TALK TO OUR LEGAL GROWTH EXPERT</a>
+      <a href="#calendar" class="cta cta-xl">TALK TO OUR LEGAL GROWTH EXPERT</a>
+    </div>
+
     </div>
 
     <div class="callout">
-      <div class="callout-label" style="text-align:center;">Read this to learn exactly how this works</div>
-      <p>You&rsquo;ve figured out how to win cases. So why is revenue up one month and gone the next? And why does every ad agency get paid either way?</p>
-      <p>Because they optimize for form fills, not cases. A bunch of leads, zero retainers. <b>The algorithm had the wrong job.</b></p>
-      <p>The Retainer Pixel&trade; is trained on signed retainers: <b>each case you sign fires the data back</b> to our custom ad pixel and teaches it what a viable claimant looks like. Next, our <b>bilingual human team calls in 90 sec</b>. The AI pixel keeps finding viable claimants. Humans make first contact.</p>
-      <p>An agency can quit on you. <b>Your trained AI pixel keeps learning and feeding you viable cases no matter what.</b></p>
+      <div class="callout-item" style="text-align:center;">
+        <span class="calendar-promise-num">Why Speed Wins</span>
+        <p>Leads go cold in <b>5 minutes</b>. Firms with <b>half your Google reviews</b> sign <span class="amber">$50,000+</span> a week in cases that should be yours because they answer the&nbsp;phone&nbsp;first.</p>
+      </div>
     </div>
+
+
 
 
   </div>
 
   <!-- Booking calendar -->
   <section class="calendar-band" id="calendar" data-screen-label="Booking">
-    <h2>Book a Free Consultation Call With Our Legal Growth Expert <span class="mbr"></span>So We Can Identify Your <em>Lead Flow Bottlenecks</em></h2>
+    <h2>Book a Free Consultation Call With Our <span style="color: var(--amber-2);">Legal Growth Expert</span></h2>
 <div class="calendar-slot">
   <iframe 
     id="KkvE1y4GIsXSjROLZGBW_1782983225681" 
@@ -1353,8 +1452,8 @@
     <!-- Our Partners carousel -->
     <style>
       .partners { width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); margin-top: 0; margin-bottom: 24px; padding: 56px 40px 52px; text-align: center; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #ffffff 16%, #ffffff 84%, rgba(255,255,255,0) 100%); }
-      .partners-head { font-family: 'General Sans', 'Geist', sans-serif; font-weight: 500; font-size: clamp(24px, 2.8vw, 34px); letter-spacing: -0.022em; color: var(--ink); margin: 0 0 6px; }
-      .partners-sub { font-family: 'General Sans', sans-serif; font-size: 15px; color: var(--muted); margin: 0 0 26px; letter-spacing: -0.005em; }
+      .partners-head { font-family: 'General Sans', 'Geist', sans-serif; font-weight: 500; font-size: clamp(24px, 2.8vw, 34px); letter-spacing: -0.022em; color: #0B1B2B; margin: 0 0 6px; }
+      .partners-sub { font-family: 'General Sans', sans-serif; font-size: 15px; color: rgba(11,27,43,0.62); margin: 0 0 26px; letter-spacing: -0.005em; }
       .partners-marquee { position: relative; overflow: hidden; }
       .partners-marquee::before, .partners-marquee::after { content: ""; position: absolute; top: 0; bottom: 0; width: 8%; z-index: 2; pointer-events: none; }
       .partners-marquee::before { left: 0; background: linear-gradient(90deg, #ffffff, transparent); }
@@ -1368,6 +1467,7 @@
       @media (prefers-reduced-motion: reduce) { .partners-group { animation-duration: 60s; } }
       @media (max-width: 720px) { .partners-logo { height: 36px; } .partners-group { gap: 44px; padding-right: 44px; animation-duration: 16s; } }
     </style>
+
     <section class="partners" aria-label="Our partners">
       <h2 class="partners-head">Our Partners</h2>
       <p class="partners-sub">Trusted by 130+ firms nationwide</p>
@@ -1393,10 +1493,79 @@
       </div>
     </section>
 
+  <!-- Client Success Stories -->
+  <section class="success-section" id="success-stories" aria-label="Client success stories" data-screen-label="Success Stories">
+    <div class="success-inner">
+      <h2 class="success-head">Client Success Stories</h2>
+      <p class="success-sub">Don't just take our word for it. Real conversations and testimonials from the attorneys we work with.</p>
+
+      <div class="success-grid">
+        <div class="success-col">
+        <figure class="success-card email">
+          <img src="assets/re-testimonial-1-17x-roas.png" alt="Referral email from Kevin G., Esq. (Sunshine Legal Group): 17:1 ROAS and climbing, $420–$480k in attorney fees per month on policy-limit auto and labor law cases at a 22-year-old firm" loading="lazy">
+          <figcaption>
+            <span class="success-tag">17:1 ROAS</span>
+            <span class="success-cap">22-year trial firm &middot; $420–$480K/mo in attorney fees on policy-limit auto &amp; labor law</span>
+          </figcaption>
+        </figure>
+
+        <figure class="success-card portrait">
+          <img src="assets/re-testimonial-3-imsg-2m.jpg" alt="iMessage screenshot from Skinner: new targeting is solid, just called a lead with a labor law 240 case, $2M policy limit, signing the retainer Thursday" loading="lazy">
+          <figcaption>
+            <span class="success-tag">$2M policy limit</span>
+            <span class="success-cap">Labor Law 240 case &middot; retainer signed the same week the new targeting went live</span>
+          </figcaption>
+        </figure>
+
+        <figure class="success-card email">
+          <img src="assets/re-testimonial-5-125m.png" alt="Email from Brett S., Esq. (Gravis Law) plus Sales Summary dashboard: $1,250,000 gross case pipeline, 25 retainers signed, $50,000 average case value from a single case evaluation event" loading="lazy">
+          <figcaption>
+            <span class="success-tag">$1.25M pipeline</span>
+            <span class="success-cap">Single case eval event &middot; 25 retainers signed &middot; $50K avg case value</span>
+          </figcaption>
+        </figure>
+        </div>
+
+        <div class="success-col">
+        <figure class="success-card email">
+          <img src="assets/re-testimonial-6-scale.png" alt="Email from Marc Grossman, Esq. (Milberg): auto accident ad pulling 3x retainer flow with 148 retainers signed in 4 weeks; labor law ad pulling 72 retainers per month, 488 since April, booked out six weeks" loading="lazy">
+          <figcaption>
+            <span class="success-tag">3× retainer flow</span>
+            <span class="success-cap">148 retainers in 4 weeks &middot; 72/mo on labor law &middot; booked 6 weeks out</span>
+          </figcaption>
+        </figure>
+
+        <figure class="success-card portrait">
+          <img src="assets/re-testimonial-4-imsg-35k.png" alt="WhatsApp screenshot from John C., Esq.: signed our first med mal case from you guys yesterday, $35K retainer" loading="lazy">
+          <figcaption>
+            <span class="success-tag">$35K first med mal</span>
+            <span class="success-cap">First med mal retainer signed the day after we added it to intake routing</span>
+          </figcaption>
+        </figure>
+
+        <figure class="success-card email">
+          <img src="assets/re-testimonial-2-record-month.png" alt="Email from Ashley K., Esq. (Keller Postman): record February — record month in the past 3 years, calendar stacked with med mal and labor law intakes through April" loading="lazy">
+          <figcaption>
+            <span class="success-tag">Record month</span>
+            <span class="success-cap">"Record MONTH in the past 3 years" &middot; med mal &amp; labor law calendar stacked through April</span>
+          </figcaption>
+        </figure>
+        </div>
+      </div>
+
+      <div class="trust-cta-row" style="padding-top:40px;padding-bottom:8px;flex-direction:column;gap:14px;">
+        <a href="#calendar" class="cta cta-lg">
+          SEE IF YOU QUALIFY TO WORK WITH US
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
   <!-- Trust section (movable) -->
   <section class="wrap trust-band" id="trust-section" style="padding-top:64px;padding-bottom:8px;" data-screen-label="Mechanism">
     <p class="bullets-head">Why Every Agency You&rsquo;ve Hired Got Paid While You Signed Nothing</p>
-    <p class="bullets-sub">Every agency you&rsquo;ve tried:</p>
 
     <div class="agency-fails">
       <div class="fail-chip"><span class="fail-x">✕</span>Gets paid on ad spend and lead volume, never outcomes</div>
@@ -1410,34 +1579,31 @@
         <div class="time">0:00</div>
         <div class="text">
           <span class="tag">01 &middot; Attract</span>
-          Custom Meta ads built by <b>seasoned PI media buyers</b> run under <b>your brand</b>, never a shared list resold to four other firms. Clear-liability MVA claimants see you. Soft-tissue bargain hunters get filtered out before they cost your team a minute.</div>
+          Custom Meta ads by <b>seasoned PI media buyers</b> run under <b>your brand</b>, never a list resold to four other firms. Clear-liability MVA claimants see you; soft-tissue bargain hunters get filtered out.</div>
       </li>
       <li class="bullet">
         <div class="time">0:05</div>
         <div class="text">
           <span class="tag">02 &middot; Qualify</span>
-          Our <b>bilingual (English AND Spanish) US-based intake</b> calls every claimant within 90 seconds and screens against <b>your case criteria</b>: clear fault, collectible coverage, real damages, inside statute. Nothing reaches your desk that you&rsquo;d have to re-vet.
+          Our <b>bilingual (English &amp; Spanish) US-based intake</b> calls every claimant in 90 seconds and screens against <b>your case criteria</b>: clear fault, collectible coverage, real damages, inside statute. Nothing reaches your desk to re-vet.
         </div>
       </li>
       <li class="bullet">
         <div class="time">0:47</div>
         <div class="text">
           <span class="tag">03 &middot; Book &amp; Sign</span>
-          We <b>book the consult into your calendar</b> (or live-transfer directly) and chase the retainer to signature before the claimant ever hears back from the high-volume mill across town.
+          We <b>book the consult into your calendar</b> (or live-transfer) and chase the retainer to signature before the claimant hears back from the mill across town.
         </div>
       </li>
       <li class="bullet">
         <div class="time">&infin;</div>
         <div class="text">
           <span class="tag">04 &middot; Compound</span>
-          Every signed retainer gets fed back into your <b>Retainer Pixel&trade;</b>, so next month&rsquo;s claimants look even more like your best cases.
+          Every signed retainer feeds your <b>Retainer Pixel&trade;</b>, so next month&rsquo;s claimants look even more like your best cases.
         </div>
       </li>
     </ul>
 
-    <p class="bullets-close">
-      Leads go cold in <b>5 minutes</b>. Firms with <b>half your Google reviews</b> sign <span class="amber">$50,000+</span> a week in cases that should be yours, just because their phone gets answered first.
-    </p>
 
   </section>
 
@@ -1525,8 +1691,8 @@
 
   <!-- The real problem -->
   <section class="calendar-band" id="problem" data-screen-label="Predictability Problem">
-    <h2>You Don&rsquo;t Have a Revenue Problem.<br>You Have a <em>Predictability</em> Problem.</h2>
-    <p class="calendar-sub" style="max-width:720px;margin:14px auto 0;text-align:center;">A dry month doesn&rsquo;t just mean less income. It means intake staff, paralegals, and case managers on payroll <b>with nothing coming in</b>.</p>
+    <h2>The Problem We Solve</h2>
+    <p class="calendar-sub" style="max-width:720px;margin:14px auto 0;text-align:center;">A dry month doesn&rsquo;t just mean less income. It means intake staff and case managers on payroll <b>with nothing coming in</b>.</p>
     <div class="calendar-promises">
       <div class="calendar-promise">
         <div class="calendar-promise-num">01 &middot; The Swing</div>
@@ -1547,75 +1713,6 @@
     </div>
     <div class="trust-cta-row" style="padding:36px 0 20px;flex-direction:column;gap:14px;">
       <a href="#calendar" class="cta cta-lg">TALK TO AN EXPERT</a>
-    </div>
-  </section>
-
-  <!-- Client Success Stories -->
-  <section class="success-section" id="success-stories" aria-label="Client success stories" data-screen-label="Success Stories">
-    <div class="success-inner">
-      <h2 class="success-head">Client Success Stories</h2>
-      <p class="success-sub">Don't just take our word for it. Real conversations with and testimonials from the attorneys we work with.</p>
-
-      <div class="success-grid">
-        <div class="success-col">
-        <figure class="success-card email">
-          <img src="assets/re-testimonial-1-17x-roas.png" alt="Referral email from Kevin G., Esq. (Sunshine Legal Group): 17:1 ROAS and climbing, $420–$480k in attorney fees per month on policy-limit auto and labor law cases at a 22-year-old firm" loading="lazy">
-          <figcaption>
-            <span class="success-tag">17:1 ROAS</span>
-            <span class="success-cap">22-year trial firm &middot; $420–$480K/mo in attorney fees on policy-limit auto &amp; labor law</span>
-          </figcaption>
-        </figure>
-
-        <figure class="success-card portrait">
-          <img src="assets/re-testimonial-3-imsg-2m.jpg" alt="iMessage screenshot from Skinner: new targeting is solid, just called a lead with a labor law 240 case, $2M policy limit, signing the retainer Thursday" loading="lazy">
-          <figcaption>
-            <span class="success-tag">$2M policy limit</span>
-            <span class="success-cap">Labor Law 240 case &middot; retainer signed the same week the new targeting went live</span>
-          </figcaption>
-        </figure>
-
-        <figure class="success-card email">
-          <img src="assets/re-testimonial-5-125m.png" alt="Email from Brett S., Esq. (Gravis Law) plus Sales Summary dashboard: $1,250,000 gross case pipeline, 25 retainers signed, $50,000 average case value from a single case evaluation event" loading="lazy">
-          <figcaption>
-            <span class="success-tag">$1.25M pipeline</span>
-            <span class="success-cap">Single case eval event &middot; 25 retainers signed &middot; $50K avg case value</span>
-          </figcaption>
-        </figure>
-        </div>
-
-        <div class="success-col">
-        <figure class="success-card email">
-          <img src="assets/re-testimonial-6-scale.png" alt="Email from Marc Grossman, Esq. (Milberg): auto accident ad pulling 3x retainer flow with 148 retainers signed in 4 weeks; labor law ad pulling 72 retainers per month, 488 since April, booked out six weeks" loading="lazy">
-          <figcaption>
-            <span class="success-tag">3× retainer flow</span>
-            <span class="success-cap">148 retainers in 4 weeks &middot; 72/mo on labor law &middot; booked 6 weeks out</span>
-          </figcaption>
-        </figure>
-
-        <figure class="success-card portrait">
-          <img src="assets/re-testimonial-4-imsg-35k.png" alt="WhatsApp screenshot from John C., Esq.: signed our first med mal case from you guys yesterday, $35K retainer" loading="lazy">
-          <figcaption>
-            <span class="success-tag">$35K first med mal</span>
-            <span class="success-cap">First med mal retainer signed the day after we added it to intake routing</span>
-          </figcaption>
-        </figure>
-
-        <figure class="success-card email">
-          <img src="assets/re-testimonial-2-record-month.png" alt="Email from Ashley K., Esq. (Keller Postman): record February — record month in the past 3 years, calendar stacked with med mal and labor law intakes through April" loading="lazy">
-          <figcaption>
-            <span class="success-tag">Record month</span>
-            <span class="success-cap">"Record MONTH in the past 3 years" &middot; med mal &amp; labor law calendar stacked through April</span>
-          </figcaption>
-        </figure>
-        </div>
-      </div>
-
-      <div class="trust-cta-row" style="padding-top:40px;padding-bottom:8px;flex-direction:column;gap:14px;">
-        <a href="#calendar" class="cta cta-lg">
-          SEE IF YOU QUALIFY TO WORK WITH US
-        </a>
-      </div>
-
     </div>
   </section>
 
