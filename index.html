@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Retainer Engine — The Retainer Pixel™: Pay Only for Signed MVA Retainers</title>
-<meta name="description" content="Our AI Smart Targeting finds exclusive, clear-liability MVA claimants under your brand, and we sign them with a 24/7 bilingual intake team. We guarantee 30+ cases in 90 days or you don't pay." />
+<meta name="description" content="We'll capture exclusive, clear-liability MVA claimants under your brand using our AI Smart Targeting — and sign them for you with our 24/7 bilingual intake team. We guarantee 30+ cases in 90 days or you don't pay." />
 <meta name="theme-color" content="#0B1B2B" />
 <link rel="canonical" href="https://retainer-engine.com/" />
 <link rel="icon" type="image/png" href="/assets/favicon.png" />
@@ -619,10 +619,9 @@
 
   /* ---------- Client Success Stories ---------- */
   .success-section {
-    padding: 40px 32px 20px;
-    background:
-      radial-gradient(80% 50% at 50% 0%, var(--amber-wash), transparent 70%),
-      linear-gradient(180deg, var(--paper-2) 0%, var(--paper-2) 72%, rgba(17,37,58,0) 100%);
+    padding: 56px 32px 56px;
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--line);
   }
   .success-inner {
     max-width: 1180px;
@@ -1327,9 +1326,9 @@
   }
   @media (max-width: 640px) {
     .hero-pill { font-size: min(3.2vw, 13px); padding: 7px 13px; margin-bottom: 44px; }
-    .hero-fold { min-height: calc(100svh - 68px); padding-bottom: 28px; }
+    .hero-fold { min-height: min(calc(100svh - 68px), 880px); padding-bottom: 28px; }
     .hero-fold .trust.trust-bottom { margin-top: 18px; }
-    .callout { margin-top: 24px !important; }
+    .callout { margin-top: 12px !important; }
     .hero-under { font-size: 19px; padding: 12px 22px 13px; margin-bottom: 38px; }
     .hero-under-name { font-size: 12px; margin-bottom: 0; }
     .brand-plate .hero-hook { font-size: min(4.9vw, 26px); letter-spacing: -0.02em; }
@@ -1376,15 +1375,180 @@
   .success-card { background: rgba(250,246,238,0.05); }
   .success-card:hover, .tc-card:hover { border-color: rgba(250,246,238,0.32); }
   .calendar-band {
-    background:
-      radial-gradient(60% 50% at 50% 0%, var(--amber-wash), transparent 70%),
-      linear-gradient(180deg, rgba(19,41,63,0) 0%, var(--paper-2) 18%, var(--paper-2) 82%, rgba(19,41,63,0) 100%);
+    background: var(--paper-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
   }
   .site-foot { background: #081422; }
   .foot-links a { color: #FAF6EE; }
   #tweaks { border-color: rgba(11,27,43,0.15); }
   #tweaks .lbl { color: rgba(11,27,43,0.62); }
   #tweaks select, #tweaks input[type=range] { color: #0B1B2B; background: rgba(11,27,43,0.05); border-color: rgba(11,27,43,0.22); }
+</style>
+<style>
+  /* ---------- v4: flagship how-it-works section ---------- */
+  .pixel-section {
+    padding: 84px 32px 92px;
+    background: var(--paper-3);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .pixel-inner { max-width: 1140px; margin: 0 auto; text-align: center; }
+  .pixel-eyebrow {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--amber-2);
+    font-weight: 600;
+    margin: 0 0 18px;
+  }
+  .pixel-head {
+    font-family: 'General Sans', 'Geist', sans-serif;
+    font-weight: 600;
+    font-size: clamp(29px, 3.8vw, 50px);
+    line-height: 1.1; letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0 auto;
+    max-width: 880px;
+    text-wrap: balance;
+  }
+  .pixel-head em { font-style: normal; color: var(--amber-2); }
+  .pixel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 52px;
+    text-align: left;
+  }
+  .pixel-card {
+    position: relative;
+    overflow: hidden;
+    background: rgba(250,246,238,0.045);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 34px 34px 36px;
+    display: flex; flex-direction: column; gap: 18px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .pixel-card:hover { border-color: rgba(250,246,238,0.32); transform: translateY(-2px); }
+  .pixel-card .pixel-ghost {
+    position: absolute; top: -30px; right: 14px;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 168px; line-height: 1;
+    color: rgba(250,246,238,0.07);
+    pointer-events: none;
+    user-select: none;
+  }
+  .pixel-ico {
+    width: 60px; height: 60px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--amber-2);
+    background: var(--amber-wash);
+    border: 1px solid rgba(201,162,74,0.35);
+    flex-shrink: 0;
+  }
+  .pixel-ico svg { width: 28px; height: 28px; }
+  .pixel-title-wrap { display: flex; flex-direction: column; gap: 6px; }
+  .pixel-step-tag {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--amber-2);
+  }
+  .pixel-title {
+    font-family: 'General Sans', 'Geist', sans-serif;
+    font-weight: 600;
+    font-size: clamp(26px, 2.6vw, 34px);
+    letter-spacing: -0.02em; line-height: 1.1;
+    color: var(--ink);
+    margin: 0;
+  }
+  .pixel-copy {
+    font-family: 'General Sans', 'Geist', sans-serif;
+    font-size: 15.5px; line-height: 1.62;
+    color: var(--muted);
+    letter-spacing: -0.005em;
+    margin: 0;
+    max-width: 52ch;
+  }
+  .pixel-copy b { color: var(--ink); font-weight: 600; }
+  @media (max-width: 860px) {
+    .pixel-section { padding: 56px 20px 64px; }
+    .pixel-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
+    .pixel-card { padding: 24px 22px 26px; gap: 12px; border-radius: 14px; }
+    .pixel-card .pixel-ghost { font-size: 118px; top: -22px; right: 10px; }
+    .pixel-ico { width: 48px; height: 48px; border-radius: 12px; }
+    .pixel-ico svg { width: 24px; height: 24px; }
+    .pixel-title { font-size: 24px; }
+    .pixel-copy { font-size: 14.5px; max-width: none; }
+    .pixel-head { font-size: 27px; }
+    .pixel-eyebrow { font-size: 11px; margin-bottom: 12px; }
+  }
+  /* ---------- v5: agency vs us band ---------- */
+  .vs-band {
+    padding: 84px 32px 92px;
+    background: var(--paper-2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  #trust-section.vs-band { padding-top: 84px !important; }
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 52px;
+    text-align: left;
+    max-width: 1020px;
+    margin-left: auto; margin-right: auto;
+  }
+  .vs-col {
+    border-radius: 18px;
+    padding: 30px 32px 34px;
+    display: flex; flex-direction: column;
+  }
+  .vs-them {
+    background: rgba(126,42,42,0.16);
+    border: 1px solid rgba(233,150,150,0.22);
+  }
+  .vs-us {
+    background: rgba(63,84,72,0.42);
+    border: 1px solid rgba(170,200,180,0.42);
+    box-shadow: 0 24px 60px -34px rgba(0,0,0,0.7);
+  }
+  .vs-col-head {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11.5px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding-bottom: 16px;
+  }
+  .vs-them .vs-col-head { color: #E99696; }
+  .vs-us .vs-col-head { color: #AEC8B4; }
+  .vs-row {
+    display: flex; align-items: flex-start; gap: 13px;
+    font-family: 'General Sans', 'Geist', sans-serif;
+    font-size: 16.5px; line-height: 1.5;
+    color: var(--ink); letter-spacing: -0.005em;
+    padding: 15px 0;
+    border-top: 1px solid rgba(250,246,238,0.1);
+  }
+  .vs-row b { font-weight: 600; }
+  .vs-text { flex: 1; min-width: 0; }
+  .vs-mark {
+    width: 21px; height: 21px; border-radius: 50%; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 10.5px; font-weight: 700; line-height: 1;
+    color: #FAF6EE;
+    margin-top: 2px;
+  }
+  .vs-mark-x { background: #A63232; }
+  .vs-mark-check { background: var(--sage); }
+  @media (max-width: 860px) {
+    .vs-band { padding: 56px 20px 64px; }
+    #trust-section.vs-band { padding-top: 56px !important; }
+    .vs-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
+    .vs-col { padding: 20px 20px 24px; border-radius: 14px; }
+    .vs-row { font-size: 14.5px; gap: 10px; padding: 12px 0; }
+    .vs-mark { width: 18px; height: 18px; font-size: 9px; }
+    .vs-col-head { font-size: 10.5px; padding-bottom: 12px; }
+  }
 </style>
 </head>
 <body>
@@ -1408,7 +1572,7 @@
 
     <p class="hero-under"><span class="hero-under-name">The Retainer AI Pixel&trade;</span></p>
 
-    <h1 class="head"><span class="head-sub">Our AI Smart Targeting Captures Exclusive, Clear-Liability MVA Claimants Under Your Brand, and We Sign Them With a 24/7 Bilingual Intake Team.</span> <b>We Guarantee <span class="gy">30+ Cases in 90 Days</span> <span class="np">Or You Don&rsquo;t Pay</span></b></h1>
+    <h1 class="head"><span class="head-sub">We&rsquo;ll Capture Exclusive, Clear-Liability MVA Claimants Under Your Brand Using Our AI Smart Targeting &mdash; And Sign Them For You With Our 24/7 Bilingual Intake Team.</span> <b>We Guarantee <span class="gy">30+ Cases in 90 Days</span> <span class="np">Or You Don&rsquo;t Pay</span></b></h1>
 
     <!-- Trust row (businesses + credentials) -->
     <div class="trust trust-bottom">
@@ -1465,7 +1629,7 @@
 
     <!-- Our Partners carousel -->
     <style>
-      .partners { width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); margin-top: 0; margin-bottom: 24px; padding: 56px 40px 52px; text-align: center; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #ffffff 16%, #ffffff 84%, rgba(255,255,255,0) 100%); }
+      .partners { width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); margin-top: 0; margin-bottom: 0; padding: 56px 40px 52px; text-align: center; background: #ffffff; }
       .partners-head { font-family: 'General Sans', 'Geist', sans-serif; font-weight: 500; font-size: clamp(24px, 2.8vw, 34px); letter-spacing: -0.022em; color: #0B1B2B; margin: 0 0 6px; }
       .partners-sub { font-family: 'General Sans', sans-serif; font-size: 15px; color: rgba(11,27,43,0.62); margin: 0 0 26px; letter-spacing: -0.005em; }
       .partners-marquee { position: relative; overflow: hidden; }
@@ -1577,50 +1741,77 @@
   </section>
 
 
-  <!-- Trust section (movable) -->
-  <section class="wrap trust-band" id="trust-section" style="padding-top:20px;padding-bottom:8px;" data-screen-label="Mechanism">
-    <p class="bullets-head">Why Every Agency You&rsquo;ve Hired Got Paid While You Signed Nothing</p>
+  <!-- Agency comparison (movable) -->
+  <section class="vs-band" id="trust-section" data-screen-label="Mechanism">
+    <div class="pixel-inner">
+      <p class="pixel-eyebrow">The Agency Problem</p>
+      <h2 class="pixel-head">Why Every Agency You&rsquo;ve Hired Got Paid While <em>You Signed Nothing</em></h2>
 
-    <div class="agency-fails">
-      <div class="fail-chip"><span class="fail-x">✕</span>Gets paid on ad spend and lead volume, never outcomes</div>
-      <div class="fail-chip"><span class="fail-x">✕</span>Ships recycled, resold leads your staff re-vets from scratch</div>
-      <div class="fail-chip"><span class="fail-x">✕</span>Moves so slow the claimant signs across town first</div>
-      <div class="fail-chip win"><span class="fail-x">✓</span><b>We&rsquo;re different: paid only when you sign</b></div>
+      <div class="vs-grid">
+        <div class="vs-col vs-them">
+          <div class="vs-col-head">Every Agency You&rsquo;ve Tried</div>
+          <div class="vs-row"><span class="vs-mark vs-mark-x">✕</span>Gets paid on ad spend and lead volume &mdash; never outcomes</div>
+          <div class="vs-row"><span class="vs-mark vs-mark-x">✕</span>Ships recycled, resold leads your staff re-vets from scratch</div>
+          <div class="vs-row"><span class="vs-mark vs-mark-x">✕</span>Moves so slow the claimant signs across town first</div>
+        </div>
+        <div class="vs-col vs-us">
+          <div class="vs-col-head">Retainer Engine</div>
+          <div class="vs-row"><span class="vs-mark vs-mark-check">✓</span><span class="vs-text"><b>Paid only when you sign cases</b> &mdash; never on ad spend</span></div>
+          <div class="vs-row"><span class="vs-mark vs-mark-check">✓</span><span class="vs-text"><b>Exclusive claimants under your brand</b>, screened to your criteria</span></div>
+          <div class="vs-row"><span class="vs-mark vs-mark-check">✓</span><span class="vs-text"><b>Calls in 90 seconds</b>, signed before anyone else calls back</span></div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <p class="bullets-head pixel-steps-head" style="margin-top:56px;margin-bottom:34px;">How The Retainer AI Pixel&trade; Finds You Cases</p>
+  <!-- How it works: 4-step flagship section -->
+  <section class="pixel-section" id="how-it-works" aria-label="How The Retainer AI Pixel works" data-screen-label="How It Works">
+    <div class="pixel-inner">
+      <p class="pixel-eyebrow">How The Retainer AI Pixel&trade; Works</p>
+      <h2 class="pixel-head">The 4 Steps We Use To Sign You <em>30+ Cases In The Next 90 Days</em></h2>
 
-    <ul class="bullets">
-      <li class="bullet">
-        <div class="step-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3"></circle><path d="M12 1v3M12 20v3M1 12h3M20 12h3"></path></svg></div>
-        <div class="text">
-          <span class="tag">01 &middot; Attract</span>
-          Our team of <b>seasoned PI ad strategists</b> craft custom-built <b>Google and Meta ads</b> engineered for high-value injury cases. Your ideal claimants see you. Bargain hunters don&rsquo;t.</div>
-      </li>
-      <li class="bullet">
-        <div class="step-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v2a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 1h2a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L7.1 9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"></path></svg></div>
-        <div class="text">
-          <span class="tag">02 &middot; Qualify</span>
-          Our <b>bilingual (English &amp; Spanish) US-based intake</b> calls every claimant in 90 seconds and screens against <b>your case criteria</b>: clear fault, collectible coverage, real damages, inside statute. Nothing reaches your desk to re-vet.
-        </div>
-      </li>
-      <li class="bullet">
-        <div class="step-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></div>
-        <div class="text">
-          <span class="tag">03 &middot; Book &amp; Sign</span>
-          We <b>book the consult into your calendar</b> (or live-transfer) and chase the retainer to signature before the claimant hears back from the mill across town.
-        </div>
-      </li>
-      <li class="bullet">
-        <div class="step-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg></div>
-        <div class="text">
-          <span class="tag">04 &middot; Compound</span>
-          Every signed retainer feeds your <b>Retainer Pixel&trade;</b>, so next month&rsquo;s claimants look even more like your best cases.
-        </div>
-      </li>
-    </ul>
+      <div class="pixel-grid">
+        <article class="pixel-card">
+          <span class="pixel-ghost" aria-hidden="true">01</span>
+          <div class="pixel-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3"></circle><path d="M12 1v3M12 20v3M1 12h3M20 12h3"></path></svg></div>
+          <div class="pixel-title-wrap">
+            <div class="pixel-step-tag">Step 01</div>
+            <h3 class="pixel-title">Attract</h3>
+          </div>
+          <p class="pixel-copy">Seasoned PI ad strategists launch custom <b>Google &amp; Meta campaigns under your firm&rsquo;s brand</b>, engineered for high-value injury cases. Your ideal claimants see your firm everywhere they scroll &mdash; bargain hunters never make it through.</p>
+        </article>
 
+        <article class="pixel-card">
+          <span class="pixel-ghost" aria-hidden="true">02</span>
+          <div class="pixel-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v2a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 1h2a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L7.1 9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"></path></svg></div>
+          <div class="pixel-title-wrap">
+            <div class="pixel-step-tag">Step 02</div>
+            <h3 class="pixel-title">Qualify</h3>
+          </div>
+          <p class="pixel-copy">Our <b>24/7 bilingual (English &amp; Spanish), US-based intake team</b> calls every claimant within <b>90 seconds</b> and screens against your exact case criteria: clear fault, collectible coverage, real damages, inside statute. Nothing reaches your desk to re-vet.</p>
+        </article>
 
+        <article class="pixel-card">
+          <span class="pixel-ghost" aria-hidden="true">03</span>
+          <div class="pixel-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></div>
+          <div class="pixel-title-wrap">
+            <div class="pixel-step-tag">Step 03</div>
+            <h3 class="pixel-title">Book &amp; Sign</h3>
+          </div>
+          <p class="pixel-copy">We <b>book the consult straight into your calendar</b> (or live-transfer the claimant) and chase every retainer to signature before the mill across town calls back. You receive <b>signed cases, not phone numbers</b>.</p>
+        </article>
+
+        <article class="pixel-card">
+          <span class="pixel-ghost" aria-hidden="true">04</span>
+          <div class="pixel-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg></div>
+          <div class="pixel-title-wrap">
+            <div class="pixel-step-tag">Step 04</div>
+            <h3 class="pixel-title">Compound</h3>
+          </div>
+          <p class="pixel-copy">Every signed retainer feeds your <b>Retainer Pixel&trade;</b>, so targeting gets sharper every month and next month&rsquo;s claimants look even more like your best cases. <b>Your engine compounds</b> while everyone else rents leads.</p>
+        </article>
+      </div>
+    </div>
   </section>
 
   <!-- Testimonials carousel -->
@@ -1706,29 +1897,56 @@
   </section>
 
   <!-- The real problem -->
-  <section class="calendar-band" id="problem" data-screen-label="Predictability Problem">
-    <h2>The Problem We Solve</h2>
-    <p class="calendar-sub" style="max-width:720px;margin:14px auto 0;text-align:center;">A dry month doesn&rsquo;t just mean less income. It means intake staff and case managers on payroll <b>with nothing coming in</b>.</p>
-    <div class="calendar-promises">
-      <div class="calendar-promise">
-        <div class="calendar-promise-num">01 &middot; The Swing</div>
-        <div class="calendar-promise-text"><b>Up one month, gone the next.</b> Marketing-driven volume you can&rsquo;t forecast turns hiring and growth into a gamble.</div>
+  <section class="pixel-section" id="problem" data-screen-label="Predictability Problem">
+    <div class="pixel-inner">
+      <p class="pixel-eyebrow">The Problem We Solve</p>
+      <h2 class="pixel-head">A Dry Month Doesn&rsquo;t Just Mean Less Income &mdash; It Means Staff On Payroll <em>With Nothing Coming In</em></h2>
+
+      <div class="pixel-grid">
+        <article class="pixel-card">
+          <span class="pixel-ghost" aria-hidden="true">01</span>
+          <div class="pixel-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></div>
+          <div class="pixel-title-wrap">
+            <div class="pixel-step-tag">01</div>
+            <h3 class="pixel-title">The Swing</h3>
+          </div>
+          <p class="pixel-copy"><b>Up one month, gone the next.</b> Marketing-driven volume you can&rsquo;t forecast turns hiring and growth into a gamble.</p>
+        </article>
+
+        <article class="pixel-card">
+          <span class="pixel-ghost" aria-hidden="true">02</span>
+          <div class="pixel-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16"></path><path d="M12 21V9"></path><path d="m7 14 5-5 5 5"></path></svg></div>
+          <div class="pixel-title-wrap">
+            <div class="pixel-step-tag">02</div>
+            <h3 class="pixel-title">The Referral Ceiling</h3>
+          </div>
+          <p class="pixel-copy">Referrals send great cases but can&rsquo;t scale, and <b>the best ones never get sent</b>. 50/50 splits and steak dinners keep someone else&rsquo;s pipeline alive, not yours.</p>
+        </article>
+
+        <article class="pixel-card">
+          <span class="pixel-ghost" aria-hidden="true">03</span>
+          <div class="pixel-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"></path><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 10h18"></path><path d="m9 16 2 2 4-4"></path></svg></div>
+          <div class="pixel-title-wrap">
+            <div class="pixel-step-tag">03</div>
+            <h3 class="pixel-title">Forecastable Flow</h3>
+          </div>
+          <p class="pixel-copy">A set flow of <b>exclusive, signed MVA retainers landing on schedule</b>, steady enough to plan payroll, hiring, and growth around.</p>
+        </article>
+
+        <article class="pixel-card">
+          <span class="pixel-ghost" aria-hidden="true">04</span>
+          <div class="pixel-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="3.5"></circle><path d="m21 2-9.6 9.6"></path><path d="m15.5 7.5 3 3L22 7l-3-3"></path></svg></div>
+          <div class="pixel-title-wrap">
+            <div class="pixel-step-tag">04</div>
+            <h3 class="pixel-title">You Own the Engine</h3>
+          </div>
+          <p class="pixel-copy">Ads, data, and claimants run under <b>your brand</b>. You keep <b>100% of your fee</b>: no splits, no shared leads, no relationship tax.</p>
+        </article>
       </div>
-      <div class="calendar-promise">
-        <div class="calendar-promise-num">02 &middot; The Referral Ceiling</div>
-        <div class="calendar-promise-text">Referrals send great cases but can&rsquo;t scale, and <b>the best ones never get sent</b>. 50/50 splits and steak dinners keep someone else&rsquo;s pipeline alive, not yours.</div>
+
+      <div class="trust-cta-row" style="padding:44px 0 0;flex-direction:column;gap:14px;">
+        <a href="#calendar" class="cta cta-lg">TALK TO AN EXPERT</a>
       </div>
-      <div class="calendar-promise">
-        <div class="calendar-promise-num">03 &middot; Forecastable Flow</div>
-        <div class="calendar-promise-text">A set flow of <b>exclusive, signed MVA retainers landing on schedule</b>, steady enough to plan payroll, hiring, and growth around.</div>
-      </div>
-      <div class="calendar-promise">
-        <div class="calendar-promise-num">04 &middot; You Own the Engine</div>
-        <div class="calendar-promise-text">Ads, data, and claimants run under <b>your brand</b>. You keep <b>100% of your fee</b>: no splits, no shared leads, no relationship tax.</div>
-      </div>
-    </div>
-    <div class="trust-cta-row" style="padding:36px 0 20px;flex-direction:column;gap:14px;">
-      <a href="#calendar" class="cta cta-lg">TALK TO AN EXPERT</a>
     </div>
   </section>
 
@@ -1738,6 +1956,36 @@
       <h2 class="faq-head">Frequently Asked Questions</h2>
 
       <div class="faq-item active">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>What exactly does Retainer Engine do?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We capture exclusive, clear-liability MVA claimants under <b>your firm&rsquo;s brand</b> using our Retainer AI Pixel&trade; &mdash; smart targeting trained on your signed cases, not generic clicks &mdash; then our <b>24/7 bilingual intake team</b> calls, qualifies, and signs them for you. You don&rsquo;t buy leads; you receive <b>signed retainers</b>. And it&rsquo;s guaranteed: <b>30+ cases in 90 days or you don&rsquo;t pay</b>.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>What do we actually get?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">A predictable flow of <b>signed MVA retainers, exclusive to your firm</b> &mdash; never shared, resold, or recycled. Every claimant is pre-screened against your case criteria (clear fault, collectible coverage, real damages, inside statute) and booked into your calendar or live-transferred. Ads, data, and claimants all run under your brand, and you keep <b>100% of your fee</b>.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>Why is this better than the agencies we&rsquo;ve tried?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Agencies get paid on ad spend and lead volume &mdash; whether you sign anything or not. <b>We only get paid when you sign cases.</b> No shared leads, no re-vetting cold names, no long-term contracts: 90-day sprints backed by the <b>30-in-90 guarantee</b>.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
         <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
           <span>Do you only work with personal injury firms?</span>
           <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
@@ -1794,16 +2042,6 @@
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">Cold Meta ads run under your firm's own brand. Every claimant is exclusive to you: no shared leads, no aggregators, no recycled lists. Our 24/7 bilingual team calls, screens, and signs them under your name.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
-          <span>How is Retainer Engine different from other agencies?</span>
-          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">We only work with PI firms, we get paid on signed cases (not your ad spend), and everything runs under your brand. No long contracts, no jargon. You see exactly where every dollar goes.</div>
         </div>
       </div>
 
