@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Retainer Engine — The Retainer Pixel™: Pay Only for Signed MVA Retainers</title>
-<meta name="description" content="The Retainer Pixel™ is an AI trained on signed cases, not clicks. It sources exclusive, clear-liability MVA claimants under your firm's brand and our 24/7 bilingual intake team signs them. 30 signed retainers in 90 days, or we don't get paid." />
+<meta name="description" content="Our AI Smart Targeting finds exclusive, clear-liability MVA claimants under your brand, and we sign them with a 24/7 bilingual intake team. We guarantee 30+ cases in 90 days or you don't pay." />
 <meta name="theme-color" content="#0B1B2B" />
 <link rel="canonical" href="https://retainer-engine.com/" />
 <link rel="icon" type="image/png" href="/assets/favicon.png" />
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Retainer Engine" />
 <meta property="og:title" content="The Retainer Pixel™ — Pay Only for Signed MVA Retainers" />
-<meta property="og:description" content="AI trained on signed cases, not clicks. Exclusive MVA claimants under your brand, signed by a 24/7 bilingual intake team. 30 cases in 90 days or we don't get paid." />
+<meta property="og:description" content="Exclusive, clear-liability MVA claimants under your brand, signed by a 24/7 bilingual intake team. We guarantee 30+ cases in 90 days or you don't pay." />
 <meta property="og:locale" content="en_US" />
 <meta property="og:url" content="https://retainer-engine.com/" />
 <meta property="og:image" content="https://retainer-engine.com/assets/og-image.png" />
@@ -23,7 +23,7 @@
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="The Retainer Pixel™ — Pay Only for Signed MVA Retainers" />
-<meta name="twitter:description" content="AI trained on signed cases, not clicks. Exclusive MVA claimants under your brand, signed by a 24/7 bilingual intake team. 30 cases in 90 days or we don't get paid." />
+<meta name="twitter:description" content="Exclusive, clear-liability MVA claimants under your brand, signed by a 24/7 bilingual intake team. We guarantee 30+ cases in 90 days or you don't pay." />
 <meta name="twitter:image" content="https://retainer-engine.com/assets/og-image.png" />
 
 <!-- Structured data: Organization + WebSite -->
@@ -381,6 +381,7 @@
     text-align: center;
   }
   .bullets-head b { font-weight: 500; }
+  .pixel-steps-head { font-size: 27px; font-weight: 600; }
   .bullets-sub {
     font-family: 'General Sans', 'Geist', sans-serif;
     font-weight: 400;
@@ -410,6 +411,14 @@
     font-size: 12px; letter-spacing: 0.08em;
     color: var(--amber);
     padding-top: 3px;
+  }
+  .step-ico {
+    width: 42px; height: 42px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--amber-2);
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.03);
+    margin-top: 2px;
   }
   .bullet .text {
     font-size: 15px; line-height: 1.5;
@@ -603,14 +612,14 @@
     }
     .success-section .trust-cta-row {
       padding-top: 30px !important;
-      padding-bottom: 12px !important;
+      padding-bottom: 0 !important;
     }
-    .success-section { padding-bottom: 44px !important; }
+    .success-section { padding-bottom: 30px !important; }
   }
 
   /* ---------- Client Success Stories ---------- */
   .success-section {
-    padding: 40px 32px 96px;
+    padding: 40px 32px 20px;
     background:
       radial-gradient(80% 50% at 50% 0%, var(--amber-wash), transparent 70%),
       linear-gradient(180deg, var(--paper-2) 0%, var(--paper-2) 72%, rgba(17,37,58,0) 100%);
@@ -715,11 +724,11 @@
   @media (max-width: 960px) {
     .success-grid { gap: 16px; }
     .success-col { gap: 16px; }
-    .success-section { padding: 36px 24px 72px; }
+    .success-section { padding: 36px 24px 30px; }
   }
   @media (max-width: 600px) {
     .success-grid { flex-direction: column; gap: 16px; }
-    .success-section { padding: 32px 20px 64px; }
+    .success-section { padding: 32px 20px 30px; }
   }
 
   /* iMessage mock */
@@ -1132,6 +1141,10 @@
   }
   .hero-fold .trust.trust-bottom { margin-top: 40px; }
   #founderCta { margin-top: auto; }
+  @media (min-width: 641px) {
+    .hero-fold { min-height: 0; padding-bottom: 48px; }
+    #founderCta { margin-top: 0; }
+  }
   /* ICP pill above the guarantee */
   .hero-pill {
     display: block; width: fit-content;
@@ -1330,6 +1343,7 @@
     .calendar-band h2 .mbr { display: none; }
     .mbr { display: block; }
     .bullets-head { font-size: 20px; line-height: 1.3; }
+    .pixel-steps-head { font-size: 23px; }
     .bullets-close { font-size: 13.5px; line-height: 1.55; }
     #trust-section { padding-top: 4px !important; }
     section.partners { margin-bottom: 0; }
@@ -1392,9 +1406,9 @@
 
     <div class="hero-pill">*Only For Experienced PI Firms Clearing $2M/Year*</div>
 
-    <p class="hero-under"><span class="hero-under-name">The Retainer Pixel&trade;</span></p>
+    <p class="hero-under"><span class="hero-under-name">The Retainer AI Pixel&trade;</span></p>
 
-    <h1 class="head"><span class="head-sub">Our AI Smart Targeting Sources Exclusive, Clear-Liability MVA Claimants Under Your Brand, and We Sign Them With a 24/7 Bilingual Intake Team.</span> <b>We Guarantee <span class="gy">30+ Cases in 90 Days</span> <span class="np">Or You Don&rsquo;t Pay</span></b></h1>
+    <h1 class="head"><span class="head-sub">Our AI Smart Targeting Captures Exclusive, Clear-Liability MVA Claimants Under Your Brand, and We Sign Them With a 24/7 Bilingual Intake Team.</span> <b>We Guarantee <span class="gy">30+ Cases in 90 Days</span> <span class="np">Or You Don&rsquo;t Pay</span></b></h1>
 
     <!-- Trust row (businesses + credentials) -->
     <div class="trust trust-bottom">
@@ -1553,7 +1567,7 @@
         </div>
       </div>
 
-      <div class="trust-cta-row" style="padding-top:40px;padding-bottom:8px;flex-direction:column;gap:14px;">
+      <div class="trust-cta-row" style="padding-top:40px;padding-bottom:0;flex-direction:column;gap:14px;">
         <a href="#calendar" class="cta cta-lg">
           SEE IF YOU QUALIFY TO WORK WITH US
         </a>
@@ -1564,7 +1578,7 @@
 
 
   <!-- Trust section (movable) -->
-  <section class="wrap trust-band" id="trust-section" style="padding-top:64px;padding-bottom:8px;" data-screen-label="Mechanism">
+  <section class="wrap trust-band" id="trust-section" style="padding-top:20px;padding-bottom:8px;" data-screen-label="Mechanism">
     <p class="bullets-head">Why Every Agency You&rsquo;ve Hired Got Paid While You Signed Nothing</p>
 
     <div class="agency-fails">
@@ -1574,29 +1588,31 @@
       <div class="fail-chip win"><span class="fail-x">✓</span><b>We&rsquo;re different: paid only when you sign</b></div>
     </div>
 
+    <p class="bullets-head pixel-steps-head" style="margin-top:56px;margin-bottom:34px;">How The Retainer AI Pixel&trade; Finds You Cases</p>
+
     <ul class="bullets">
       <li class="bullet">
-        <div class="time">0:00</div>
+        <div class="step-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3"></circle><path d="M12 1v3M12 20v3M1 12h3M20 12h3"></path></svg></div>
         <div class="text">
           <span class="tag">01 &middot; Attract</span>
-          Custom Meta ads by <b>seasoned PI media buyers</b> run under <b>your brand</b>, never a list resold to four other firms. Clear-liability MVA claimants see you; soft-tissue bargain hunters get filtered out.</div>
+          Our team of <b>seasoned PI ad strategists</b> craft custom-built <b>Google and Meta ads</b> engineered for high-value injury cases. Your ideal claimants see you. Bargain hunters don&rsquo;t.</div>
       </li>
       <li class="bullet">
-        <div class="time">0:05</div>
+        <div class="step-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v2a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 1h2a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L7.1 9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"></path></svg></div>
         <div class="text">
           <span class="tag">02 &middot; Qualify</span>
           Our <b>bilingual (English &amp; Spanish) US-based intake</b> calls every claimant in 90 seconds and screens against <b>your case criteria</b>: clear fault, collectible coverage, real damages, inside statute. Nothing reaches your desk to re-vet.
         </div>
       </li>
       <li class="bullet">
-        <div class="time">0:47</div>
+        <div class="step-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></div>
         <div class="text">
           <span class="tag">03 &middot; Book &amp; Sign</span>
           We <b>book the consult into your calendar</b> (or live-transfer) and chase the retainer to signature before the claimant hears back from the mill across town.
         </div>
       </li>
       <li class="bullet">
-        <div class="time">&infin;</div>
+        <div class="step-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg></div>
         <div class="text">
           <span class="tag">04 &middot; Compound</span>
           Every signed retainer feeds your <b>Retainer Pixel&trade;</b>, so next month&rsquo;s claimants look even more like your best cases.
