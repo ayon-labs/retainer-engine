@@ -1084,6 +1084,33 @@
     width: 4px; height: 4px; border-radius: 50%;
     background: rgba(250,245,234,0.3);
   }
+  .foot-badges {
+    display: flex; align-items: center; justify-content: center; gap: 28px;
+    margin-top: 6px;
+  }
+  .foot-badge {
+    display: flex; align-items: center; gap: 11px;
+    padding: 10px 18px 10px 14px;
+    border: 1px solid rgba(250,245,234,0.16);
+    border-radius: 12px;
+    background: rgba(250,245,234,0.04);
+  }
+  .foot-badge svg { width: 34px; height: 34px; flex-shrink: 0; }
+  .foot-badge-text {
+    display: flex; flex-direction: column; gap: 1px;
+    text-align: left;
+    font-family: 'Geist Mono', monospace;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .foot-badge-text b { font-size: 12.5px; font-weight: 700; color: #FAF6EE; }
+  .foot-badge-text span { font-size: 9.5px; color: rgba(250,245,234,0.55); }
+  @media (max-width: 640px) {
+    .foot-badges { gap: 12px; }
+    .foot-badge { padding: 8px 13px 8px 11px; gap: 9px; }
+    .foot-badge svg { width: 28px; height: 28px; }
+    .foot-badge-text b { font-size: 11px; }
+    .foot-badge-text span { font-size: 8.5px; }
+  }
   .foot-rule {
     width: 100%; max-width: 880px;
     height: 1px;
@@ -2020,6 +2047,16 @@
 
       <div class="faq-item">
         <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>Is our data (and our claimants&rsquo; data) safe with you?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. We&rsquo;re <b>SOC&nbsp;2 compliant</b> &mdash; claimant and firm data is handled under audited security controls &mdash; and we carry <b>full business insurance</b>. Your data and your claimants&rsquo; data belong to your firm, never shared or resold.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
           <span>Are we locked into a long-term contract?</span>
           <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
         </button>
@@ -2067,6 +2104,23 @@
       <span class="sep" aria-hidden="true"></span>
       <a href="https://retainer-engine.com/tos" target="_blank" rel="noopener">Terms of Service</a>
     </nav>
+
+    <div class="foot-badges">
+      <div class="foot-badge" title="SOC 2 Compliant">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M24 4l14 5v11c0 9.6-6 18.4-14 21-8-2.6-14-11.4-14-21V9l14-5z" fill="rgba(201,162,74,0.14)" stroke="var(--amber-2, #C9A24A)" stroke-width="2" stroke-linejoin="round"></path>
+          <path d="M17.5 24.5l4.5 4.5 9-9" stroke="var(--amber-2, #C9A24A)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <div class="foot-badge-text"><b>SOC 2</b><span>Compliant</span></div>
+      </div>
+      <div class="foot-badge" title="Fully Insured">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <circle cx="24" cy="24" r="19" fill="rgba(201,162,74,0.14)" stroke="var(--amber-2, #C9A24A)" stroke-width="2"></circle>
+          <path d="M24 13c3 2.4 6.2 3.4 9 3.6-.3 8.2-3.4 14.3-9 17.4-5.6-3.1-8.7-9.2-9-17.4 2.8-.2 6-1.2 9-3.6z" stroke="var(--amber-2, #C9A24A)" stroke-width="1.8" stroke-linejoin="round"></path>
+        </svg>
+        <div class="foot-badge-text"><b>Fully Insured</b><span>Business Coverage</span></div>
+      </div>
+    </div>
 
     <div class="foot-rule"></div>
 
