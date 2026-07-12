@@ -73,6 +73,9 @@
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://api.leadconnectorhq.com">
 <link rel="dns-prefetch" href="https://link.msgsndr.com">
+<!-- Preload the two General Sans weights used in the above-the-fold hero (500 headline, 600 hook) so the LCP text paints in its final font a round-trip sooner -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.fontshare.com/wf/3RZHWSNONLLWJK3RLPEKUZOMM56GO4LJ/BPDRY7AHVI3MCDXXVXTQQ76H3UXA63S3/SB2OEB6IKZPRR6JT4GFJ2TFT6HBB6AZN.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.fontshare.com/wf/K46YRH762FH3QJ25IQM3VAXAKCHEXXW4/ISLWQPUZHZF33LRIOTBMFOJL57GBGQ4B/3ZLMEXZEQPLTEPMHTQDAUXP5ZZXCZAEN.woff2">
 <!-- Google Fonts loaded non-render-blocking; @font-face still uses display:swap so text paints immediately -->
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
