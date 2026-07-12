@@ -70,7 +70,13 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://api.leadconnectorhq.com">
+<link rel="dns-prefetch" href="https://link.msgsndr.com">
+<!-- Google Fonts loaded non-render-blocking; @font-face still uses display:swap so text paints immediately -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"></noscript>
 <style>
 @font-face { font-family: 'General Sans'; src: url('https://cdn.fontshare.com/wf/MFQT7HFGCR2L5ULQTW6YXYZXXHMPKLJ3/YWQ244D6TACUX5JBKATPOW5I5MGJ3G73/7YY3ZAAE3TRV2LANYOLXNHTPHLXVWTKH.woff2') format('woff2'); font-weight: 400; font-display: swap; font-style: normal; }
 @font-face { font-family: 'General Sans'; src: url('https://cdn.fontshare.com/wf/3RZHWSNONLLWJK3RLPEKUZOMM56GO4LJ/BPDRY7AHVI3MCDXXVXTQQ76H3UXA63S3/SB2OEB6IKZPRR6JT4GFJ2TFT6HBB6AZN.woff2') format('woff2'); font-weight: 500; font-display: swap; font-style: normal; }
@@ -277,7 +283,8 @@
   .founder-photo {
     width: 100%; aspect-ratio: 4/5;
     border-radius: 10px;
-    background-image: url('assets/founder-stage.jpg?v=27');
+    background-image: url('assets/founder-stage.jpg?v=40');
+    background-image: image-set(url('assets/founder-stage.webp?v=40') type('image/webp'), url('assets/founder-stage.jpg?v=40') type('image/jpeg'));
     background-size: cover;
     background-position: 55% 18%;
     box-shadow: 0 6px 24px rgba(23,51,45,0.14);
@@ -332,13 +339,13 @@
     margin-left: -10px;
   }
   .face:first-child { margin-left: 0; }
-  .face.f1 { background-image: url('assets/face-1.png?v=27'); }
-  .face.f2 { background-image: url('assets/face-2.png?v=27'); }
-  .face.f3 { background-image: url('assets/face-3.png?v=27'); }
-  .face.f4 { background-image: url('assets/face-4.png?v=27'); }
-  .face.f5 { background-image: url('assets/face-7.png?v=28'); }
-  .face.f6 { background-image: url('assets/face-6.png?v=27'); }
-  .face.f7 { background-image: url('assets/face-7.png?v=27'); }
+  .face.f1 { background-image: url('assets/face-1.png?v=40'); background-image: image-set(url('assets/face-1.webp?v=40') type('image/webp'), url('assets/face-1.png?v=40') type('image/png')); }
+  .face.f2 { background-image: url('assets/face-2.png?v=40'); background-image: image-set(url('assets/face-2.webp?v=40') type('image/webp'), url('assets/face-2.png?v=40') type('image/png')); }
+  .face.f3 { background-image: url('assets/face-3.png?v=40'); background-image: image-set(url('assets/face-3.webp?v=40') type('image/webp'), url('assets/face-3.png?v=40') type('image/png')); }
+  .face.f4 { background-image: url('assets/face-4.png?v=40'); background-image: image-set(url('assets/face-4.webp?v=40') type('image/webp'), url('assets/face-4.png?v=40') type('image/png')); }
+  .face.f5 { background-image: url('assets/face-7.png?v=40'); background-image: image-set(url('assets/face-7.webp?v=40') type('image/webp'), url('assets/face-7.png?v=40') type('image/png')); }
+  .face.f6 { background-image: url('assets/face-6.png?v=40'); background-image: image-set(url('assets/face-6.webp?v=40') type('image/webp'), url('assets/face-6.png?v=40') type('image/png')); }
+  .face.f7 { background-image: url('assets/face-7.png?v=40'); background-image: image-set(url('assets/face-7.webp?v=40') type('image/webp'), url('assets/face-7.png?v=40') type('image/png')); }
 
   .trust-num {
     font-family: 'Instrument Serif', serif; font-weight: 400;
@@ -1647,13 +1654,14 @@
   <section class="calendar-band" id="calendar" data-screen-label="Booking">
     <h2>Book a Free Consultation Call With Our <span style="color: var(--amber-2);">Legal Growth Expert</span></h2>
 <div class="calendar-slot">
-  <iframe 
-    id="KkvE1y4GIsXSjROLZGBW_1782983225681" 
-    src="https://api.leadconnectorhq.com/widget/booking/phvZsJwCIB8IQ234ox4p" 
-    style="width: 100%; border: none; overflow: hidden;" 
-    scrolling="no">
+  <iframe
+    id="KkvE1y4GIsXSjROLZGBW_1782983225681"
+    src="https://api.leadconnectorhq.com/widget/booking/phvZsJwCIB8IQ234ox4p"
+    style="width: 100%; border: none; overflow: hidden;"
+    scrolling="no"
+    loading="lazy">
   </iframe>
-  <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+  <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript" defer></script>
 </div>
   </section>
 
@@ -1865,7 +1873,7 @@
           <p class="tc-quote">Retainer Engine completely rebuilt the way leads move through our firm. They call every new inquiry in under two minutes, filter out the tire-kickers, and hand my paralegal a <b>qualified, ready-to-sign claimant</b> — not a cold name and number.</p>
           <button class="tc-readmore" type="button">Read more</button>
           <div class="tc-author">
-            <div class="tc-avatar" style="background-image:url('assets/jason-paris.jpg?v=28');"></div>
+            <div class="tc-avatar" style="background-image:url('assets/jason-paris.jpg?v=40');"></div>
             <div>
               <div class="tc-name">Jason Paris, Esq.</div>
               <div class="tc-role">Founder &amp; Lead Trial Attorney, Paris Law Group &middot; NYC &amp; Westchester</div>
@@ -1884,7 +1892,7 @@
           <p class="tc-quote">In 2024 we were doing <b>$1.8M a year. We're now on pace for $3.6M</b> and we made our entire investment back in the first 23 days. Two policy-limit auto cases closed from leads that were 60 days cold — that alone paid for the year.</p>
           <button class="tc-readmore" type="button">Read more</button>
           <div class="tc-author">
-            <div class="tc-avatar" style="background-image:url('assets/steven-stieglitz.jpg?v=32');"></div>
+            <div class="tc-avatar" style="background-image:url('assets/steven-stieglitz.jpg?v=40');"></div>
             <div>
               <div class="tc-name">Steven Stieglitz, Esq.</div>
               <div class="tc-role">Managing Partner, Stieglitz &amp; Welch</div>
@@ -1903,7 +1911,7 @@
           <p class="tc-quote">Before Retainer Engine we had <b>two offices doing a little under $2M</b> in fees. We've now opened a third, are targeting <b>$4.5M this year</b>, and I've gone from five days in court to two — the system runs without me.</p>
           <button class="tc-readmore" type="button">Read more</button>
           <div class="tc-author">
-            <div class="tc-avatar" style="background-image:url('assets/doug-zanes.jpg?v=28');"></div>
+            <div class="tc-avatar" style="background-image:url('assets/doug-zanes.jpg?v=40');"></div>
             <div>
               <div class="tc-name">Doug Zanes, Esq.</div>
               <div class="tc-role">Founder, Zanes Law &middot; Phoenix</div>
