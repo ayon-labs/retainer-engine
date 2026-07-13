@@ -1685,19 +1685,24 @@
     var iframe = document.getElementById('phvZsJwCIB8IQ234ox4p_1782983225681');
     var fb = document.getElementById('calendarFallback');
     var loaded = false;
+    function markLoaded() {
+      loaded = true;
+      if (fb) fb.setAttribute('hidden', 'hidden');
+    }
+    // Primary, reliable signal: the iframe's own load event (fires cross-origin
+    // when the booking widget document finishes loading, even on slow LTE and
+    // when nested inside the GHL wrapper iframe).
+    if (iframe) iframe.addEventListener('load', markLoaded);
+    // Secondary signal: LeadConnector posts messages once the widget is interactive.
     window.addEventListener('message', function(e) {
-      if (String(e.origin).indexOf('leadconnectorhq.com') > -1) {
-        loaded = true;
-        if (fb) fb.setAttribute('hidden', 'hidden');
-        if (iframe) iframe.style.minHeight = '720px';
-      }
+      if (String(e.origin).indexOf('leadconnectorhq.com') > -1) markLoaded();
     });
+    // Last resort only: if nothing loaded after a generous window, reveal the
+    // backup link. NEVER collapse the iframe -- keep its reserved height so a
+    // slow-but-working calendar can still paint whenever it arrives.
     setTimeout(function() {
-      if (!loaded) {
-        if (fb) fb.removeAttribute('hidden');
-        if (iframe) iframe.style.minHeight = '0';
-      }
-    }, 7000);
+      if (!loaded && fb) fb.removeAttribute('hidden');
+    }, 12000);
   })();
   </script>
 </div>
