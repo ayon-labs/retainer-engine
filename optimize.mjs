@@ -42,7 +42,9 @@ let html = readFileSync(HTML, 'utf8');
 const before = html;
 
 // 2a. Head: preconnects + hero-font preloads + non-blocking Google Fonts.
-if (!html.includes('cdn.fontshare.com')) {
+// Guard on the preconnect link specifically -- cdn.fontshare.com always appears
+// in the General Sans @font-face src, so it can't be the "already done" sentinel.
+if (!html.includes('<link rel="preconnect" href="https://cdn.fontshare.com"')) {
   const GF = /<link href="(https:\/\/fonts\.googleapis\.com\/css2\?[^"]*&display=swap)" rel="stylesheet">/;
   const m = html.match(GF);
   if (m) {

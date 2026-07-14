@@ -73,10 +73,10 @@
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://api.leadconnectorhq.com">
 <link rel="dns-prefetch" href="https://link.msgsndr.com">
-<!-- Preload the two General Sans weights used in the above-the-fold hero (500 headline, 600 hook) so the LCP text paints in its final font a round-trip sooner -->
+<!-- Preload the two General Sans weights used in the above-the-fold hero (500 headline, 600 hook) -->
 <link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.fontshare.com/wf/3RZHWSNONLLWJK3RLPEKUZOMM56GO4LJ/BPDRY7AHVI3MCDXXVXTQQ76H3UXA63S3/SB2OEB6IKZPRR6JT4GFJ2TFT6HBB6AZN.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.fontshare.com/wf/K46YRH762FH3QJ25IQM3VAXAKCHEXXW4/ISLWQPUZHZF33LRIOTBMFOJL57GBGQ4B/3ZLMEXZEQPLTEPMHTQDAUXP5ZZXCZAEN.woff2">
-<!-- Google Fonts loaded non-render-blocking; @font-face still uses display:swap so text paints immediately -->
+<!-- Google Fonts loaded non-render-blocking; @font-face still uses display:swap -->
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
@@ -286,8 +286,7 @@
   .founder-photo {
     width: 100%; aspect-ratio: 4/5;
     border-radius: 10px;
-    background-image: url('assets/founder-stage.jpg?v=40');
-    background-image: image-set(url('assets/founder-stage.webp?v=40') type('image/webp'), url('assets/founder-stage.jpg?v=40') type('image/jpeg'));
+    background-image: url('assets/founder-stage.jpg?v=40'); background-image: image-set(url('assets/founder-stage.webp?v=40') type('image/webp'), url('assets/founder-stage.jpg?v=40') type('image/jpeg'));
     background-size: cover;
     background-position: 55% 18%;
     box-shadow: 0 6px 24px rgba(23,51,45,0.14);
@@ -1166,7 +1165,7 @@
     /* Hero mobile breathing room */
     .hero-wrap .head { margin-bottom: 10px; }
     .hero-wrap { padding-left: 12px !important; padding-right: 12px !important; }
-    .hero-sub { font-size: 21px; letter-spacing: -0.02em; line-height: 1.35; }
+    .hero-sub { font-size: 15px; letter-spacing: -0.02em; line-height: 1.35; }
     .trust-tp-only { padding: 28px 0 0; margin-top: 8px; }
     .trust-cta-row {
       padding-top: 120px !important;
@@ -1210,7 +1209,7 @@
     display: block; width: fit-content;
     margin: 0 auto 32px;
     background: none;
-    color: var(--amber-2);
+    color: var(--amber);
     text-align: center;
     font-family: 'Plus Jakarta Sans', 'General Sans', sans-serif;
     font-style: normal;
@@ -1221,10 +1220,12 @@
     border-radius: 0;
   }
   h1.head { font-size: clamp(22px, 2.9vw, 38px); line-height: 1.22; margin-bottom: 26px; }
-  h1.head b { font-weight: 700; display: block; margin: 0; font-size: 1.45em; line-height: 1.12; }
+  h1.head b { font-weight: 700; font-family: 'General Sans', 'Geist', -apple-system, sans-serif; display: block; margin: 0; font-size: 1.305em; line-height: 1.12; }
+  @media (max-width: 640px) { h1.head b { font-size: 28px; line-height: 1.18; letter-spacing: -0.03em; text-wrap: balance; } }
   h1.head b .gy { color: var(--amber-2); }
   h1.head b .np { color: #F04E45; }
   h1.head .head-sub { font-size: 1.14em; opacity: 1; display: block; margin: 42px 0 0; background: transparent; }
+  @media (max-width: 640px) { h1.head .head-sub { font-size: 21px; line-height: 1.4; } }
   h1.head .head-sub .gy { color: var(--amber-2); }
   h1.head .head-sub .np { color: var(--amber-2); }
   .hero-br { display: none; }
@@ -1427,7 +1428,7 @@
   /* ---------- v3: navy-primary inversion fixes ---------- */
   a { color: var(--amber-2); }
   a:hover { color: var(--amber-3); }
-  .hero-pill { color: var(--amber-2); }
+  .hero-pill { color: var(--amber); }
   .cta { background: var(--amber); color: var(--navy-ink); }
   .cta:hover { background: var(--amber-2); color: var(--navy-ink); }
   .cta.cta-xl { padding: 21px 44px; font-size: 18px; font-weight: 600; box-shadow: 0 10px 34px rgba(201,162,74,0.32); }
@@ -1639,7 +1640,7 @@
 
     <div class="hero-pill">Only For Experienced PI Firms Clearing $2M/Year</div>
 
-    <h1 class="head"><b><span style="color:var(--amber);">30+ Signed Cases in 90 Days</span> And You Only Pay For Cases You Actually Sign.</b> <span class="head-sub">Our <span class="np">Stanford AI Case Targeting System</span> Generates Exclusive MVA Claimants Under Your Brand,<br class="hero-br" /> Then We Sign Them With A 24/7 Bilingual Intake Team.</span></h1>
+    <h1 class="head"><b><span style="color:var(--amber-2);">30+ Signed Cases in 90 Days</span> Or You Don't Pay.</b> <span class="head-sub">Our Stanford AI Case Targeting System Generates Exclusive MVA Claimants Under Your Brand,<br class="hero-br" /> Then We Sign Them With A 24/7 Bilingual Intake Team.</span></h1>
 
     <div class="trust-cta-row" id="founderCta" style="flex-direction:column;gap:10px;">
       <a href="#calendar" class="cta cta-xl">SEE IF YOUR MARKET IS OPEN</a>
@@ -1705,17 +1706,12 @@
       loaded = true;
       if (fb) fb.setAttribute('hidden', 'hidden');
     }
-    // Primary, reliable signal: the iframe's own load event (fires cross-origin
-    // when the booking widget document finishes loading, even on slow LTE and
-    // when nested inside the GHL wrapper iframe).
+    // Reliable cross-origin load signal (works on slow LTE and inside the GHL wrapper).
     if (iframe) iframe.addEventListener('load', markLoaded);
-    // Secondary signal: LeadConnector posts messages once the widget is interactive.
     window.addEventListener('message', function(e) {
       if (String(e.origin).indexOf('leadconnectorhq.com') > -1) markLoaded();
     });
-    // Last resort only: if nothing loaded after a generous window, reveal the
-    // backup link. NEVER collapse the iframe -- keep its reserved height so a
-    // slow-but-working calendar can still paint whenever it arrives.
+    // Last resort only; NEVER collapse the iframe.
     setTimeout(function() {
       if (!loaded && fb) fb.removeAttribute('hidden');
     }, 12000);
