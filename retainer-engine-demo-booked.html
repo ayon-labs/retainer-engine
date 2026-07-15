@@ -24,25 +24,26 @@
 </style>
 <style>
   :root {
-    /* Retainer Engine palette — navy + cream + gold */
-    --ink: #0B1B2B;          /* navy-900 — primary ink */
-    --ink-2: #11253A;        /* navy-800 — hover */
-    --ink-3: #1A3148;        /* navy-700 — borders on dark */
-    --ink-4: #2A4762;        /* navy-600 — muted on cream */
-    --ink-5: #3F5C7A;        /* navy-500 — lightest navy */
-    --paper-1: #FAF6EE;      /* cream-50 — primary surface */
-    --paper-2: #F2EBDA;      /* cream-100 — secondary surface */
-    --paper-3: #E5DAC0;      /* cream-200 — borders / wash */
-    --amber: #C9A24A;        /* gold-500 — money + brand italic */
-    --amber-2: #A6841C;      /* gold-600 — hover */
-    --amber-3: #D9B770;      /* gold-400 — light gold */
-    --amber-wash: rgba(201,162,74,0.18);
-    --slate-wash: rgba(63,92,122,0.16);
-    --alert-red: #7E2A2A;
-    --alert-red-wash: rgba(126,42,42,0.10);
-    --alert-red-border: rgba(126,42,42,0.32);
-    --line: rgba(11,27,43,0.12);
-    --muted: rgba(11,27,43,0.62);
+    /* Inverted palette — navy primary surface, cream text, gold secondary */
+    --ink: #FAF6EE;          /* cream-50 — primary text on navy */
+    --ink-2: #F2EBDA;        /* cream-100 */
+    --ink-3: #E5DAC0;        /* cream-200 */
+    --ink-4: #D2C29E;        /* cream-300 */
+    --ink-5: #9FB0C2;
+    --navy-ink: #0B1B2B;     /* navy-900 — text on light pills / light bands */
+    --paper-1: #07051a;      /* near-black navy — primary surface (PI Boost match) */
+    --paper-2: #0C0A22;      /* near-black navy — secondary surface (PI Boost match) */
+    --paper-3: #100D2A;      /* near-black navy — lightest band */
+    --amber: #F2A900;        /* neon gold-500 — secondary accent */
+    --amber-2: #FFC531;      /* neon gold-400 — text gold on navy */
+    --amber-3: #FFDD66;      /* neon gold-300 */
+    --amber-wash: rgba(201,162,74,0.12);
+    --slate-wash: rgba(63,92,122,0.24);
+    --alert-red: #FF5D4A;
+    --alert-red-wash: rgba(255,69,58,0.22);
+    --alert-red-border: rgba(255,93,74,0.55);
+    --line: rgba(250,246,238,0.16);
+    --muted: rgba(250,246,238,0.66);
     --sage: #3F5448;
     --claret: #7E2A2A;
     --trustpilot: #00B67A;
@@ -62,8 +63,8 @@
 
   /* ---------- Alert bar ---------- */
   .alert {
-    background: var(--ink);
-    color: var(--paper-1);
+    background: var(--paper-1);
+    color: var(--ink);
     text-align: center;
     padding: 20px 24px;
     font-family: 'Geist Mono', monospace;
@@ -575,7 +576,7 @@
   }
   .success-card:hover {
     transform: translateY(-2px);
-    border-color: rgba(23,51,45,0.22);
+    border-color: rgba(250,246,238,0.32);
     box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 20px 40px -24px rgba(23,51,45,0.28);
   }
   .success-card img {
@@ -1115,9 +1116,9 @@
     aspect-ratio: 16 / 9;
     background:
       radial-gradient(120% 80% at 50% 0%, rgba(201,146,63,0.08), transparent 70%),
-      var(--ink);
+      var(--paper-2);
     border-radius: 18px;
-    border: 1px solid rgba(23,51,45,0.18);
+    border: 1px solid var(--line);
     box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 24px 48px -28px rgba(23,51,45,0.38);
     position: relative;
     overflow: hidden;
@@ -1126,13 +1127,13 @@
     position: absolute; inset: 0;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     gap: 16px;
-    color: var(--paper-1);
+    color: var(--ink);
   }
   .db-video-play {
     width: 72px; height: 72px;
     border-radius: 50%;
     background: var(--amber);
-    color: var(--ink);
+    color: var(--navy-ink);
     display: grid; place-items: center;
     box-shadow: 0 8px 24px -6px rgba(201,146,63,0.55);
   }
@@ -1174,7 +1175,7 @@
   .db-callout-icon {
     width: 32px; height: 32px;
     border-radius: 50%;
-    background: rgba(180,67,43,0.14);
+    background: rgba(255,93,74,0.22);
     color: var(--alert-red);
     display: grid; place-items: center;
     flex-shrink: 0;
@@ -1420,14 +1421,14 @@
   }
   .db-faq-card:hover {
     transform: translateY(-2px);
-    border-color: rgba(23,51,45,0.22);
+    border-color: rgba(250,246,238,0.32);
     box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 20px 40px -24px rgba(23,51,45,0.28);
   }
   .db-faq-video {
     aspect-ratio: 16 / 9;
     background:
       radial-gradient(120% 80% at 50% 30%, rgba(201,146,63,0.10), transparent 70%),
-      var(--ink);
+      var(--paper-2);
     position: relative;
     display: grid; place-items: center;
     overflow: hidden;
@@ -1450,7 +1451,7 @@
     width: 52px; height: 52px;
     border-radius: 50%;
     background: var(--amber);
-    color: var(--ink);
+    color: var(--navy-ink);
     display: grid; place-items: center;
     box-shadow: 0 8px 24px -6px rgba(201,146,63,0.55);
   }
@@ -1539,6 +1540,51 @@
     background: center / contain no-repeat var(--swatch, none);
     display: block;
     filter: blur(5px);
+  }
+
+  /* v3: navy-primary inversion fixes (match index.html) */
+  a { color: var(--amber-2); }
+  a:hover { color: var(--amber-3); }
+  .cta { background: var(--amber); color: var(--navy-ink); }
+  .cta:hover { background: var(--amber-2); color: var(--navy-ink); }
+  .success-card { background: rgba(250,246,238,0.05); }
+  .site-foot { background: var(--paper-1); }
+  .foot-links a { color: #FAF6EE; }
+  #tweaks { border-color: rgba(11,27,43,0.15); }
+  #tweaks .lbl { color: rgba(11,27,43,0.62); }
+  #tweaks select, #tweaks input[type=range] { color: #0B1B2B; background: rgba(11,27,43,0.05); border-color: rgba(11,27,43,0.22); }
+
+  /* ---------- FAQ (match index.html) ---------- */
+  .faq-section { padding: 76px 32px 92px; background: var(--paper-1); }
+  .faq-inner { max-width: 760px; margin: 0 auto; }
+  .faq-head {
+    font-family: 'General Sans', 'Geist', sans-serif;
+    font-size: clamp(26px, 3vw, 36px); font-weight: 600; letter-spacing: -0.03em;
+    color: var(--ink); text-align: center; margin: 0 0 36px;
+  }
+  .faq-item {
+    border: 1px solid var(--line); border-radius: 12px;
+    background: var(--paper-1); margin-bottom: 12px; overflow: hidden;
+    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 8px 24px -18px rgba(23,51,45,0.12);
+  }
+  .faq-question {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    width: 100%; padding: 18px 20px;
+    background: none; border: none; cursor: pointer; text-align: left;
+    font-family: 'General Sans', 'Geist', sans-serif; font-weight: 600;
+    font-size: 17px; letter-spacing: -0.01em; color: var(--ink);
+  }
+  .faq-chev { display: inline-flex; color: var(--amber-2); flex-shrink: 0; transition: transform 0.25s ease; }
+  .faq-item.active .faq-chev { transform: rotate(180deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .faq-item.active .faq-answer { max-height: 340px; }
+  .faq-answer-inner { padding: 0 20px 18px; font-size: 15.5px; line-height: 1.65; color: var(--ink); opacity: 0.78; }
+  @media (max-width: 640px) {
+    .faq-section { padding: 48px 20px 64px; }
+    .faq-head { margin-bottom: 24px; }
+    .faq-question { font-size: 15px; padding: 15px 16px; gap: 12px; }
+    .faq-answer-inner { font-size: 13.5px; line-height: 1.6; padding: 0 16px 15px; }
+    .faq-item.active .faq-answer { max-height: 420px; }
   }
 </style>
 <script src="https://fast.wistia.com/player.js" async></script>
@@ -1797,6 +1843,114 @@
         <a href="#step-1" class="cta cta-lg">
           GO BACK TO THE VIDEO
         </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq" data-screen-label="FAQ">
+    <div class="faq-inner">
+      <h2 class="faq-head">Frequently Asked Questions</h2>
+
+      <div class="faq-item active">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>What exactly does Retainer Engine do?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We capture exclusive, clear-liability MVA claimants under <b>your firm&rsquo;s brand</b> using our Retainer AI Pixel&trade; &mdash; smart targeting trained on your signed cases, not generic clicks &mdash; then our <b>24/7 bilingual intake team</b> calls, qualifies, and signs them for you. You don&rsquo;t buy leads; you receive <b>signed retainers</b>. And it&rsquo;s guaranteed: <b>30+ cases in 90 days or you don&rsquo;t pay</b>.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>What do we actually get?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">A predictable flow of <b>signed MVA retainers, exclusive to your firm</b> &mdash; never shared, resold, or recycled. Every claimant is pre-screened against your case criteria (clear fault, collectible coverage, real damages, inside statute) and booked into your calendar or live-transferred. Ads, data, and claimants all run under your brand, and you keep <b>100% of your fee</b>.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>Why is this better than the agencies we&rsquo;ve tried?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Agencies get paid on ad spend and lead volume &mdash; whether you sign anything or not. <b>We only get paid when you sign cases.</b> No shared leads, no re-vetting cold names, no long-term contracts: 90-day sprints backed by the <b>30-in-90 guarantee</b>.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>Do you only work with personal injury firms?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. We exclusively serve personal injury firms, with a focus on motor vehicle accident cases. Every campaign, intake script, and benchmark is built for PI, not recycled from other verticals.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>What does the free consultation include?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We'll review your <b>current marketing performance</b>, pull your <b>competitors' top campaigns</b>, identify <b>gaps in your strategy</b>, and give you a <b>custom growth projection</b> &mdash; including expected lead volume, cost per case, and timeline to results. <b>No strings attached.</b></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>How much does it cost?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Two models: pay per signed case, or a monthly retainer backed by our signed-retainer guarantee. Exact pricing depends on your market and case capacity. We'll give you exact numbers on the call, no ballpark guesses.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>Is our data (and our claimants&rsquo; data) safe with you?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. We&rsquo;re <b>SOC&nbsp;2 compliant</b> &mdash; claimant and firm data is handled under audited security controls &mdash; and we carry <b>full business insurance</b>. Your data and your claimants&rsquo; data belong to your firm, never shared or resold.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>Are we locked into a long-term contract?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No. We work in 90-day sprints with a defined target: 30 signed retainers in 90 days or we don't get paid. If we don't deliver, you can walk away. We earn your business every month.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>How long until we see signed cases?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Your campaigns go live within the first week, and the first signed retainers typically land within the first few weeks. The Retainer Pixel gets sharper every month as your signed-case data feeds back in. We'll give you an exact timeline for your market on the call.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" onclick="this.parentElement.classList.toggle('active');">
+          <span>Where do the cases come from?</span>
+          <span class="faq-chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Cold Meta ads run under your firm's own brand. Every claimant is exclusive to you: no shared leads, no aggregators, no recycled lists. Our 24/7 bilingual team calls, screens, and signs them under your name.</div>
+        </div>
       </div>
 
     </div>
