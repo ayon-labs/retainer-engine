@@ -98,7 +98,7 @@
     --paper-1: #07051a;      /* near-black navy — primary surface (PI Boost match) */
     --paper-2: #0C0A22;      /* near-black navy — secondary surface (PI Boost match) */
     --paper-3: #100D2A;      /* near-black navy — lightest band */
-    --amber: #F2A900;        /* neon gold-500 — secondary accent */
+    --amber: #FFC531;        /* unified gold — same as amber-2 */
     --amber-2: #FFC531;      /* neon gold-400 — text gold on navy */
     --amber-3: #FFDD66;      /* neon gold-300 */
     --amber-wash: rgba(201,162,74,0.12);
@@ -1392,7 +1392,7 @@
     margin: 20px auto 0;
   }
   @media (max-width: 640px) {
-    .hero-pill { font-size: min(3.85vw, 15px); padding: 0; margin-bottom: 28px; white-space: nowrap; max-width: none; margin-left: auto; margin-right: auto; text-align: center; }
+    .hero-pill { font-size: min(3.6vw, 15px); padding: 0; margin-bottom: 28px; white-space: nowrap; max-width: none; margin-left: auto; margin-right: auto; text-align: center; }
     .hero-fold { min-height: 0; padding-bottom: 28px; }
     .hero-fold .trust.trust-bottom { margin-top: 18px; }
     #founderCta { margin-top: 24px; }
@@ -1638,12 +1638,14 @@
 
     <div class="hero-fold">
 
-    <div class="hero-pill">Only For Experienced PI Firms Clearing $2M/Year</div>
+    <div class="hero-pill">Only For Experienced PI Lawyers (15+ Cases/Month)</div>
 
-    <h1 class="head"><b><span style="color:var(--amber-2);">30+ Signed Cases in 90 Days</span> Or You Don't Pay.</b> <span class="head-sub">Our Stanford AI Case Targeting System Generates Exclusive MVA Claimants Under Your Brand,<br class="hero-br" /> Then We Sign Them With A 24/7 Bilingual Intake Team.</span></h1>
+    <h1 class="head"><b><span style="color:var(--amber-2);">30+ Signed Cases in 90 Days</span> Or You Don't Pay.</b> <span class="head-sub">Our <span style="color:#C4211E;">Stanford AI Case Targeting</span> System Generates <span style="color:var(--ink);font-style:normal;text-decoration:none;">Exclusive MVA Claimants</span> Under Your Brand,<br class="hero-br" /> <span style="color:var(--amber-2);font-style:normal;text-decoration:none;">Then We Sign Them</span> With A 24/7 Bilingual Intake Team.</span></h1>
+
+    <p style="font-family:'General Sans',sans-serif;font-size:16px;font-weight:500;color:var(--ink);opacity:0.82;text-align:center;margin:20px 0 0;letter-spacing:-0.005em;">Our clients average <u style="text-decoration:underline;color:var(--amber-2);font-weight:600;">7-8x back what they invest</u></p>
 
     <div class="trust-cta-row" id="founderCta" style="flex-direction:column;gap:10px;">
-      <a href="#calendar" class="cta cta-xl">BOOK A CALL</a>
+      <a href="#calendar" class="cta cta-xl">APPLY TO WORK WITH US</a>
     </div>
 
     <!-- Trust row (businesses + credentials) -->
@@ -1656,7 +1658,7 @@
           <div class="face f4"></div>
           <div class="face f5"></div>
         </div>
-        <div class="trust-label" style="margin-left:10px;white-space:nowrap;">Trusted by<b>50+ PI Firms</b></div>
+        <div class="trust-label" style="margin-left:10px;white-space:nowrap;">Trusted by<b>130+ PI Firms</b></div>
       </div>
       <div class="trust-divider"></div>
       <div class="trust-item">
@@ -2223,7 +2225,7 @@
 <script>
   const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
     "portraitStyle": "avatar",
-    "accentHue": "#C9A24A",
+    "accentHue": "#FFC531",
     "warmth": 60
   }/*EDITMODE-END*/;
 
