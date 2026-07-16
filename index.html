@@ -1196,32 +1196,31 @@
   /* ICP pill above the guarantee */
   .top-strip {
     font-family: 'Geist Mono', monospace;
-    font-size: 12.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    font-size: 15px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
     text-align: center;
-    color: var(--ink);
-    background: var(--paper-1);
-    border-bottom: 1px solid var(--amber);
-    padding: 13px 16px;
+    color: var(--navy-ink);
+    background: var(--amber-2);
+    padding: 14px 16px;
   }
-  .top-strip-name { color: var(--amber-2); }
-  @media (max-width: 640px) { .top-strip { font-size: 10.5px; padding: 11px 12px; letter-spacing: 0.14em; } }
+  .top-strip-name { color: var(--navy-ink); }
+  @media (max-width: 640px) { .top-strip { font-size: 14px; padding: 12px 14px; letter-spacing: 0.08em; } }
   .hero-pill {
     display: block; width: fit-content;
     margin: 0 auto 32px;
-    background: none;
-    color: var(--amber);
+    background: var(--ink-3);
+    color: var(--navy-ink);
     text-align: center;
     font-family: 'Plus Jakarta Sans', 'General Sans', sans-serif;
     font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 18px;
     letter-spacing: -0.005em;
-    padding: 0;
-    border-radius: 0;
+    padding: 12px 26px;
+    border-radius: 999px;
   }
   h1.head { font-size: clamp(22px, 2.9vw, 38px); line-height: 1.22; margin-bottom: 26px; }
   h1.head b { font-weight: 700; font-family: 'General Sans', 'Geist', -apple-system, sans-serif; display: block; margin: 0; font-size: 1.305em; line-height: 1.12; }
-  @media (max-width: 640px) { h1.head b { font-size: 28px; line-height: 1.18; letter-spacing: -0.03em; text-wrap: balance; } }
+  @media (max-width: 640px) { h1.head b { font-size: 31px; line-height: 1.18; letter-spacing: -0.03em; text-wrap: balance; } }
   h1.head b .gy { color: var(--amber-2); }
   h1.head b .np { color: #F04E45; }
   h1.head .head-sub { font-size: 1.14em; opacity: 1; display: block; margin: 42px 0 0; background: transparent; }
@@ -1392,7 +1391,7 @@
     margin: 20px auto 0;
   }
   @media (max-width: 640px) {
-    .hero-pill { font-size: min(3.6vw, 15px); padding: 0; margin-bottom: 28px; white-space: nowrap; max-width: none; margin-left: auto; margin-right: auto; text-align: center; }
+    .hero-pill { font-size: min(3.6vw, 14px); padding: 10px 18px; margin-bottom: 28px; white-space: nowrap; max-width: none; margin-left: auto; margin-right: auto; text-align: center; }
     .hero-fold { min-height: 0; padding-bottom: 28px; }
     .hero-fold .trust.trust-bottom { margin-top: 18px; }
     #founderCta { margin-top: 24px; }
@@ -1428,7 +1427,7 @@
   /* ---------- v3: navy-primary inversion fixes ---------- */
   a { color: var(--amber-2); }
   a:hover { color: var(--amber-3); }
-  .hero-pill { color: var(--amber); }
+  .hero-pill { color: var(--navy-ink); }
   .cta { background: var(--amber); color: var(--navy-ink); }
   .cta:hover { background: var(--amber-2); color: var(--navy-ink); }
   .cta.cta-xl { padding: 21px 44px; font-size: 18px; font-weight: 600; box-shadow: 0 10px 34px rgba(201,162,74,0.32); }
@@ -1621,7 +1620,7 @@
 </head>
 <body>
 
-<div class="top-strip"><span class="top-strip-name">The Retainer AI Pixel&trade;</span></div>
+<div class="top-strip">Only For Experienced PI Lawyers Signing 15+ Retainers Per Month</div>
 
 <template id="__bundler_thumbnail" data-bg-color="#0B1B2B">
   <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
@@ -1638,11 +1637,7 @@
 
     <div class="hero-fold">
 
-    <div class="hero-pill">Only For Experienced PI Lawyers (15+ Cases/Month)</div>
-
-    <h1 class="head"><b><span style="color:var(--amber-2);">30+ Signed Cases in 90 Days</span> Or You Don't Pay.</b> <span class="head-sub">Our <span style="color:#C4211E;">Stanford AI Case Targeting</span> System Generates <span style="color:var(--ink);font-style:normal;text-decoration:none;">Exclusive MVA Claimants</span> Under Your Brand,<br class="hero-br" /> <span style="color:var(--amber-2);font-style:normal;text-decoration:none;">Then We Sign Them</span> With A 24/7 Bilingual Intake Team.</span></h1>
-
-    <p style="font-family:'General Sans',sans-serif;font-size:16px;font-weight:500;color:var(--ink);opacity:0.82;text-align:center;margin:20px 0 0;letter-spacing:-0.005em;">Our clients average <u style="text-decoration:underline;color:var(--amber-2);font-weight:600;">7-8x back what they invest</u></p>
+    <h1 class="head"><b><span style="color:var(--amber-2);">30+ Signed Cases in 90 Days</span> Or You Don't Pay.</b> <span class="head-sub">Our <span style="color:#C4211E;">Stanford AI Case Targeting</span> System Predictably Generates MVA Claimants on Autopilot,<br class="hero-br" /> <span style="color:var(--amber-2);font-style:normal;text-decoration:none;">Then We Sign Them</span> With A 24/7 Bilingual Intake Team.</span></h1>
 
     <div class="trust-cta-row" id="founderCta" style="flex-direction:column;gap:10px;">
       <a href="#calendar" class="cta cta-xl">APPLY TO WORK WITH US</a>
