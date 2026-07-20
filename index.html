@@ -357,6 +357,17 @@
   .trust-label { font-size: 13px; line-height: 1.4; color: var(--muted); max-width: 180px; }
   .trust-label b { color: var(--ink); font-weight: 500; display: block; font-size: 14px; }
   .trust-divider { width: 1px; height: 44px; background: var(--line); }
+  .hero-badge { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.07); border: 1px solid var(--line); border-radius: 10px; padding: 13px 18px; max-width: 440px; width: 100%; box-sizing: border-box; margin: 0 auto; text-align: left; }
+  .hero-badge-avatar { width: 48px; height: 48px; border-radius: 50%; background-size: cover; background-position: center; flex-shrink: 0; }
+  .hero-badge-divider { width: 1px; align-self: stretch; background: var(--amber); opacity: 0.55; flex-shrink: 0; }
+  .hero-badge-stars { display: flex; gap: 2px; margin-bottom: 5px; }
+  .hero-badge-stars svg { width: 15px; height: 15px; fill: var(--amber); }
+  .hero-badge-quote { font-family: 'General Sans', 'Geist', sans-serif; font-style: italic; font-weight: 400; font-size: 14.5px; line-height: 1.35; color: rgba(250,246,238,0.88); margin: 0 0 6px; }
+  .hero-badge-name { font-family: 'General Sans', 'Geist', sans-serif; font-weight: 700; font-size: 14px; color: var(--ink); }
+  @media (max-width: 480px) { .hero-badge { padding: 11px 15px; gap: 11px; } .hero-badge-avatar { width: 42px; height: 42px; } .hero-badge-quote { font-size: 13.5px; } }
+  body #founderCta { padding-bottom: 0 !important; }
+  #founderCta + .trust.trust-bottom { margin-top: 28px; }
+  @media (max-width: 640px) { #founderCta + .trust.trust-bottom { margin-top: 18px; } }
   .trustpilot-row { display: flex; align-items: center; gap: 10px; }
   .tp-stars { display: flex; gap: 2px; }
   .tp-star { width: 22px; height: 22px; background: var(--trustpilot); display: flex; align-items: center; justify-content: center; }
@@ -1639,8 +1650,23 @@
 
     <h1 class="head"><b><span style="color:var(--amber-2);">30+ Signed Cases in 90 Days</span> Or You Don't Pay.</b> <span class="head-sub">Our <span style="color:#C4211E;">Stanford AI Case Targeting</span> System Predictably Generates MVA Claimants on Autopilot,<br class="hero-br" /> <span style="color:var(--amber-2);font-style:normal;text-decoration:none;">Then We Sign Them</span> With A 24/7 Bilingual Intake Team.</span></h1>
 
-    <div class="trust-cta-row" id="founderCta" style="flex-direction:column;gap:10px;">
+    <div class="trust-cta-row" id="founderCta" style="flex-direction:column;gap:28px;">
       <a href="#calendar" class="cta cta-xl">APPLY TO WORK WITH US</a>
+      <div class="hero-badge">
+        <div class="hero-badge-avatar" style="background-image:url('assets/jason-paris.jpg?v=40');"></div>
+        <div class="hero-badge-divider"></div>
+        <div>
+          <div class="hero-badge-stars" aria-label="5 out of 5 stars">
+            <svg viewBox="0 0 20 20"><path d="M10 1.5l2.58 5.23 5.77.84-4.17 4.07.98 5.74L10 14.67l-5.16 2.71.98-5.74L1.65 7.57l5.77-.84L10 1.5z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.5l2.58 5.23 5.77.84-4.17 4.07.98 5.74L10 14.67l-5.16 2.71.98-5.74L1.65 7.57l5.77-.84L10 1.5z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.5l2.58 5.23 5.77.84-4.17 4.07.98 5.74L10 14.67l-5.16 2.71.98-5.74L1.65 7.57l5.77-.84L10 1.5z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.5l2.58 5.23 5.77.84-4.17 4.07.98 5.74L10 14.67l-5.16 2.71.98-5.74L1.65 7.57l5.77-.84L10 1.5z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M10 1.5l2.58 5.23 5.77.84-4.17 4.07.98 5.74L10 14.67l-5.16 2.71.98-5.74L1.65 7.57l5.77-.84L10 1.5z"/></svg>
+          </div>
+          <p class="hero-badge-quote">The results with Retainer Engine have been incredible.</p>
+          <div class="hero-badge-name">Jason Paris, Esq. - Paris Law Group</div>
+        </div>
+      </div>
     </div>
 
     <!-- Trust row (businesses + credentials) -->
