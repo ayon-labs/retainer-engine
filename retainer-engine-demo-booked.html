@@ -1055,25 +1055,23 @@
     .db-wait-pill { font-size: 13px; padding: 14px 28px; letter-spacing: 0.14em; }
   }
   .db-heads-up {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    max-width: 720px;
+    max-width: 640px;
     margin: 0 auto 32px;
-    padding: 16px 24px;
-    background: rgba(255,197,49,0.07);
-    border: 1px solid rgba(255,197,49,0.28);
+    padding: 18px 22px;
+    background: rgba(255,197,49,0.06);
+    border: 1px solid rgba(255,197,49,0.24);
     border-radius: 12px;
-    color: var(--ink);
-    font-size: 15px;
-    line-height: 1.5;
     text-align: left;
   }
-  .db-heads-up svg { flex-shrink: 0; stroke: var(--amber); width: 20px; height: 20px; margin-top: 2px; }
-  .db-heads-up b { color: var(--amber); font-weight: 700; }
+  .db-heads-up-row, .db-heads-up-warn { display: flex; align-items: flex-start; gap: 12px; }
+  .db-heads-up-row p, .db-heads-up-warn p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--ink); }
+  .db-heads-up-row b { color: var(--amber); font-weight: 700; }
+  .db-heads-up-icon { font-size: 18px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+  .db-heads-up-warn { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,197,49,0.18); }
+  .db-heads-up-warn p { font-weight: 700; }
   @media (max-width: 640px) {
-    .db-heads-up { font-size: 13.5px; padding: 14px 18px; gap: 10px; margin-bottom: 24px; }
+    .db-heads-up { padding: 14px 16px; margin-bottom: 24px; }
+    .db-heads-up-row p, .db-heads-up-warn p { font-size: 13.5px; }
   }
   .db-head {
     max-width: 840px;
@@ -1645,8 +1643,14 @@
     </div>
 
     <div class="db-heads-up">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span><b>Heads up:</b> A Retainer Engine growth specialist will ring you within the next few minutes for a quick 5-min prep call. Answer when we call so we can make the most of your growth session.</span>
+      <div class="db-heads-up-row">
+        <span class="db-heads-up-icon">📞</span>
+        <p>A Retainer Engine growth specialist will call you within the next few minutes for a quick 10-min prep call ahead of your scheduled slot. Answer so we can make the most of your growth session.</p>
+      </div>
+      <div class="db-heads-up-warn">
+        <span class="db-heads-up-icon">⚠️</span>
+        <p>Your call will be canceled if you don't respond.</p>
+      </div>
     </div>
 
     <h1 class="head db-head" style="font-size: 34px;">
