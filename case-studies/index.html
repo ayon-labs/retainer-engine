@@ -167,7 +167,14 @@ p{text-wrap:pretty}
 .close-inner{max-width:720px;margin:0 auto}
 .close-inner .cs-head{margin-bottom:16px}
 .close-inner .cs-lede{margin-bottom:40px}
-@media (max-width:640px){.close-band{padding:64px 20px}}
+.hero-badge{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.07);border:1px solid var(--line);border-radius:4px;padding:13px 18px;max-width:440px;width:100%;box-sizing:border-box;margin:28px auto 0;text-align:left}
+.hero-badge-avatar{width:48px;height:48px;border-radius:50%;background-size:cover;background-position:center;flex-shrink:0}
+.hero-badge-divider{width:1px;align-self:stretch;background:var(--amber);opacity:0.55;flex-shrink:0}
+.hero-badge-stars{display:flex;gap:2px;margin-bottom:5px}
+.hero-badge-stars svg{width:15px;height:15px;fill:var(--amber)}
+.hero-badge-quote{font-family:'Geist',sans-serif;font-style:italic;font-weight:400;font-size:14.5px;line-height:1.35;color:rgba(250,246,238,0.88);margin:0 0 6px}
+.hero-badge-name{font-family:'Geist',sans-serif;font-weight:700;font-size:14px;color:var(--ink)}
+@media (max-width:480px){.hero-badge{padding:11px 15px;gap:11px}.hero-badge-avatar{width:42px;height:42px}.hero-badge-quote{font-size:13.5px}.hero-badge-name{font-size:12.5px;white-space:nowrap;letter-spacing:-0.04em}}
 
 /* ---------- Footer ---------- */
 .site-foot{background:var(--paper-1);color:rgba(250,245,234,0.82);padding:64px 32px 28px;font-size:13px;line-height:1.65;position:relative;border-top:1px solid var(--line)}
@@ -207,6 +214,21 @@ p{text-wrap:pretty}
     <h1 class="cs-head">Real Firms. Real Retainers. <em>Real Numbers.</em></h1>
     <p class="cs-lede">Every screenshot below is a real client email or text message, unedited. Every quote is a named managing partner. This is what firms actually say once the cases start signing.</p>
     <a href="../index.html#calendar" class="cta">SEE IF YOUR MARKET IS OPEN</a>
+    <div class="hero-badge">
+      <div class="hero-badge-avatar" style="background-image:url('../assets/shawn-rokni.jpg');background-position:center 25%;"></div>
+      <div class="hero-badge-divider"></div>
+      <div>
+        <div class="hero-badge-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.58 5.23 5.77.84-4.17 4.07.98 5.74L10 14.67l-5.16 2.71.98-5.74L1.65 7.57l5.77-.84L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.58 5.23 5.77.84-4.17 4.07.98 5.74L10 14.67l-5.16 2.71.98-5.74L1.65 7.57l5.77-.84L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.58 5.23 5.77.84-4.17 4.07.98 5.74L10 14.67l-5.16 2.71.98-5.74L1.65 7.57l5.77-.84L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.58 5.23 5.77.84-4.17 4.07.98 5.74L10 14.67l-5.16 2.71.98-5.74L1.65 7.57l5.77-.84L10 1.5z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M10 1.5l2.58 5.23 5.77.84-4.17 4.07.98 5.74L10 14.67l-5.16 2.71.98-5.74L1.65 7.57l5.77-.84L10 1.5z"/></svg>
+        </div>
+        <p class="hero-badge-quote">The results with Retainer Engine have been incredible.</p>
+        <div class="hero-badge-name">Shawn Rokni, Esq. - Insider Accident Lawyers</div>
+      </div>
+    </div>
 
     <div class="trust">
       <div class="trust-item">
