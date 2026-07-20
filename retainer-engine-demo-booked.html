@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Retainer Engine — Confirm Your Call</title>
 <meta name="description" content="Your strategy call with Retainer Engine is confirmed. Here's what to expect before we map our AI Case Targeting System to your firm's intake flow." />
-<meta name="theme-color" content="#07051a" />
+<meta name="theme-color" content="#0B1B2B" />
 <link rel="canonical" href="https://retainer-engine.com/retainer-engine-demo-booked" />
 <meta name="robots" content="noindex, follow" />
 
@@ -35,12 +35,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<style>
-@font-face { font-family: 'General Sans'; src: url('https://cdn.fontshare.com/wf/MFQT7HFGCR2L5ULQTW6YXYZXXHMPKLJ3/YWQ244D6TACUX5JBKATPOW5I5MGJ3G73/7YY3ZAAE3TRV2LANYOLXNHTPHLXVWTKH.woff2') format('woff2'); font-weight: 400; font-display: swap; font-style: normal; }
-@font-face { font-family: 'General Sans'; src: url('https://cdn.fontshare.com/wf/3RZHWSNONLLWJK3RLPEKUZOMM56GO4LJ/BPDRY7AHVI3MCDXXVXTQQ76H3UXA63S3/SB2OEB6IKZPRR6JT4GFJ2TFT6HBB6AZN.woff2') format('woff2'); font-weight: 500; font-display: swap; font-style: normal; }
-@font-face { font-family: 'General Sans'; src: url('https://cdn.fontshare.com/wf/K46YRH762FH3QJ25IQM3VAXAKCHEXXW4/ISLWQPUZHZF33LRIOTBMFOJL57GBGQ4B/3ZLMEXZEQPLTEPMHTQDAUXP5ZZXCZAEN.woff2') format('woff2'); font-weight: 600; font-display: swap; font-style: normal; }
-@font-face { font-family: 'General Sans'; src: url('https://cdn.fontshare.com/wf/KWXO5X3YW4X7OLUMPO4X24HQJGJU7E2Q/VOWUQZS3YLP66ZHPTXAFSH6YACY4WJHT/NIQ54PVBBIWVK3PFSOIOUJSXIJ5WTNDP.woff2') format('woff2'); font-weight: 700; font-display: swap; font-style: normal; }
-</style>
+
 <style>
   :root {
     /* Inverted palette — navy primary surface, cream text, gold secondary */
@@ -50,10 +45,10 @@
     --ink-4: #D2C29E;        /* cream-300 */
     --ink-5: #9FB0C2;
     --navy-ink: #0B1B2B;     /* navy-900 — text on light pills / light bands */
-    --paper-1: #07051a;      /* near-black navy — primary surface (PI Boost match) */
-    --paper-2: #0C0A22;      /* near-black navy — secondary surface (PI Boost match) */
-    --paper-3: #100D2A;      /* near-black navy — lightest band */
-    --amber: #F2A900;        /* neon gold-500 — secondary accent */
+    --paper-1: #0B1B2B;      /* navy-900 — primary surface */
+    --paper-2: #11253A;      /* navy-800 — secondary surface */
+    --paper-3: #1A3148;      /* navy-700 — lightest band */
+    --amber: #FFC531;        /* unified gold — secondary accent */
     --amber-2: #FFC531;      /* neon gold-400 — text gold on navy */
     --amber-3: #FFDD66;      /* neon gold-300 */
     --amber-wash: rgba(201,162,74,0.12);
@@ -64,7 +59,7 @@
     --line: rgba(250,246,238,0.16);
     --muted: rgba(250,246,238,0.66);
     --sage: #3F5448;
-    --claret: #7E2A2A;
+    --claret: #F04E45;
     --trustpilot: #00B67A;
   }
   * { box-sizing: border-box; }
@@ -98,10 +93,7 @@
   /* ---------- Main ---------- */
   .page {
     position: relative;
-    background:
-      radial-gradient(72% 52% at 18% 12%, var(--amber-wash), transparent 70%),
-      radial-gradient(60% 48% at 92% 72%, var(--slate-wash), transparent 72%),
-      linear-gradient(180deg, var(--paper-1), var(--paper-2) 60%, var(--paper-3));
+    background: var(--paper-1);
     min-height: 100vh;
     overflow: hidden;
   }
@@ -124,7 +116,7 @@
     color: var(--ink);
     font-weight: 500;
   }
-  .brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 0 3px rgba(201,146,63,0.2); }
+  .brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); box-shadow:none; }
 
   /* ---------- Eyebrow ---------- */
   .eyebrow {
@@ -142,7 +134,7 @@
 
   /* ---------- Headline ---------- */
   h1.head {
-    font-family: 'General Sans', 'Geist', -apple-system, sans-serif;
+    font-family: 'Geist', -apple-system, sans-serif;
     font-weight: 500;
     font-size: clamp(30px, 3.6vw, 50px);
     line-height: 1.06;
@@ -153,10 +145,10 @@
     color: var(--ink);
     text-align: center;
   }
-  h1.head u { text-decoration: none; color: var(--amber); font-style: italic; font-family: 'General Sans', sans-serif; font-weight: 500; letter-spacing: -0.025em; }
+  h1.head u { text-decoration: none; color: var(--amber); font-style: italic; font-family: 'Geist', sans-serif; font-weight: 500; letter-spacing: -0.025em; }
   h1.head em {
     font-style: italic;
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-weight: 500;
     color: var(--amber);
     letter-spacing: -0.025em;
@@ -172,9 +164,9 @@
     text-align: left;
     background: rgba(255,255,255,0.55);
     border: 1px solid var(--line);
-    border-radius: 14px;
+    border-radius:4px;
     padding: 18px 22px;
-    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 8px 24px -12px rgba(23,51,45,0.12);
+    box-shadow:none;
   }
   .subhead b { color: var(--ink); font-weight: 500; }
   .subhead .mono-inline {
@@ -183,13 +175,13 @@
     font-size: 17px;
     background: rgba(201,146,63,0.15);
     padding: 1px 7px;
-    border-radius: 4px;
+    border-radius:4px;
   }
 
   /* ---------- Founder card (stacked) ---------- */
   .founder-sub {
     border: 1.5px solid var(--ink);
-    border-radius: 28px;
+    border-radius:4px;
     padding: 32px;
     background: rgba(250,245,234,0.4);
     max-width: 560px;
@@ -198,7 +190,7 @@
     text-align: left;
   }
   .founder-copy h3 {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-weight: 500;
     font-size: 22px; line-height: 1.28;
     letter-spacing: -0.018em;
@@ -207,11 +199,11 @@
   }
   .founder-photo {
     width: 100%; aspect-ratio: 4/5;
-    border-radius: 10px;
+    border-radius:4px;
     background-image: url('assets/founder-stage.jpg');
     background-size: cover;
     background-position: 55% 18%;
-    box-shadow: 0 6px 24px rgba(23,51,45,0.14);
+    box-shadow:none;
   }
   .founder-copy p {
     font-size: 18px; line-height: 1.5;
@@ -258,7 +250,7 @@
     background: var(--paper-2);
     border: 2px solid var(--paper-1);
     background-size: cover; background-position: center;
-    box-shadow: 0 2px 6px rgba(23,51,45,0.12);
+    box-shadow:none;
     margin-left: -10px;
   }
   .face:first-child { margin-left: 0; }
@@ -390,7 +382,7 @@
     position: relative;
   }
   .tc-head {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-weight: 500;
     font-size: clamp(28px, 3.4vw, 44px);
     line-height: 1.12;
@@ -428,10 +420,10 @@
     scroll-snap-align: start;
     background: var(--paper-1);
     border: 1px solid var(--line);
-    border-radius: 16px;
+    border-radius:4px;
     padding: 28px 26px 26px;
     display: flex; flex-direction: column; gap: 14px;
-    box-shadow: 0 1px 0 rgba(23,51,45,0.04);
+    box-shadow:none;
     transition: border-color 0.2s ease, transform 0.2s ease;
   }
   .tc-card:hover { border-color: rgba(23,51,45,0.28); transform: translateY(-2px); }
@@ -440,7 +432,7 @@
   }
   .tc-stars svg { width: 18px; height: 18px; fill: var(--amber); }
   .tc-quote {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-size: 15px; line-height: 1.55;
     color: var(--ink);
     letter-spacing: -0.005em;
@@ -449,7 +441,7 @@
   }
   .tc-quote b { font-weight: 600; }
   .tc-readmore {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-size: 14px; font-weight: 500;
     color: var(--ink);
     text-decoration: underline;
@@ -472,13 +464,13 @@
     flex-shrink: 0;
   }
   .tc-name {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-weight: 600; font-size: 14px; line-height: 1.25;
     color: var(--ink);
     letter-spacing: -0.005em;
   }
   .tc-role {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-size: 12px; line-height: 1.35;
     color: var(--muted);
     margin-top: 2px;
@@ -508,7 +500,7 @@
     cursor: pointer;
     transition: all 0.2s ease;
   }
-  .tc-dot.active { background: var(--ink); width: 24px; border-radius: 4px; }
+  .tc-dot.active { background: var(--ink); width: 24px; border-radius:4px; }
   @media (max-width: 900px) {
     .tc-track { grid-auto-columns: calc((100% - 20px) / 2); }
     .tc-nav { width: 40px; height: 40px; }
@@ -522,7 +514,7 @@
       padding: 4px 0 20px;
       scroll-padding: 0;
     }
-    .tc-card { padding: 22px 20px 20px; border-radius: 14px; }
+    .tc-card { padding: 22px 20px 20px; border-radius:4px; }
     .tc-quote { font-size: 14.5px; line-height: 1.55; }
     .testi-carousel { padding: 40px 20px 40px; }
     .tc-head { margin-bottom: 28px; }
@@ -552,7 +544,7 @@
     text-align: center;
   }
   .success-head {
-    font-family: 'General Sans', 'Geist', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-weight: 500;
     font-size: clamp(32px, 4vw, 52px);
     line-height: 1.08; letter-spacing: -0.025em;
@@ -562,7 +554,7 @@
     text-wrap: balance;
   }
   .success-sub {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-size: 16px; line-height: 1.55;
     color: var(--muted);
     max-width: 620px;
@@ -588,15 +580,15 @@
     margin: 0;
     background: #F6F8FC;
     border: 1px solid var(--line);
-    border-radius: 14px;
+    border-radius:4px;
     overflow: hidden;
-    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 12px 28px -20px rgba(23,51,45,0.22);
+    box-shadow:none;
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   }
   .success-card:hover {
     transform: translateY(-2px);
     border-color: rgba(250,246,238,0.32);
-    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 20px 40px -24px rgba(23,51,45,0.28);
+    box-shadow:none;
   }
   .success-card img {
     display: block;
@@ -620,18 +612,18 @@
     color: var(--amber);
     padding: 4px 8px;
     border: 1px solid rgba(201,146,63,0.35);
-    border-radius: 4px;
+    border-radius:4px;
     background: rgba(201,146,63,0.08);
   }
   .success-cap {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-size: 13px;
     line-height: 1.45;
     color: var(--ink);
     letter-spacing: -0.005em;
   }
   .success-foot {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-size: 13px;
     color: var(--muted);
     margin: 32px auto 0;
@@ -665,7 +657,7 @@
   .imsg-time { letter-spacing: -0.01em; }
   .imsg-ind { display: inline-flex; align-items: center; gap: 6px; color: #fff; }
   .imsg-sig { display: inline-flex; align-items: flex-end; gap: 2px; }
-  .imsg-sig span { display: block; width: 3px; background: currentColor; border-radius: 0.5px; }
+  .imsg-sig span { display: block; width: 3px; background: currentColor; border-radius:4px; }
   .imsg-sig span:nth-child(1) { height: 4px; }
   .imsg-sig span:nth-child(2) { height: 6px; }
   .imsg-sig span:nth-child(3) { height: 8px; }
@@ -769,7 +761,7 @@
     font-size: 16px; font-weight: 500;
     letter-spacing: -0.01em;
     border: none;
-    border-radius: 999px;
+    border-radius:999px;
     cursor: pointer;
     transition: all 0.18s ease;
     text-decoration: none;
@@ -799,7 +791,7 @@
     text-align: center;
   }
   .calendar-band h2 {
-    font-family: 'General Sans', 'Geist', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-weight: 500;
     font-size: clamp(32px, 4vw, 52px);
     line-height: 1.08; letter-spacing: -0.02em;
@@ -808,7 +800,7 @@
   }
   .calendar-band h2 em { font-style: italic; color: var(--amber); font-weight: 500; }
   .calendar-sub {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-size: 17px; line-height: 1.6;
     color: var(--muted);
     max-width: 680px;
@@ -836,14 +828,14 @@
     color: var(--amber);
   }
   .calendar-promise-text {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-size: 15px; line-height: 1.45;
     color: var(--ink);
     letter-spacing: -0.005em;
   }
   .calendar-promise-text b { font-weight: 600; }
   .calendar-fallback {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-size: 15px; line-height: 1.6;
     color: var(--muted);
     max-width: 680px;
@@ -867,7 +859,7 @@
     max-width: 880px; margin: 40px auto 0;
     background: var(--paper-1);
     border: 1px solid var(--line);
-    border-radius: 16px;
+    border-radius:4px;
     overflow: hidden;
   }
   .calendar-slot iframe { display: block; width: 100%; min-height: 720px; border: 0; }
@@ -879,11 +871,11 @@
     background: var(--ink);
     color: var(--paper-1);
     border: 1px solid rgba(250,245,234,0.14);
-    border-radius: 16px;
+    border-radius:4px;
     padding: 18px;
     font-family: 'Geist', sans-serif;
     font-size: 13px;
-    box-shadow: 0 18px 48px rgba(0,0,0,0.32);
+    box-shadow:none;
     z-index: 99;
     display: none;
   }
@@ -894,7 +886,7 @@
   #tweaks select, #tweaks input[type=range] {
     width: 100%; background: rgba(250,245,234,0.05);
     color: var(--paper-1); border: 1px solid rgba(250,245,234,0.14);
-    padding: 8px; border-radius: 8px; font-family: inherit; font-size: 13px;
+    padding: 8px; border-radius:4px; font-family: inherit; font-size: 13px;
   }
 
   @media (max-width: 900px) {
@@ -903,7 +895,7 @@
   @media (max-width: 720px) {
     .wrap { padding: 32px 20px 64px; }
     .brand-row { margin-bottom: 40px; }
-    .founder-sub { padding: 24px; border-radius: 24px; }
+    .founder-sub { padding: 24px; border-radius:4px; }
     .trust { flex-direction: column; align-items: center; gap: 18px; }
     .trust-item { justify-content: center; }
     .trust-label { text-align: left; }
@@ -948,10 +940,10 @@
   .foot-logo {
     width: 128px;
     height: 128px;
-    border-radius: 18px;
+    border-radius:4px;
     overflow: hidden;
     display: block;
-    box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(250,245,234,0.06);
+    box-shadow:none;
   }
   .foot-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .foot-tag {
@@ -1049,7 +1041,7 @@
     display: inline-block;
     margin: 8px auto 28px;
     padding: 18px 56px;
-    background: var(--amber);
+    background: #C9A24A;
     color: #FFF8E8;
     font-family: 'Geist Mono', monospace;
     font-size: 16px;
@@ -1057,10 +1049,31 @@
     text-transform: uppercase;
     font-weight: 600;
     border-radius: 999px;
-    box-shadow: 0 1px 0 rgba(255,255,255,0.35) inset, 0 14px 28px -16px rgba(166,132,28,0.55);
+    box-shadow: 0 10px 34px rgba(201,162,74,0.38);
   }
   @media (max-width: 640px) {
     .db-wait-pill { font-size: 13px; padding: 14px 28px; letter-spacing: 0.14em; }
+  }
+  .db-heads-up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    max-width: 720px;
+    margin: 0 auto 32px;
+    padding: 16px 24px;
+    background: rgba(255,197,49,0.07);
+    border: 1px solid rgba(255,197,49,0.28);
+    border-radius: 12px;
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .db-heads-up svg { flex-shrink: 0; stroke: var(--amber); width: 20px; height: 20px; margin-top: 2px; }
+  .db-heads-up b { color: var(--amber); font-weight: 700; }
+  @media (max-width: 640px) {
+    .db-heads-up { font-size: 13.5px; padding: 14px 18px; gap: 10px; margin-bottom: 24px; }
   }
   .db-head {
     max-width: 840px;
@@ -1136,9 +1149,9 @@
     background:
       radial-gradient(120% 80% at 50% 0%, rgba(201,146,63,0.08), transparent 70%),
       var(--paper-2);
-    border-radius: 18px;
+    border-radius:4px;
     border: 1px solid var(--line);
-    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 24px 48px -28px rgba(23,51,45,0.38);
+    box-shadow:none;
     position: relative;
     overflow: hidden;
   }
@@ -1154,7 +1167,7 @@
     background: var(--amber);
     color: var(--navy-ink);
     display: grid; place-items: center;
-    box-shadow: 0 8px 24px -6px rgba(201,146,63,0.55);
+    box-shadow:none;
   }
   .db-video-play svg { margin-left: 3px; }
   .db-video-note {
@@ -1169,7 +1182,7 @@
     color: var(--amber);
     padding: 4px 10px;
     border: 1px solid rgba(201,146,63,0.35);
-    border-radius: 4px;
+    border-radius:4px;
     background: rgba(201,146,63,0.08);
   }
   .db-video-cap {
@@ -1189,7 +1202,7 @@
     text-align: left;
     background: var(--alert-red-wash);
     border: 1px solid var(--alert-red-border);
-    border-radius: 12px;
+    border-radius:4px;
   }
   .db-callout-icon {
     width: 32px; height: 32px;
@@ -1221,8 +1234,8 @@
     margin: 0 auto;
     background: #fff;
     border: 1px solid var(--line);
-    border-radius: 14px;
-    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 24px 48px -28px rgba(23,51,45,0.28);
+    border-radius:4px;
+    box-shadow:none;
     text-align: left;
     position: relative;
     overflow: hidden;
@@ -1308,7 +1321,7 @@
   .db-gmail-datebox {
     width: 64px; height: 64px;
     border: 1px solid rgba(23,51,45,0.14);
-    border-radius: 10px;
+    border-radius:4px;
     display: flex; flex-direction: column;
     overflow: hidden;
     background: #fff;
@@ -1359,7 +1372,7 @@
     border: 1px solid rgba(23,51,45,0.16);
     background: #fff;
     color: rgba(23,51,45,0.78);
-    border-radius: 8px;
+    border-radius:4px;
     padding: 7px 16px;
     font-family: 'Geist', sans-serif;
     font-size: 13px;
@@ -1376,7 +1389,7 @@
     border-color: rgba(201,146,63,0.9);
     color: #fff;
     background: var(--amber);
-    box-shadow: 0 0 0 0 rgba(201,146,63,0.55);
+    box-shadow:none;
     animation: dbPulse 1.8s ease-in-out infinite;
   }
   .db-gmail-btn-yes:hover {
@@ -1384,8 +1397,8 @@
     color: #fff;
   }
   @keyframes dbPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(201,146,63,0.55); }
-    50%      { box-shadow: 0 0 0 8px rgba(201,146,63,0); }
+    0%, 100% { box-shadow:none; }
+    50%      { box-shadow:none; }
   }
 
   .db-gmail-arrow {
@@ -1432,16 +1445,16 @@
     margin: 0;
     background: var(--paper-1);
     border: 1px solid var(--line);
-    border-radius: 14px;
+    border-radius:4px;
     overflow: hidden;
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 12px 28px -20px rgba(23,51,45,0.22);
+    box-shadow:none;
     cursor: pointer;
   }
   .db-faq-card:hover {
     transform: translateY(-2px);
     border-color: rgba(250,246,238,0.32);
-    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 20px 40px -24px rgba(23,51,45,0.28);
+    box-shadow:none;
   }
   .db-faq-video {
     aspect-ratio: 16 / 9;
@@ -1472,7 +1485,7 @@
     background: var(--amber);
     color: var(--navy-ink);
     display: grid; place-items: center;
-    box-shadow: 0 8px 24px -6px rgba(201,146,63,0.55);
+    box-shadow:none;
   }
   .db-faq-play svg { margin-left: 2px; }
   .db-faq-index {
@@ -1484,7 +1497,7 @@
     color: var(--amber);
     padding: 4px 8px;
     border: 1px solid rgba(201,146,63,0.4);
-    border-radius: 4px;
+    border-radius:4px;
     background: rgba(23,51,45,0.5);
     backdrop-filter: blur(4px);
   }
@@ -1523,7 +1536,7 @@
     .db-step-label { font-size: 10px; letter-spacing: 0.14em; }
     .db-step-sep { width: 18px; }
     .db-step-sub { font-size: 14px; margin-bottom: 24px; }
-    .db-video { border-radius: 14px; }
+    .db-video { border-radius:4px; }
     .db-video-play { width: 58px; height: 58px; }
     .db-video-play svg { width: 24px; height: 24px; }
 
@@ -1577,20 +1590,20 @@
   .faq-section { padding: 76px 32px 92px; background: var(--paper-1); }
   .faq-inner { max-width: 760px; margin: 0 auto; }
   .faq-head {
-    font-family: 'General Sans', 'Geist', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-size: clamp(26px, 3vw, 36px); font-weight: 600; letter-spacing: -0.03em;
     color: var(--ink); text-align: center; margin: 0 0 36px;
   }
   .faq-item {
-    border: 1px solid var(--line); border-radius: 12px;
+    border: 1px solid var(--line); border-radius:4px;
     background: var(--paper-1); margin-bottom: 12px; overflow: hidden;
-    box-shadow: 0 1px 0 rgba(23,51,45,0.04), 0 8px 24px -18px rgba(23,51,45,0.12);
+    box-shadow:none;
   }
   .faq-question {
     display: flex; align-items: center; justify-content: space-between; gap: 16px;
     width: 100%; padding: 18px 20px;
     background: none; border: none; cursor: pointer; text-align: left;
-    font-family: 'General Sans', 'Geist', sans-serif; font-weight: 600;
+    font-family: 'Geist', sans-serif; font-weight: 600;
     font-size: 17px; letter-spacing: -0.01em; color: var(--ink);
   }
   .faq-chev { display: inline-flex; color: var(--amber-2); flex-shrink: 0; transition: transform 0.25s ease; }
@@ -1629,6 +1642,11 @@
 
     <div class="db-wait-pill" role="status">
       Disclaimer: Your Call Is Not Yet Confirmed&hellip;
+    </div>
+
+    <div class="db-heads-up">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><b>Heads up:</b> A Retainer Engine growth specialist will ring you within the next few minutes for a quick 5-min prep call. Answer when we call so we can make the most of your growth session.</span>
     </div>
 
     <h1 class="head db-head" style="font-size: 34px;">
@@ -1790,8 +1808,8 @@
 
       <div class="trust-item">
         <div style="display:flex;align-items:center;" aria-hidden="true">
-          <span style="width:40px;height:40px;border-radius:50%;border:2px solid var(--paper-1);box-shadow:0 2px 6px rgba(23,51,45,0.14);background-image:url('assets/flag-us.png');background-size:cover;background-position:center;display:inline-block;"></span>
-          <span style="width:40px;height:40px;border-radius:50%;border:2px solid var(--paper-1);box-shadow:0 2px 6px rgba(23,51,45,0.14);background-image:url('assets/flag-mx.png');background-size:cover;background-position:center;display:inline-block;margin-left:-10px;"></span>
+          <span style="width:40px;height:40px;border-radius:50%;border:2px solid var(--paper-1);box-shadow:none;background-image:url('assets/flag-us.png');background-size:cover;background-position:center;display:inline-block;"></span>
+          <span style="width:40px;height:40px;border-radius:50%;border:2px solid var(--paper-1);box-shadow:none;background-image:url('assets/flag-mx.png');background-size:cover;background-position:center;display:inline-block;margin-left:-10px;"></span>
         </div>
         <div class="trust-label" style="margin-left:10px;white-space:nowrap;"><b>Multilingual Ads</b>English AND Spanish</div>
       </div>
@@ -2030,7 +2048,7 @@
 <script>
   const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
     "portraitStyle": "avatar",
-    "accentHue": "#C9923F",
+    "accentHue": "#FFC531",
     "warmth": 60
   }/*EDITMODE-END*/;
 

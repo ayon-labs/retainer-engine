@@ -32,10 +32,11 @@
     --gold-400: #D9B770;
     --gold-300: #E8CF96;
     --gold-100: #F5E8C8;
+    --gold-bright: #FFC531;  /* on-navy CTA accent — buttons, footer wordmark, live-site match */
 
     /* Supporting */
     --sage-700: #3F5448;
-    --claret-600: #7E2A2A;
+    --claret-600: #F04E45;
 
     /* Neutrals */
     --paper: #FFFEF9;
@@ -376,7 +377,7 @@
   }
   .pair-1 { background: var(--navy-900); color: var(--cream-50); }
   .pair-2 { background: var(--cream-50); color: var(--navy-900); }
-  .pair-3 { background: var(--navy-900); color: var(--gold-500); }
+  .pair-3 { background: var(--navy-900); color: var(--gold-bright); }
   .pair-headline { font-family: var(--font-serif); font-size: 32px; line-height: 1.1; }
   .pair-headline em { font-style: italic; }
   .pair-meta {
@@ -610,7 +611,7 @@
     padding: 14px 28px;
     background: transparent;
     color: var(--cream-50);
-    border: 1px solid var(--gold-500);
+    border: 1px solid var(--gold-bright);
     border-radius: 4px;
     font-family: var(--font-sans);
     font-weight: 600;
@@ -620,7 +621,7 @@
     cursor: pointer;
     transition: background 240ms var(--ease), color 240ms var(--ease);
   }
-  .btn-primary-on-navy:hover { background: var(--gold-500); color: var(--navy-900); }
+  .btn-primary-on-navy:hover { background: var(--gold-bright); color: var(--navy-900); }
   .btn-primary-on-navy .arrow { font-family: var(--font-serif); font-style: italic; font-size: 18px; line-height: 1; }
 
   .btn-secondary {
@@ -1195,7 +1196,7 @@
     color: var(--cream-50);
     margin-bottom: 32px;
   }
-  .applied-h1 em { font-style: italic; color: var(--gold-500); }
+  .applied-h1 em { font-style: italic; color: var(--gold-bright); }
   .applied-sub {
     font-size: 19px;
     line-height: 1.55;
@@ -1221,7 +1222,7 @@
     font-family: var(--font-serif);
     font-size: 48px;
     line-height: 1;
-    color: var(--gold-500);
+    color: var(--gold-bright);
   }
   .applied-stat-label {
     font-family: var(--font-mono);
@@ -1310,7 +1311,7 @@
     color: var(--cream-50);
     letter-spacing: -0.025em;
   }
-  .footer-brand .wm em { color: var(--gold-500); font-style: italic; margin: 0 4px; }
+  .footer-brand .wm em { color: var(--gold-bright); font-style: italic; margin: 0 4px; }
   .footer-brand p {
     font-size: 13px;
     color: var(--cream-100);
@@ -1333,7 +1334,7 @@
     font-size: 14px;
     transition: color 240ms var(--ease);
   }
-  .footer-col a:hover { color: var(--gold-500); }
+  .footer-col a:hover { color: var(--gold-bright); }
   .footer-fine {
     padding-top: 32px;
     display: grid;
@@ -1352,7 +1353,7 @@
   .footer-phone {
     font-family: var(--font-serif);
     font-size: 28px;
-    color: var(--gold-500);
+    color: var(--gold-bright);
   }
 
   /* ==================================================
@@ -1622,13 +1623,21 @@
     </div>
 
     <h3 class="mono-sm" style="color: var(--gold-600); margin-bottom: 16px; margin-top: 32px;">Accent · Champagne gold</h3>
-    <div class="swatch-row">
+    <div class="swatch-row" style="grid-template-columns: repeat(6, 1fr);">
       <div class="swatch">
         <div class="swatch-chip" style="background: #C9A24A;"></div>
         <div class="swatch-meta">
           <div class="swatch-token">gold-500</div>
           <div class="swatch-hex">#C9A24A</div>
-          <div class="swatch-use">Primary accent. Money, italic emphasis, decorative rules, key CTA outline.</div>
+          <div class="swatch-use">Primary accent on cream. Money, italic emphasis, decorative rules, key CTA outline.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: #FFC531;"></div>
+        <div class="swatch-meta">
+          <div class="swatch-token">gold-bright</div>
+          <div class="swatch-hex">#FFC531</div>
+          <div class="swatch-use">On-navy only. CTA buttons, footer wordmark, hero eyebrow — never on cream (fails contrast).</div>
         </div>
       </div>
       <div class="swatch">
@@ -1675,10 +1684,10 @@
         </div>
       </div>
       <div class="swatch">
-        <div class="swatch-chip" style="background: #7E2A2A;"></div>
+        <div class="swatch-chip" style="background: #F04E45;"></div>
         <div class="swatch-meta">
           <div class="swatch-token">claret-600</div>
-          <div class="swatch-hex">#7E2A2A</div>
+          <div class="swatch-hex">#F04E45</div>
         </div>
       </div>
       <div class="swatch">
@@ -1721,8 +1730,8 @@
     <h3 class="mono-sm" style="color: var(--gold-600); margin-bottom: 16px; margin-top: 32px;">Approved pairings</h3>
     <div class="pair-row">
       <div class="pair pair-1">
-        <div class="pair-headline">Retainer Engine. Pay only when <em style="color: var(--gold-500);">they</em> sign.</div>
-        <div class="pair-meta">cream-50 on navy-900 · gold-500 emphasis</div>
+        <div class="pair-headline">Retainer Engine. Pay only when <em style="color: var(--gold-bright);">they</em> sign.</div>
+        <div class="pair-meta">cream-50 on navy-900 · gold-bright emphasis</div>
       </div>
       <div class="pair pair-2">
         <div class="pair-headline">Retainer Engine. Pay only when <em style="color: var(--gold-500);">they</em> sign.</div>
@@ -1730,7 +1739,7 @@
       </div>
       <div class="pair pair-3">
         <div class="pair-headline">Engineered, <em>not outsourced.</em></div>
-        <div class="pair-meta">gold-500 on navy-900 · pull quote</div>
+        <div class="pair-meta">gold-bright on navy-900 · pull quote</div>
       </div>
     </div>
 
@@ -2599,8 +2608,8 @@
   <div class="container">
     <header class="section-head">
       <span class="section-num">09 / Compliance</span>
-      <div class="eyebrow">
-        <span class="eyebrow-rule"></span>
+      <div class="eyebrow" style="color: var(--gold-bright);">
+        <span class="eyebrow-rule" style="background: var(--gold-bright);"></span>
         Bar exposure · FTC §255 · TCPA
       </div>
       <h2 class="display-md" style="margin-top: 16px; color: var(--cream-50);">Never guarantee outcomes. Never call leads <em class="gold">"clients."</em></h2>
@@ -2659,8 +2668,8 @@
 <section class="applied">
   <div class="applied-frame">
     <div class="container">
-      <div class="eyebrow" style="margin-bottom: 48px;">
-        <span class="eyebrow-rule"></span>
+      <div class="eyebrow" style="margin-bottom: 48px; color: var(--gold-bright);">
+        <span class="eyebrow-rule" style="background: var(--gold-bright);"></span>
         Limited intake · New York personal injury firms
       </div>
       <div class="applied-grid">
