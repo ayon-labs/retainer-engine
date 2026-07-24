@@ -29,12 +29,48 @@ const ROOT = new URL('.', import.meta.url).pathname;
 const HTML = ROOT + 'index.html';
 const changes = [];
 
-// ── 1. Restore optimized binaries from git HEAD ──────────────────────────
+// ── 1. Restore what the export clobbered — WITHOUT reverting real image updates ──
+// The builder re-exports the same heavy originals every time. Those are safe to
+// revert. But a genuinely UPDATED image (e.g. a corrected testimonial screenshot)
+// must never be reverted -- that silently republishes stale content.
+// So: only revert an asset if its bytes are byte-identical to the known heavy
+// original recorded in the first commit. Anything else is preserved and flagged.
+const ORIGINAL_REF = 'b0f8dd9'; // initial commit: the heavy originals the builder keeps re-exporting
+const sh = (cmd) => execSync(cmd, { cwd: ROOT, stdio: ['pipe', 'pipe', 'pipe'] }).toString().trim();
+const q = (s) => JSON.stringify(s);
+
 try {
-  execSync('git checkout HEAD -- assets vercel.json', { cwd: ROOT, stdio: 'pipe' });
-  changes.push('restored optimized images + .webp + vercel.json from git HEAD');
+  // 1a. Files the export DELETED (.webp siblings, vercel.json, this script) — always restore.
+  const deleted = sh('git ls-files --deleted').split('\n').filter(Boolean)
+    .filter(f => /\.webp$/.test(f) || f === 'vercel.json' || f === 'optimize.mjs');
+  if (deleted.length) {
+    sh(`git checkout HEAD -- ${deleted.map(q).join(' ')}`);
+    changes.push(`restored ${deleted.length} deleted file(s) (.webp / vercel.json)`);
+  }
+
+  // 1b. Modified assets: revert ONLY the known heavy originals.
+  const modified = sh('git ls-files --modified -- assets').split('\n').filter(Boolean);
+  const reverted = [], preserved = [];
+  for (const f of modified) {
+    let diskHash = null, origHash = null;
+    try { diskHash = sh(`git hash-object ${q(f)}`); } catch {}
+    try { origHash = sh(`git rev-parse ${ORIGINAL_REF}:${f}`); } catch {}
+    if (diskHash && origHash && diskHash === origHash) {
+      sh(`git checkout HEAD -- ${q(f)}`);
+      reverted.push(f);
+    } else {
+      preserved.push(f);
+    }
+  }
+  if (reverted.length) changes.push(`re-optimized ${reverted.length} clobbered image(s)`);
+  if (preserved.length) {
+    console.warn('\n  !! These images CHANGED and were preserved (not reverted):');
+    preserved.forEach(f => console.warn('     - ' + f));
+    console.warn('     They are NOT optimized yet. Ask Claude to optimize them,');
+    console.warn('     and bump their ?v= in the HTML (assets are immutably cached).\n');
+  }
 } catch (e) {
-  console.warn('  ! could not restore assets from git (are they committed?):', e.message.trim());
+  console.warn('  ! restore step failed:', e.message.trim());
 }
 
 // ── 2. index.html transforms (each guarded → idempotent) ─────────────────
