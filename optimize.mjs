@@ -29,46 +29,23 @@ const ROOT = new URL('.', import.meta.url).pathname;
 const HTML = ROOT + 'index.html';
 const changes = [];
 
-// ── 1. Restore what the export clobbered — WITHOUT reverting real image updates ──
-// The builder re-exports the same heavy originals every time. Those are safe to
-// revert. But a genuinely UPDATED image (e.g. a corrected testimonial screenshot)
-// must never be reverted -- that silently republishes stale content.
-// So: only revert an asset if its bytes are byte-identical to the known heavy
-// original recorded in the first commit. Anything else is preserved and flagged.
-const ORIGINAL_REF = 'b0f8dd9'; // initial commit: the heavy originals the builder keeps re-exporting
+// ── 1. Restore what the export clobbered ─────────────────────────────────
+// HEAD is the source of truth for images + config. The builder re-exports
+// stale/heavy image variants every time (and strips .webp / vercel.json), so
+// ALL tracked assets are blanket-restored from HEAD. Real image corrections
+// flow through commits to HEAD (Claude rebuilds them from uploads/), never
+// through the builder -- so blanket-restoring loses nothing. Untracked NEW
+// images are left untouched by checkout.
+//
+// NOTE: an earlier version tried to "preserve" assets whose bytes differed
+// from the first-commit original, to protect genuine edits. That backfired:
+// the builder's stale re-export is a *different* stale variant, so it looked
+// like a genuine edit and stale testimonials got republished. HEAD-wins is
+// the correct model.
 const sh = (cmd) => execSync(cmd, { cwd: ROOT, stdio: ['pipe', 'pipe', 'pipe'] }).toString().trim();
-const q = (s) => JSON.stringify(s);
-
 try {
-  // 1a. Files the export DELETED (.webp siblings, vercel.json, this script) — always restore.
-  const deleted = sh('git ls-files --deleted').split('\n').filter(Boolean)
-    .filter(f => /\.webp$/.test(f) || f === 'vercel.json' || f === 'optimize.mjs');
-  if (deleted.length) {
-    sh(`git checkout HEAD -- ${deleted.map(q).join(' ')}`);
-    changes.push(`restored ${deleted.length} deleted file(s) (.webp / vercel.json)`);
-  }
-
-  // 1b. Modified assets: revert ONLY the known heavy originals.
-  const modified = sh('git ls-files --modified -- assets').split('\n').filter(Boolean);
-  const reverted = [], preserved = [];
-  for (const f of modified) {
-    let diskHash = null, origHash = null;
-    try { diskHash = sh(`git hash-object ${q(f)}`); } catch {}
-    try { origHash = sh(`git rev-parse ${ORIGINAL_REF}:${f}`); } catch {}
-    if (diskHash && origHash && diskHash === origHash) {
-      sh(`git checkout HEAD -- ${q(f)}`);
-      reverted.push(f);
-    } else {
-      preserved.push(f);
-    }
-  }
-  if (reverted.length) changes.push(`re-optimized ${reverted.length} clobbered image(s)`);
-  if (preserved.length) {
-    console.warn('\n  !! These images CHANGED and were preserved (not reverted):');
-    preserved.forEach(f => console.warn('     - ' + f));
-    console.warn('     They are NOT optimized yet. Ask Claude to optimize them,');
-    console.warn('     and bump their ?v= in the HTML (assets are immutably cached).\n');
-  }
+  sh('git checkout HEAD -- assets vercel.json');
+  changes.push('restored optimized images + .webp + vercel.json from git HEAD');
 } catch (e) {
   console.warn('  ! restore step failed:', e.message.trim());
 }
@@ -146,6 +123,20 @@ if (html.includes("iframe.style.minHeight = '0'")) {
 }
 
 if (html !== before) writeFileSync(HTML, html);
+
+// ── 3. Corrected testimonial screenshots: keep ?v=41 across ALL pages ────
+// #2 (Ashley), #5 (Brett), #6 (Marc) were rebuilt from corrected sources.
+// /assets is immutably cached, so the version query MUST persist or browsers
+// re-serve the stale cached copy. The builder strips it on every export.
+const PAGES = ['index.html', 'case-studies/index.html', 'retainer-engine-demo-booked.html'];
+const TESTI = /(re-testimonial-(?:2-record-month|5-125m|6-scale)\.png)(\?v=\d+)?/g;
+for (const p of PAGES) {
+  const fp = ROOT + p;
+  if (!existsSync(fp)) continue;
+  const s = readFileSync(fp, 'utf8');
+  const s2 = s.replace(TESTI, '$1?v=41');
+  if (s2 !== s) { writeFileSync(fp, s2); changes.push(`testimonial ?v=41 bump: ${p}`); }
+}
 
 // ── report ───────────────────────────────────────────────────────────────
 if (changes.length) {
