@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /uploads/
+Disallow: /scraps/
+Disallow: /screenshots/
+Disallow: /Retainer%20Engine%20-%20Design%20System.html
 
 Sitemap: https://retainer-engine.com/sitemap.xml
