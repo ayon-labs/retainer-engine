@@ -129,13 +129,17 @@ if (html !== before) writeFileSync(HTML, html);
 // /assets is immutably cached, so the version query MUST persist or browsers
 // re-serve the stale cached copy. The builder strips it on every export.
 const PAGES = ['index.html', 'case-studies/index.html', 'retainer-engine-demo-booked.html'];
-const TESTI = /(re-testimonial-(?:2-record-month|5-125m|6-scale)\.png)(\?v=\d+)?/g;
+// Each rebuilt screenshot is pinned to the version whose content it matches:
+//   ?v=41 = #2 Ashley, #5 Brett, #6 Marc (corrected sigs / math)
+//   ?v=42 = #4 trucking (tighter re-crop, John C.)
+const TESTI_V41 = /(re-testimonial-(?:2-record-month|5-125m|6-scale)\.png)(\?v=\d+)?/g;
+const TESTI_V42 = /(re-testimonial-4-imsg-35k-trucking\.png)(\?v=\d+)?/g;
 for (const p of PAGES) {
   const fp = ROOT + p;
   if (!existsSync(fp)) continue;
   const s = readFileSync(fp, 'utf8');
-  const s2 = s.replace(TESTI, '$1?v=41');
-  if (s2 !== s) { writeFileSync(fp, s2); changes.push(`testimonial ?v=41 bump: ${p}`); }
+  const s2 = s.replace(TESTI_V41, '$1?v=41').replace(TESTI_V42, '$1?v=42');
+  if (s2 !== s) { writeFileSync(fp, s2); changes.push(`testimonial ?v pins refreshed: ${p}`); }
 }
 
 // ── report ───────────────────────────────────────────────────────────────
