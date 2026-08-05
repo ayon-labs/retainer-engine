@@ -95,7 +95,7 @@ for (const { file, ext, mime } of bg) {
 
 // 2c. Cache-bust: bump every ?v= on our managed assets to 40.
 const bumped = html.replace(
-  /(assets\/(?:founder-stage|face-\d|jason-paris|steven-stieglitz|doug-zanes)\.(?:jpg|png|webp))\?v=\d+/g,
+  /(assets\/(?:founder-stage|face-\d|jason-paris|doug-zanes)\.(?:jpg|png|webp))\?v=\d+/g,
   '$1?v=40');
 if (bumped !== html) { html = bumped; changes.push('cache-bump ?v=40'); }
 
@@ -131,15 +131,16 @@ if (html !== before) writeFileSync(HTML, html);
 const PAGES = ['index.html', 'case-studies/index.html', 'retainer-engine-demo-booked.html'];
 // Each rebuilt screenshot is pinned to the version whose content it matches:
 //   ?v=41 = #2 Ashley, #5 Brett, #6 Marc (corrected sigs / math)
-//   ?v=42 = #4 trucking (tighter re-crop, John C.)
+//   ?v=42 = #4 trucking (tighter re-crop, John C.) + Steven headshot (new photo)
 const TESTI_V41 = /(re-testimonial-(?:2-record-month|5-125m|6-scale)\.png)(\?v=\d+)?/g;
 const TESTI_V42 = /(re-testimonial-4-imsg-35k-trucking\.png)(\?v=\d+)?/g;
+const STEVEN_V42 = /(steven-stieglitz\.jpg)(\?v=\d+)?/g;
 for (const p of PAGES) {
   const fp = ROOT + p;
   if (!existsSync(fp)) continue;
   const s = readFileSync(fp, 'utf8');
-  const s2 = s.replace(TESTI_V41, '$1?v=41').replace(TESTI_V42, '$1?v=42');
-  if (s2 !== s) { writeFileSync(fp, s2); changes.push(`testimonial ?v pins refreshed: ${p}`); }
+  const s2 = s.replace(TESTI_V41, '$1?v=41').replace(TESTI_V42, '$1?v=42').replace(STEVEN_V42, '$1?v=42');
+  if (s2 !== s) { writeFileSync(fp, s2); changes.push(`testimonial/headshot ?v pins refreshed: ${p}`); }
 }
 
 // ── report ───────────────────────────────────────────────────────────────
