@@ -132,14 +132,17 @@ const PAGES = ['index.html', 'case-studies/index.html', 'retainer-engine-demo-bo
 // Each rebuilt screenshot is pinned to the version whose content it matches:
 //   ?v=41 = #2 Ashley, #5 Brett, #6 Marc (corrected sigs / math)
 //   ?v=42 = #4 trucking (tighter re-crop, John C.) + Steven headshot (new photo)
+//   ?v=43 = #1 (Kevin -> Steven Stieglitz referral email)
 const TESTI_V41 = /(re-testimonial-(?:2-record-month|5-125m|6-scale)\.png)(\?v=\d+)?/g;
 const TESTI_V42 = /(re-testimonial-4-imsg-35k-trucking\.png)(\?v=\d+)?/g;
 const STEVEN_V42 = /(steven-stieglitz\.jpg)(\?v=\d+)?/g;
+const TESTI1_V43 = /(re-testimonial-1-17x-roas\.png)(\?v=\d+)?/g;
 for (const p of PAGES) {
   const fp = ROOT + p;
   if (!existsSync(fp)) continue;
   const s = readFileSync(fp, 'utf8');
-  const s2 = s.replace(TESTI_V41, '$1?v=41').replace(TESTI_V42, '$1?v=42').replace(STEVEN_V42, '$1?v=42');
+  const s2 = s.replace(TESTI_V41, '$1?v=41').replace(TESTI_V42, '$1?v=42')
+             .replace(STEVEN_V42, '$1?v=42').replace(TESTI1_V43, '$1?v=43');
   if (s2 !== s) { writeFileSync(fp, s2); changes.push(`testimonial/headshot ?v pins refreshed: ${p}`); }
 }
 
