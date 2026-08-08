@@ -146,6 +146,44 @@ for (const p of PAGES) {
   if (s2 !== s) { writeFileSync(fp, s2); changes.push(`testimonial/headshot ?v pins refreshed: ${p}`); }
 }
 
+// ── 4. Re-inject Meta Pixel + GTM tracking (builder exports strip it) ────
+// This tracking lives in the repo, NOT the builder, so every export drops it.
+// Losing it silently breaks ad conversion tracking, so restore it on index.html
+// if absent. Guard on fbq('init' so it's never duplicated.
+const TRACKING = `<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1765965831489341');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1765965831489341&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WLXKZQWV');</script>
+<!-- End Google Tag Manager -->`;
+{
+  const fp = ROOT + 'index.html';
+  const s = readFileSync(fp, 'utf8');
+  if (!s.includes("fbq('init'") && s.includes('</head>')) {
+    writeFileSync(fp, s.replace('</head>', TRACKING + '\n</head>'));
+    changes.push('re-injected Meta Pixel + GTM tracking into index.html');
+  }
+}
+
 // ── report ───────────────────────────────────────────────────────────────
 if (changes.length) {
   console.log('optimize.mjs applied:');
