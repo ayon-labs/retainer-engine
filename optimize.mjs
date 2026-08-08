@@ -137,12 +137,17 @@ const TESTI_V41 = /(re-testimonial-(?:2-record-month|5-125m|6-scale)\.png)(\?v=\
 const TESTI_V42 = /(re-testimonial-4-imsg-35k-trucking\.png)(\?v=\d+)?/g;
 const STEVEN_V42 = /(steven-stieglitz\.jpg)(\?v=\d+)?/g;
 const TESTI1_V44 = /(re-testimonial-1-17x-roas\.png)(\?v=\d+)?/g;
+// Builder bug: it renamed the Jason Paris card to "Shawn Rokni, Esq." but
+// left jason-paris.jpg as the avatar. Jason is fully gone, so any remaining
+// jason-paris.jpg reference is really Shawn -> point it at shawn-rokni.jpg.
+const SHAWN_SWAP = /jason-paris\.jpg(\?v=\d+)?/g;
 for (const p of PAGES) {
   const fp = ROOT + p;
   if (!existsSync(fp)) continue;
   const s = readFileSync(fp, 'utf8');
   const s2 = s.replace(TESTI_V41, '$1?v=41').replace(TESTI_V42, '$1?v=42')
-             .replace(STEVEN_V42, '$1?v=42').replace(TESTI1_V44, '$1?v=44');
+             .replace(STEVEN_V42, '$1?v=42').replace(TESTI1_V44, '$1?v=44')
+             .replace(SHAWN_SWAP, 'shawn-rokni.jpg?v=1');
   if (s2 !== s) { writeFileSync(fp, s2); changes.push(`testimonial/headshot ?v pins refreshed: ${p}`); }
 }
 
