@@ -147,7 +147,7 @@ for (const p of PAGES) {
   const s = readFileSync(fp, 'utf8');
   const s2 = s.replace(TESTI_V41, '$1?v=41').replace(TESTI_V42, '$1?v=42')
              .replace(STEVEN_V42, '$1?v=42').replace(TESTI1_V44, '$1?v=44')
-             .replace(SHAWN_SWAP, 'shawn-rokni.jpg?v=1');
+             .replace(SHAWN_SWAP, 'shawn-rokni.jpg?v=8');
   if (s2 !== s) { writeFileSync(fp, s2); changes.push(`testimonial/headshot ?v pins refreshed: ${p}`); }
 }
 
