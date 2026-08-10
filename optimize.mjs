@@ -151,25 +151,11 @@ for (const p of PAGES) {
   if (s2 !== s) { writeFileSync(fp, s2); changes.push(`testimonial/headshot ?v pins refreshed: ${p}`); }
 }
 
-// ── 4. Re-inject GTM tracking (builder exports strip it) ─────────────────
-// GTM lives in the repo, NOT the builder, so every export drops it. Restore it
-// on index.html if absent. The Meta Pixel was intentionally removed (commit
-// "Remove Pixel code and update GTM") — do NOT re-add it here.
-const TRACKING = `<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WLXKZQWV');</script>
-<!-- End Google Tag Manager -->`;
-{
-  const fp = ROOT + 'index.html';
-  const s = readFileSync(fp, 'utf8');
-  if (!s.includes('GTM-WLXKZQWV') && s.includes('</head>')) {
-    writeFileSync(fp, s.replace('</head>', TRACKING + '\n</head>'));
-    changes.push('re-injected GTM tracking into index.html');
-  }
-}
+// ── 4. Tracking: intentionally NOT managed here ──────────────────────────
+// The Meta Pixel and GTM were both deliberately removed from this page
+// (commits "Remove Pixel code…" and "Remove google tag manager code").
+// This page is iframed by the GHL funnel, so tracking lives on the GHL
+// parent, not here. Do not re-inject any tracking into index.html.
 
 // ── report ───────────────────────────────────────────────────────────────
 if (changes.length) {
