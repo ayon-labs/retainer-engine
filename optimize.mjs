@@ -130,13 +130,15 @@ if (html !== before) writeFileSync(HTML, html);
 // re-serve the stale cached copy. The builder strips it on every export.
 const PAGES = ['index.html', 'case-studies/index.html', 'retainer-engine-demo-booked.html'];
 // Each rebuilt screenshot is pinned to the version whose content it matches:
-//   ?v=41 = #2 Ashley, #5 Brett, #6 Marc (corrected sigs / math)
+//   ?v=41 = #5 Brett, #6 Marc (corrected sigs / math)
 //   ?v=42 = #4 trucking (tighter re-crop, John C.) + Steven headshot (new photo)
 //   ?v=44 = #1 17:1 ROAS email (Kevin -> Steven -> Doug Zanes)
-const TESTI_V41 = /(re-testimonial-(?:2-record-month|5-125m|6-scale)\.png)(\?v=\d+)?/g;
+//   ?v=45 = #2 Ashley (med mal -> trucking edit)
+const TESTI_V41 = /(re-testimonial-(?:5-125m|6-scale)\.png)(\?v=\d+)?/g;
 const TESTI_V42 = /(re-testimonial-4-imsg-35k-trucking\.png)(\?v=\d+)?/g;
 const STEVEN_V42 = /(steven-stieglitz\.jpg)(\?v=\d+)?/g;
 const TESTI1_V44 = /(re-testimonial-1-17x-roas\.png)(\?v=\d+)?/g;
+const TESTI2_V45 = /(re-testimonial-2-record-month\.png)(\?v=\d+)?/g;
 // Builder bug: it renamed the Jason Paris card to "Shawn Rokni, Esq." but
 // left jason-paris.jpg as the avatar. Jason is fully gone, so any remaining
 // jason-paris.jpg reference is really Shawn -> point it at shawn-rokni.jpg.
@@ -147,6 +149,7 @@ for (const p of PAGES) {
   const s = readFileSync(fp, 'utf8');
   const s2 = s.replace(TESTI_V41, '$1?v=41').replace(TESTI_V42, '$1?v=42')
              .replace(STEVEN_V42, '$1?v=42').replace(TESTI1_V44, '$1?v=44')
+             .replace(TESTI2_V45, '$1?v=45')
              .replace(SHAWN_SWAP, 'shawn-rokni.jpg?v=8');
   if (s2 !== s) { writeFileSync(fp, s2); changes.push(`testimonial/headshot ?v pins refreshed: ${p}`); }
 }
