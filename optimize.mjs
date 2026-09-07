@@ -44,8 +44,11 @@ const changes = [];
 // the correct model.
 const sh = (cmd) => execSync(cmd, { cwd: ROOT, stdio: ['pipe', 'pipe', 'pipe'] }).toString().trim();
 try {
-  sh('git checkout HEAD -- assets vercel.json');
-  changes.push('restored optimized images + .webp + vercel.json from git HEAD');
+  // Exclude *.vcf: a vCard is a data file the builder legitimately updates
+  // (contact name/number/photo). Reverting it to HEAD would silently discard
+  // real edits, so let the export's version through.
+  sh("git checkout HEAD -- assets ':(exclude)assets/*.vcf' vercel.json");
+  changes.push('restored optimized images + .webp + vercel.json from git HEAD (kept *.vcf)');
 } catch (e) {
   console.warn('  ! restore step failed:', e.message.trim());
 }
