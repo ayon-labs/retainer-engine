@@ -148,20 +148,20 @@ p{text-wrap:pretty}
 @media (max-width:640px){.tc-stage{gap:0}.tc-nav{display:none}.tc-track{grid-auto-columns:100%;gap:16px;padding:4px 0 20px}.tc-card{padding:22px 20px 20px;border-radius:4px}.tc-quote{font-size:14.5px}.testi-carousel{padding:16px 20px 40px}.tc-head{margin-bottom:28px}}
 
 /* ---------- Partners marquee ---------- */
-.partners{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:56px 40px 60px;text-align:center;background:var(--paper-2)}
-.partners-head{font-family:'Geist',sans-serif;font-weight:500;font-size:clamp(24px,2.8vw,34px);letter-spacing:-0.022em;color:var(--ink);margin:0 0 6px}
-.partners-sub{font-family:'Geist',sans-serif;font-size:15px;color:var(--muted);margin:0 0 26px;letter-spacing:-0.005em}
+.partners{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:56px 40px 60px;text-align:center;background:#ffffff}
+.partners-head{font-family:'Geist',sans-serif;font-weight:500;font-size:clamp(24px,2.8vw,34px);letter-spacing:-0.022em;color:#43494F;margin:0 0 6px}
+.partners-sub{font-family:'Geist',sans-serif;font-size:15px;color:rgba(11,27,43,0.62);margin:0 0 26px;letter-spacing:-0.005em}
 .partners-marquee{position:relative;overflow:hidden;display:flex;width:100%}
 .partners-marquee::before,.partners-marquee::after{content:"";position:absolute;top:0;bottom:0;width:8%;z-index:2;pointer-events:none}
-.partners-marquee::before{left:0;background:linear-gradient(90deg,var(--paper-2),transparent)}
-.partners-marquee::after{right:0;background:linear-gradient(270deg,var(--paper-2),transparent)}
+.partners-marquee::before{left:0;background:linear-gradient(90deg,#ffffff,transparent)}
+.partners-marquee::after{right:0;background:linear-gradient(270deg,#ffffff,transparent)}
 .partners-group{display:flex;align-items:center;gap:68px;padding-right:68px;flex-shrink:0;min-width:100%;justify-content:space-around;animation:partnersScroll 30s linear infinite}
 .partners-marquee:hover .partners-group{animation-play-state:paused}
-.partners-logo{height:46px;width:auto;max-width:175px;object-fit:contain;filter:grayscale(1);opacity:0.75;transition:filter .3s ease,opacity .3s ease;flex-shrink:0;background:var(--ink);padding:10px 18px;border-radius:4px}
+.partners-logo{height:46px;width:auto;max-width:175px;object-fit:contain;filter:grayscale(1);opacity:0.6;transition:filter .3s ease,opacity .3s ease;flex-shrink:0}
 .partners-logo:hover{filter:grayscale(0);opacity:1}
 @keyframes partnersScroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
 @media (prefers-reduced-motion:reduce){.partners-group{animation-duration:60s}}
-@media (max-width:720px){.partners-logo{height:34px}.partners-group{gap:40px;padding-right:40px;animation-duration:16s}}
+@media (max-width:720px){.partners-logo{height:36px}.partners-group{gap:44px;padding-right:44px;animation-duration:16s}}
 
 /* ---------- Closing CTA band ---------- */
 .close-band{padding:96px 32px;text-align:center;background:var(--paper-2);border-top:1px solid var(--line)}
@@ -391,22 +391,32 @@ p{text-wrap:pretty}
   <p class="partners-sub">Trusted by Top Firms Nationwide</p>
   <div class="partners-marquee">
     <div class="partners-group" aria-hidden="true">
-      <img class="partners-logo" src="../assets/logo-sweeney-merrigan.jpeg" alt="Sweeney Merrigan">
-      <img class="partners-logo" src="../assets/logo-chalik.svg" alt="Chalik &amp; Chalik Injury Lawyers">
-      <img class="partners-logo" src="../assets/logo-dimopoulos.png" alt="Dimopoulos Injury Law">
-      <img class="partners-logo" src="../assets/logo-ajlouny.png" alt="Ajlouny Injury Law">
-      <img class="partners-logo" src="../assets/logo-gravis-law.png" alt="Gravis Law">
-      <img class="partners-logo" src="../assets/logo-plg.png" alt="PLG Damage Attorneys">
-      <img class="partners-logo" src="../assets/logo-feher.png" alt="Feher Law APC">
+      <img class="partners-logo" src="../assets/partner-cappy.png" alt="The Law Offices of Ryan Cappy">
+      <img class="partners-logo" src="../assets/partner-dk-law.png" alt="DK Law">
+      <img class="partners-logo" src="../assets/partner-attkisson.png" alt="The Attkisson Law Firm">
+      <img class="partners-logo" src="../assets/partner-dny.png" alt="The Law Office of De Nunez Yanakiew">
+      <img class="partners-logo" src="../assets/partner-jaspon.png" alt="The Jaspon Firm">
+      <img class="partners-logo" src="../assets/partner-fenderson.png" alt="Fenderson Law Firm">
+      <img class="partners-logo" src="../assets/partner-grove.png" alt="Grove &amp; Associates, PC">
+      <img class="partners-logo" src="../assets/partner-van-every.png" alt="Van Every Law">
+      <img class="partners-logo" src="../assets/partner-hurwitz.png" alt="Hurwitz Law Group">
+      <img class="partners-logo" src="../assets/partner-herro.png" alt="The Herro Law Firm">
+      <img class="partners-logo" src="../assets/partner-big-joe.png" alt="Big Joe Law">
+      <img class="partners-logo" src="../assets/partner-jerome.png" alt="The Jerome Law Firm P.A.">
     </div>
     <div class="partners-group" aria-hidden="true">
-      <img class="partners-logo" src="../assets/logo-sweeney-merrigan.jpeg" alt="">
-      <img class="partners-logo" src="../assets/logo-chalik.svg" alt="">
-      <img class="partners-logo" src="../assets/logo-dimopoulos.png" alt="Dimopoulos Injury Law">
-      <img class="partners-logo" src="../assets/logo-ajlouny.png" alt="Ajlouny Injury Law">
-      <img class="partners-logo" src="../assets/logo-gravis-law.png" alt="">
-      <img class="partners-logo" src="../assets/logo-plg.png" alt="PLG Damage Attorneys">
-      <img class="partners-logo" src="../assets/logo-feher.png" alt="Feher Law APC">
+      <img class="partners-logo" src="../assets/partner-cappy.png" alt="">
+      <img class="partners-logo" src="../assets/partner-dk-law.png" alt="">
+      <img class="partners-logo" src="../assets/partner-attkisson.png" alt="">
+      <img class="partners-logo" src="../assets/partner-dny.png" alt="">
+      <img class="partners-logo" src="../assets/partner-jaspon.png" alt="">
+      <img class="partners-logo" src="../assets/partner-fenderson.png" alt="">
+      <img class="partners-logo" src="../assets/partner-grove.png" alt="">
+      <img class="partners-logo" src="../assets/partner-van-every.png" alt="">
+      <img class="partners-logo" src="../assets/partner-hurwitz.png" alt="">
+      <img class="partners-logo" src="../assets/partner-herro.png" alt="">
+      <img class="partners-logo" src="../assets/partner-big-joe.png" alt="">
+      <img class="partners-logo" src="../assets/partner-jerome.png" alt="">
     </div>
   </div>
 </section>
