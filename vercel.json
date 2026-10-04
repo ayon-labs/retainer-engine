@@ -1,6 +1,22 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "pimcon.retainer-engine.com" }],
+      "missing": [{ "type": "query", "key": "utm_source" }],
+      "destination": "https://pimcon.retainer-engine.com/?utm_source=pimcon2026&utm_medium=in_person",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "pimcon.retainer-engine.com" }],
+      "destination": "/pimcon"
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
