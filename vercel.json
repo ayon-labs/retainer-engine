@@ -15,6 +15,11 @@
       "source": "/",
       "has": [{ "type": "host", "value": "pimcon.retainer-engine.com" }],
       "destination": "/pimcon"
+    },
+    {
+      "source": "/confirmed",
+      "has": [{ "type": "host", "value": "pimcon.retainer-engine.com" }],
+      "destination": "/pimcon/confirmed"
     }
   ],
   "headers": [
