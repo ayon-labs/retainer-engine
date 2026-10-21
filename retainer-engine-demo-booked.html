@@ -1847,7 +1847,7 @@
             <div class="tp-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
           </div>
         </div>
-        <div class="trust-label" style="margin-left:8px;"><b>100+ reviews</b>Verified on Trustpilot</div>
+        <div class="trust-label" style="margin-left:8px;"><b>100+ reviews</b></div>
       </div>
 
       <div class="trust-divider"></div>
@@ -1866,67 +1866,59 @@
 
   
 
-  <!-- Client Success Stories -->
-  <section class="success-section" id="success-stories" aria-label="Client success stories" data-screen-label="Success Stories">
-    <div class="success-inner">
-      <h2 class="success-head">Client Success Stories</h2>
-      <p class="success-sub">Don't just take our word for it. Real conversations and testimonials from the attorneys we work with.</p>
+  <!-- Our Partners carousel -->
+    <style>
+      .partners { width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); margin-top: 0; margin-bottom: 0; padding: 34px 40px 52px; text-align: center; background: #ffffff; }
+      .partners-head { font-family: 'Geist', sans-serif; font-weight: 500; font-size: clamp(24px, 2.8vw, 34px); letter-spacing: -0.022em; color: #43494F; margin: 0 0 6px; }
+      .partners-sub { font-family: 'Geist', sans-serif; font-size: 15px; color: rgba(11,27,43,0.62); margin: 0 0 26px; letter-spacing: -0.005em; }
+      .partners-marquee { position: relative; overflow: hidden; }
+      .partners-marquee::before, .partners-marquee::after { content: ""; position: absolute; top: 0; bottom: 0; width: 8%; z-index: 2; pointer-events: none; }
+      .partners-marquee::before { left: 0; background: linear-gradient(90deg, #ffffff, transparent); }
+      .partners-marquee::after { right: 0; background: linear-gradient(270deg, #ffffff, transparent); }
+      .partners-marquee { display: flex; width: 100%; }
+      .partners-group { display: flex; align-items: center; gap: 68px; padding-right: 68px; flex-shrink: 0; min-width: 100%; justify-content: space-around; animation: partnersScroll 30s linear infinite; }
+      .partners-marquee:hover .partners-group { animation-play-state: paused; }
+      .partners-logo { height: 46px; width: auto; max-width: 175px; object-fit: contain; filter: grayscale(1); opacity: 0.6; transition: filter .3s ease, opacity .3s ease; flex-shrink: 0; }
+      .partners-logo:hover { filter: grayscale(0); opacity: 1; }
+      @keyframes partnersScroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+      @media (prefers-reduced-motion: reduce) { .partners-group { animation-duration: 60s; } }
+      @media (max-width: 720px) { .partners-logo { height: 36px; } .partners-group { gap: 44px; padding-right: 44px; animation-duration: 16s; } }
+    </style>
 
-      <div class="success-grid">
-        <div class="success-col">
-        <figure class="success-card email">
-          <img src="assets/re-testimonial-1-17x-roas.png?v=44" alt="Referral email from Doug Zanes, Esq.: 17:1 ROAS and climbing, best lead source in the firm’s 22-year history, 20-25 signed cases per month on policy-limit auto and labor law" loading="lazy">
-          <figcaption>
-            <span class="success-tag">17:1 ROAS</span>
-            <span class="success-cap">22-year trial firm &middot; 20&ndash;25 signed cases/mo on policy-limit auto &amp; labor law</span>
-          </figcaption>
-        </figure>
-
-<figure class="success-card portrait">
-          <img src="assets/re-testimonial-3-imsg-2m.jpg" alt="iMessage screenshot from Skinner: new targeting is solid, just called a lead with a labor law 240 case, $2M policy limit, signing the retainer Thursday" loading="lazy">
-          <figcaption>
-            <span class="success-tag">$2M policy limit</span>
-            <span class="success-cap">Labor Law 240 case &middot; retainer signed the same week the new targeting went live</span>
-          </figcaption>
-        </figure>
-
-        <figure class="success-card email">
-          <img src="assets/re-testimonial-5-125m.png?v=41" alt="Email from Brett S., Esq. (Gravis Law) plus Sales Summary dashboard: $1,250,000 gross case pipeline, 25 retainers signed, $50,000 average case value from a single case evaluation event" loading="lazy">
-          <figcaption>
-            <span class="success-tag">$1.25M pipeline</span>
-            <span class="success-cap">Single case eval event &middot; 25 retainers signed &middot; $50K avg case value</span>
-          </figcaption>
-        </figure>
-</div>
-
-        <div class="success-col">
-        <figure class="success-card email">
-          <img src="assets/re-testimonial-6-scale.png?v=41" alt="Email from Marc Grossman, Esq. (Milberg): the auto campaign has 3x the retainer flow with 148 retainers signed in 4 weeks; the labor law ad is pulling 72 retainers per month, 488 since April, booked out six weeks" loading="lazy">
-          <figcaption>
-            <span class="success-tag">3× retainer flow</span>
-            <span class="success-cap">148 retainers in 4 weeks &middot; 72/mo on labor law &middot; booked 6 weeks out</span>
-          </figcaption>
-        </figure>
-
-<figure class="success-card portrait">
-          <img src="assets/re-testimonial-4-imsg-35k-trucking.png?v=42" alt="WhatsApp screenshot from John C., Esq.: asks to add trucking to intake routing, then reports signing their first trucking case the next day on a $35K retainer" loading="lazy">
-          <figcaption>
-            <span class="success-tag">$35K first trucking case</span>
-            <span class="success-cap">First trucking retainer signed the day after we added it to intake routing</span>
-          </figcaption>
-        </figure>
-
-        <figure class="success-card email">
-          <img src="assets/re-testimonial-2-record-month.png?v=41" alt="Email from Ashley K., Esq. (Keller Postman): record February — record month in the past 3 years, calendar stacked with trucking and labor law intakes through April" loading="lazy">
-          <figcaption>
-            <span class="success-tag">Record month</span>
-            <span class="success-cap">"Record MONTH in the past 3 years" &middot; trucking &amp; labor law calendar stacked through April</span>
-          </figcaption>
-        </figure>
+    <section class="partners" aria-label="Our partners">
+      <h2 class="partners-head">Our Partners</h2>
+      <p class="partners-sub">Trusted by Top Firms Nationwide</p>
+      <div class="partners-marquee">
+        <div class="partners-group" aria-hidden="true">
+          <img class="partners-logo" src="assets/partner-cappy.png" alt="The Law Offices of Ryan Cappy">
+          <img class="partners-logo" src="assets/partner-dk-law.png" alt="DK Law">
+          <img class="partners-logo" src="assets/partner-attkisson.png" alt="The Attkisson Law Firm">
+          <img class="partners-logo" src="assets/partner-dny.png" alt="The Law Office of De Nunez Yanakiew">
+          <img class="partners-logo" src="assets/partner-jaspon.png" alt="The Jaspon Firm">
+          <img class="partners-logo" src="assets/partner-fenderson.png" alt="Fenderson Law Firm">
+          <img class="partners-logo" src="assets/partner-grove.png" alt="Grove &amp; Associates, PC">
+          <img class="partners-logo" src="assets/partner-van-every.png" alt="Van Every Law">
+          <img class="partners-logo" src="assets/partner-hurwitz.png" alt="Hurwitz Law Group">
+          <img class="partners-logo" src="assets/partner-herro.png" alt="The Herro Law Firm">
+          <img class="partners-logo" src="assets/partner-big-joe.png" alt="Big Joe Law">
+          <img class="partners-logo" src="assets/partner-jerome.png" alt="The Jerome Law Firm P.A.">
+        </div>
+        <div class="partners-group" aria-hidden="true">
+          <img class="partners-logo" src="assets/partner-cappy.png" alt="">
+          <img class="partners-logo" src="assets/partner-dk-law.png" alt="">
+          <img class="partners-logo" src="assets/partner-attkisson.png" alt="">
+          <img class="partners-logo" src="assets/partner-dny.png" alt="">
+          <img class="partners-logo" src="assets/partner-jaspon.png" alt="">
+          <img class="partners-logo" src="assets/partner-fenderson.png" alt="">
+          <img class="partners-logo" src="assets/partner-grove.png" alt="">
+          <img class="partners-logo" src="assets/partner-van-every.png" alt="">
+          <img class="partners-logo" src="assets/partner-hurwitz.png" alt="">
+          <img class="partners-logo" src="assets/partner-herro.png" alt="">
+          <img class="partners-logo" src="assets/partner-big-joe.png" alt="">
+          <img class="partners-logo" src="assets/partner-jerome.png" alt="">
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   <!-- FAQ -->
   <section class="faq-section" id="faq" data-screen-label="FAQ">
     <div class="faq-inner">
