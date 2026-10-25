@@ -1434,6 +1434,10 @@
   .cta:hover { background: var(--amber-2); color: var(--navy-ink); }
   .cta.cta-xl { padding: 21px 44px; font-size: 18px; font-weight: 600; box-shadow:none; }
   .cta.cta-xl:hover { box-shadow:none; }
+  .hero-apply-row{display:flex;justify-content:center;margin:8px 0 36px}
+  .cta.cta-apply{background:#F04E45;color:#FAF6EE;padding:26px 60px;font-size:22px;font-weight:700;letter-spacing:.04em;border-radius:999px;box-shadow:0 0 0 6px rgba(240,78,69,.22),0 18px 40px -14px rgba(240,78,69,.7);transition:transform .15s,box-shadow .15s,background .15s}
+  .cta.cta-apply:hover{background:#F4655D;color:#FAF6EE;transform:translateY(-2px);box-shadow:0 0 0 8px rgba(240,78,69,.3),0 22px 46px -14px rgba(240,78,69,.85)}
+  @media (max-width:640px){.hero-apply-row{margin:4px 0 26px}.cta.cta-apply{width:92%;max-width:420px;padding:22px 20px;font-size:18px}}
   @media (max-width: 640px) {
     .cta.cta-xl { width: 85%; max-width: 391px; justify-content: center; padding: 19px 20px; font-size: 16px; }
   }
@@ -1659,8 +1663,8 @@
       </div>
     </div>
 
-    <div class="trust-cta-row" id="founderCta" style="flex-direction:column;gap:28px;">
-      <a href="#calendar" class="cta cta-xl">EXPLORE MY OPTIONS</a>
+    <div class="trust-cta-row" id="founderCta" style="flex-direction:column;gap:28px;padding-top:32px !important;">
+      <a href="#calendar" class="cta cta-xl cta-apply">APPLY NOW</a>
       <div class="hero-badge">
         <div class="hero-badge-avatar" style="background-image:url('assets/nicholas-de-nunez.png?v=2');background-position:center;"></div>
         <div class="hero-badge-divider"></div>
@@ -1715,7 +1719,7 @@
 
   <!-- Booking calendar -->
   <section class="calendar-band" id="calendar" data-screen-label="Booking">
-    <h2><span class="cal-arrow" aria-hidden="true">↓</span> Book a Free Consultation Call <span class="cal-arrow" aria-hidden="true">↓</span></h2>
+    <h2><span class="cal-arrow" aria-hidden="true">↓</span> Apply For Signed MVA Cases <span class="cal-arrow" aria-hidden="true">↓</span></h2>
 <div class="calendar-slot">
   <iframe 
     id="phvZsJwCIB8IQ234ox4p_1782983225681" 
